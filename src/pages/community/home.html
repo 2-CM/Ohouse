@@ -5,15 +5,34 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>오늘의 집 Home</title>
 
-        <link rel="stylesheet" href="../../css/pages/community/home.css" />
+        <link rel="stylesheet" href="../../css/main.css" />
     </head>
 
     <body>
-        <main>
+        <main id="home">
             <!-- 배너 -->
             <section id="banner">
                 <!-- 배너 미리보기 영역 -->
-                <div id="banner-preview"></div>
+                <div id="banner-preview">
+                    <a href="#">
+                        <img
+                            id="banner-preview-image"
+                            src="../../assets/images/banner-preview.avif"
+                            alt="배너 프리뷰 사진"
+                        />
+                        <div id="banner-preview-content">
+                            <p>이게 진정한 쇠 맛🥄 편집샵 감성의 잇템 10</p>
+                            <span class="user-profile">
+                                <img
+                                    class="user-image"
+                                    src="../../assets/images/banner-preview-user-image.avif"
+                                    alt="유저 프로필 사진"
+                                />
+                                <span class="user-name">joy__haus</span>
+                            </span>
+                        </div>
+                    </a>
+                </div>
 
                 <!-- 배너 메인 영역 -->
                 <div id="banner-main"></div>
