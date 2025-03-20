@@ -1,1 +1,18 @@
 /* theme: 색상 팔레트 및 크기 변수(공통되는) */
+* {
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+p {
+    margin: 0;
+}
+
+button {
+    background-color: transparent;
+    cursor: pointer;
+}
