@@ -1,14 +1,38 @@
 /* home.css 파일 */
+body {
+    overflow: scroll;
+}
+
 #home {
-    margin-top: 20px;
+    margin-top: 186px;
 }
 
 #banner {
     width: 100%;
     padding: 0 16px;
+    display: flex;
+}
+
+#banner-preview {
+    display: none;
+}
+
+#banner-main {
+    position: relative;
+    flex: 1;
+    height: 210px;
+}
+
+#banner-main .swiper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 #banner-main .swiper-wrapper {
+    height: 100%;
     border-radius: 8px;
     overflow: hidden;
 }
@@ -17,4 +41,9 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.2s;
+}
+
+#banner-main img:hover {
+    transform: scale(1.05);
 }
