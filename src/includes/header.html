@@ -1,58 +1,55 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Header</title>
-    <link rel="stylesheet" href="/src/css/includes/header.css" />
-  </head>
-  <body>
-    <header>
-      <div id="sticky-container">
-        <div id="header__container">
-          <div id="header__logo">
-            <a id="header__logo-link">
-              <svg id="header__logo-icon"></svg>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Header</title>
+  <link rel="stylesheet" href="/src/css/includes/header.css" />
+</head>
+
+<body>
+  <header>
+    <div id="header__container">
+      <div id="header__wrapper">
+        <div id="header__menu">
+          <div id="header__menu-btn-wrapper">
+            <button type="button" id="header__menu-btn">
+              <img id="header__menu-icon" src="/src/assets/icons/header/menu-btn.png"></img>
+            </button>
+          </div>
+        </div>
+
+        <div id="header__logo">
+          <div id="header__logo-wrapper">
+            <a id="header__logo-link" href="/" aria-label="오늘의집 로고">
+              <img id="header__logo-icon" width="71" height="28" fill="none"
+                src="/src/assets/icons/header/header_logo.svg">
+              </img>
             </a>
           </div>
-          <div id="header__nav">
-            <a class="header__nav-item">
-              <span class="header__nav-text">커뮤니티</span>
-            </a>
-            <a class="header__nav-item"
-              ><span class="header__nav-text">쇼핑</span>
-            </a>
-            <a class="header__nav-item"
-              ><span class="header__nav-text">인테리어/생활</span>
-            </a>
-          </div>
-          <div id="header__actions">
-            <div id="header__search">
-              <div class="search-container">
-                <span id="header__search-icon"></span>
-                <input id="header__search-input" />
-                <div id="header__clear-btn"></div>
-              </div>
-            </div>
-            <a id="header__cart">
-              <span id="header__cart-icon"></span>
-            </a>
-            <div id="header__auth">
-              <div id="header__auth-container">
-                <a id="header__auth-link">로그인</a>
-                <a id="header__auth-link">회원가입</a>
-                <a id="header__auth-link">고객센터</a>
-              </div>
-              <span id="header__write">
-                <button id="header__write-btn">
-                  <span id="header__write-text"></span>
-                  <span class="chevron-down-icon"></span>
-                </button>
-              </span>
+        </div>
+
+        <div id="header__search">
+          <div id="header__search-wrapper">
+            <div id="header__search-box">
+              <span id="header__search-icon"></span>
+              <input type="text" id="header__search-input" placeholder="통합검색" />
             </div>
           </div>
         </div>
+
+        <div id="header__actions">
+          <div id="header__actions-wrapper">
+            <a id="header__cart-link" href="/cart">
+              <span id="header__cart-icon"></span>
+            </a>
+          </div>
+        </div>
       </div>
-    </header>
-  </body>
+    </div>
+  </header>
+
+</body>
+
 </html>
