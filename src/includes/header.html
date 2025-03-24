@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Header</title>
+  <link rel="stylesheet" href="/src/css/main.css">
   <link rel="stylesheet" href="/src/css/includes/header.css" />
 </head>
 
@@ -12,44 +13,36 @@
   <header>
     <div id="header__container">
       <div id="header__wrapper">
-        <div id="header__menu">
+        <div id="header__top">
           <div id="header__menu-btn-wrapper">
             <button type="button" id="header__menu-btn">
-              <img id="header__menu-icon" src="/src/assets/icons/header/menu-btn.png"></img>
+              <img src="/src/assets/icons/header/menu-btn.png"></img>
             </button>
           </div>
-        </div>
 
-        <div id="header__logo">
-          <div id="header__logo-wrapper">
+          <div id="header__logo">
             <a id="header__logo-link" href="/" aria-label="오늘의집 로고">
-              <img id="header__logo-icon" width="71" height="28" fill="none"
-                src="/src/assets/icons/header/header_logo.svg">
-              </img>
+              <img id="header__logo-icon" src="/src/assets/icons/header/header_logo.svg"></img>
             </a>
           </div>
-        </div>
 
-        <div id="header__search">
-          <div id="header__search-wrapper">
-            <div id="header__search-box">
-              <span id="header__search-icon"></span>
-              <input type="text" id="header__search-input" placeholder="통합검색" />
+          <div id="header__actions">
+            <div id="header__actions-wrapper">
+              <div id="header__search">
+                <button id="header__search-btn">
+                  <img src="/src/assets/icons/header/search-icon.png" alt="검색 버튼">
+                </button>
+              </div>
+
+              <a id="header__cart-link" href="/" aria-label="장바구니 페이지 링크 버튼">
+                <img src="/src/assets/icons/header/cart-icon.png"></img>
+              </a>
             </div>
-          </div>
-        </div>
-
-        <div id="header__actions">
-          <div id="header__actions-wrapper">
-            <a id="header__cart-link" href="/cart">
-              <span id="header__cart-icon"></span>
-            </a>
           </div>
         </div>
       </div>
     </div>
   </header>
-
 </body>
 
 </html>
