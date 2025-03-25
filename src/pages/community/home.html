@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>오늘의 집 Home</title>
+
+        <link rel="stylesheet" href="../../css/main.css" />
+        <!-- Swiper 라이브러리 -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+        <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+        <script src="../../js/pages/community/home.js" defer></script>
+    </head>
+
+    <body>
+        <main id="home">
+            <!-- 배너 -->
+            <section id="banner">
+                <!-- 배너 미리보기 영역 -->
+                <div id="banner-preview"></div>
+
+                <!-- 배너 메인 영역 -->
+                <div id="banner-main">
+                    <div class="swiper">
+                        <div class="swiper-wrapper"></div>
+
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+
+                        <div class="banner__swiper-pagination">
+                            <span class="page-number"></span>
+                            <img
+                                class="plus-icon"
+                                src="../../assets/icons/plus-icon.svg"
+                                alt="플러스 모양 아이콘 사진"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </body>
+</html>
