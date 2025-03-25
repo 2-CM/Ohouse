@@ -7,6 +7,7 @@ body {
     margin-top: 110px;
 }
 
+/* 배너너 */
 #banner {
     width: 100%;
     padding: 0 16px;
@@ -75,4 +76,17 @@ body {
     max-height: 12px;
     object-fit: contain;
     margin-left: 2px;
+}
+
+/* 퀵 메뉴 */
+#quick-menu {
+    background-color: cornflowerblue;
+    padding: 0 16px;
+}
+
+#quick-menu .grid-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    margin-top: 16px;
+    margin-bottom: 20px;
 }
