@@ -573,6 +573,11 @@ header {
     padding: 11px 5px;
   }
 
+  .subnav__link-item--active,
+  .subnav__link-item {
+    padding: 11px 5px;
+  }
+
   .subnav__link-item--active div p,
   .subnav__link-item div p {
     font-size: 14px;
