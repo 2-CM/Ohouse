@@ -122,7 +122,7 @@ header {
   height: 24px;
 }
 
-/* subnav */
+/*** subnav ***/
 #subnav__container {
   position: relative;
   z-index: 1101;
@@ -288,6 +288,121 @@ header {
   z-index: 2;
 }
 
+/*** subnav__dropdown ***/
+#subnav__dropdown-overlay {
+  display: none;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  z-index: 1300;
+  background-color: rgba(33, 38, 41, 0.5);
+  align-items: center;
+  justify-content: center;
+}
+
+#subnav__dropdown-container {
+  max-height: 78%;
+  margin: 0px;
+  vertical-align: middle;
+  border-radius: 8px;
+  display: inline-flex;
+  flex-direction: column;
+  color: rgb(47, 52, 56);
+  background-color: rgb(255, 255, 255);
+  max-width: 400px;
+  width: 100%;
+}
+
+#subnav__dropdown-top {
+  width: 32px;
+  min-height: 4px;
+  border-radius: 2px;
+  background-color: rgb(234, 237, 239);
+  margin: 6px auto 0px;
+}
+
+#subnav__dropdown-header {
+  padding: 16px 16px 10px;
+  line-height: 0;
+}
+
+#subnav__dropdown-title {
+  font-size: 20px;
+  line-height: 28px;
+  display: inline-block;
+  vertical-align: middle;
+  font-weight: 700;
+  text-align: center;
+  width: calc(100% - 68px);
+  margin-left: 24px;
+  margin-right: 10px;
+  white-space: pre-line;
+}
+
+#subnav__dropdown-close-btn {
+  display: inline-block;
+  margin: 0px;
+  padding: 0px;
+  border: none;
+  background: none;
+  font: inherit;
+  vertical-align: middle;
+  width: 24px;
+  height: 24px;
+}
+
+#subnav__dropdown-close-btn img {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+}
+
+#subnav__dropdown-content {
+  font-size: 16px;
+  line-height: 24px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  word-break: break-all;
+  overflow-y: auto;
+  padding-bottom: 9px;
+}
+
+#subnav__dropdown-list {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 30px;
+}
+
+.subnav__dropdown-item {
+  height: inherit;
+  display: block;
+  flex-basis: 50%;
+}
+
+.subnav__dropdown-text--active {
+  font-size: 15px;
+  line-height: 24px;
+  display: block;
+  padding: 10px 0px 10px 26px;
+  text-align: start;
+  font-weight: 700;
+  color: rgb(10, 165, 255);
+}
+
+.subnav__dropdown-text {
+  font-size: 15px;
+  line-height: 24px;
+  display: block;
+  padding: 10px 0px 10px 26px;
+  text-align: start;
+  font-weight: 700;
+}
+
 @media (max-width: 767px) {
   #header__actions {
     margin-right: -7px;
@@ -312,5 +427,21 @@ header {
   .subnav__link-item div p {
     font-size: 14px;
     line-height: 18px;
+  }
+
+  #subnav__dropdown-overlay {
+    align-items: flex-end;
+  }
+
+  #subnav__dropdown-container {
+    max-width: none;
+    padding-bottom: env(safe-area-inset-bottom);
+    vertical-align: bottom;
+    border-bottom-left-radius: initial;
+    border-bottom-right-radius: initial;
+    max-height: 90%;
+    margin: 0px;
+    height: 455px;
+    transition: height 0.3s;
   }
 }
