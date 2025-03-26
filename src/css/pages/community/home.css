@@ -133,12 +133,17 @@ body {
     gap: 4px;
     color: rgb(47, 52, 56);
     letter-spacing: -0.3px;
+    max-width: 100%;
+    min-width: 0;
 }
 
 .feed-title {
     font-weight: 700;
     font-size: 20px;
     line-height: 28px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .feed-title:hover {
@@ -149,6 +154,9 @@ body {
     font-weight: 400;
     font-size: 14px;
     line-height: 18px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .feed-more .arrow-right-icon {
