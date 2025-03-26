@@ -7,6 +7,7 @@ body {
     margin-top: 110px;
 }
 
+/* 배너너 */
 #banner {
     width: 100%;
     padding: 0 16px;
@@ -75,4 +76,41 @@ body {
     max-height: 12px;
     object-fit: contain;
     margin-left: 2px;
+}
+
+/* 퀵 메뉴 */
+#quick-menu {
+    padding: 0 16px;
+}
+
+#quick-menu .grid-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    margin-top: 16px;
+    margin-bottom: 20px;
+}
+
+.quick-menu__item {
+    text-align: center;
+}
+
+.quick-menu__icon {
+    width: 100%;
+    max-width: 78px;
+}
+
+.quick-menu__label {
+    display: block;
+    color: #2f3438;
+    font-size: 12px;
+    margin-top: 6px;
+    line-height: 16px;
+    letter-spacing: -0.3px;
+}
+
+#home .section-divider {
+    height: 10px;
+    background-color: rgb(247, 249, 250);
+    border: none;
+    margin: 0px;
 }
