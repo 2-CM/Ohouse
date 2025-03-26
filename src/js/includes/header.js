@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
     clearButton.style.display = "none";
 
 
-    /*** 서브 네비게이션 드롭다운 ***/
+    /*** subnav__dropdown (mobile) ***/
     const dropdownOverlay = document.querySelector("#subnav__dropdown-overlay");
     const dropdown = document.querySelector("#subnav__dropdown-container");
     const dropdownButton = document.querySelector("#subnav__dropdown-btn");
@@ -126,20 +126,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 드롭다운 열기
     dropdownButton.addEventListener("click", () => {
-        dropdownOverlay.style.display = "flex";
+        dropdownOverlay.classList.toggle("active");
+        dropdown.classList.toggle("active");
     });
 
     // 드롭다운 닫기
     closeButton.addEventListener("click", () => {
-        dropdownOverlay.style.display = "none";
+        dropdown.classList.add("closing");
+        // 드롭다운 영역을 닫을 때 애니메이션 효과가 끝난 후 클래스를 제거
+        setTimeout(() => {
+            dropdownOverlay.classList.remove("active");
+            dropdown.classList.remove("active", "closing");
+        }, 300);
     });
 
     dropdownOverlay.addEventListener("click", (event) => {
-        // dropdown 영역 바깥을 클릭하면 닫힘
-        if (!dropdown.contains(event.target)) {
-            dropdownOverlay.style.display = "none";
-        }
+        dropdown.classList.add("closing");
+        setTimeout(() => {
+            dropdownOverlay.classList.remove("active");
+            dropdown.classList.remove("active", "closing");
+        }, 300);
     });
-
-    dropdownOverlay.style.display = "none";
 });

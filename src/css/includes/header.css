@@ -767,6 +767,15 @@ header {
   background-color: rgba(33, 38, 41, 0.5);
   align-items: center;
   justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+}
+
+#subnav__dropdown-overlay.active {
+  opacity: 1;
+  visibility: visible;
+  display: flex;
 }
 
 #subnav__dropdown-container {
@@ -780,6 +789,21 @@ header {
   background-color: rgb(255, 255, 255);
   max-width: 400px;
   width: 100%;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+#subnav__dropdown-container.active {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+#subnav__dropdown-container.closing {
+  transform: translateY(100%);
+  /* 닫을 때 아래로 내려감 */
+  opacity: 0;
+  transition: all 0.3s;
 }
 
 #subnav__dropdown-top {
@@ -1086,6 +1110,5 @@ header {
     max-height: 90%;
     margin: 0px;
     height: 455px;
-    transition: height 0.3s;
   }
 }
