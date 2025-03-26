@@ -82,6 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const searchOverlay = document.getElementById("search__overlay");
     const search = document.getElementById("search__container");
     const cancelBtn = document.getElementById("search__cancel-btn");
+    const searchInput = document.getElementById("search__input");
 
     // 검색창 열기
     searchBtn.addEventListener("click", function () {
@@ -95,9 +96,15 @@ document.addEventListener("DOMContentLoaded", () => {
         searchOverlay.classList.remove("active");
     });
 
+    // 검색창 열리는 애니메이션이 끝난 후 포커스를 주기
+    search.addEventListener("transitionend", () => {
+        if (search.classList.contains("active")) {
+            searchInput.focus();
+        }
+    });
+
 
     /*** 검색창 - clear-btn ***/
-    const searchInput = document.getElementById("search__input");
     const clearButton = document.getElementById("search__clear-btn");
 
     // 입력값 변경 시 버튼 표시 여부 조절
