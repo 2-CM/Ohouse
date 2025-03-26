@@ -1,5 +1,33 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+    /*** 스크롤시 헤더 고정 및 제거 ***/
+    let lastScrollTop = 0; // 이전 스크롤 위치
+    const HEADER_HEIGHT = 50.75; // #header__wrapper 높이
+    const SUBNAV_HEIGHT = 40.75; // #subnav__container 높이
+    const headerWrapper = document.getElementById("header__wrapper");
+    const subnavContainer = document.getElementById("subnav__container");
+
+    window.addEventListener("scroll", function () {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > lastScrollTop) {
+            // 스크롤 내릴 때: 헤더 숨기기
+            headerWrapper.classList.add("fixed");
+            subnavContainer.classList.add("fixed");
+            headerWrapper.style.top = `-${HEADER_HEIGHT}px`;
+            subnavContainer.style.top = `-${SUBNAV_HEIGHT - 0.25}px`;
+            headerWrapper.style.width = window.innerWidth + "px";
+            subnavContainer.style.width = window.innerWidth + "px";
+        } else {
+            // 스크롤 올릴 때: 헤더 표시
+            headerWrapper.style.top = "0";
+            subnavContainer.style.top = `${HEADER_HEIGHT}px`;
+        }
+
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // 최상단에서 초기화
+    });
+
+
     /*** 네비게이션창 ***/
     const menuBtn = document.getElementById("header__menu-btn");
     const navOverlay = document.getElementById("navigation__overlay");

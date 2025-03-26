@@ -589,6 +589,14 @@ header {
 #subnav__container {
   position: relative;
   z-index: 1101;
+  background: #FFFFFF;
+  border-bottom: 1px solid #EAEDEF;
+}
+
+#header__wrapper.fixed,
+#subnav__container.fixed {
+  position: fixed;
+  transition: top 0.1s;
 }
 
 #subnav__wrapper {
