@@ -114,3 +114,47 @@ body {
     border: none;
     margin: 0px;
 }
+
+/* 인테리어 피드 */
+#interior-feed {
+    padding: 0 16px;
+}
+
+.feed-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.feed-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    color: rgb(47, 52, 56);
+    letter-spacing: -0.3px;
+}
+
+.feed-title {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 28px;
+}
+
+.feed-title:hover {
+    color: #97999b;
+}
+
+.feed-subtitle {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.feed-more .arrow-right-icon {
+    width: 19px;
+    margin-right: 2px;
+    margin-top: 2px;
+    cursor: pointer;
+    vertical-align: middle;
+}
