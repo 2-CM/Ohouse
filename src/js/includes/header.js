@@ -80,20 +80,21 @@ document.addEventListener("DOMContentLoaded", () => {
     /*** 검색창 (mobile) ***/
     const searchBtn = document.getElementById("header__search-btn");
     const searchOverlay = document.getElementById("search__overlay");
+    const search = document.getElementById("search__container");
     const cancelBtn = document.getElementById("search__cancel-btn");
 
     // 검색창 열기
     searchBtn.addEventListener("click", function () {
-        searchOverlay.style.display = "block";
+        search.classList.toggle("active");
+        searchOverlay.classList.toggle("active");
     });
 
     // 검색창 닫기
     cancelBtn.addEventListener("click", function () {
-        searchOverlay.style.display = "none";
+        search.classList.remove("active");
+        searchOverlay.classList.remove("active");
     });
 
-    // 초기 로드시 숨기기 (새로고침했을 때도 숨김 유지)
-    searchOverlay.style.display = "none";
 
     /*** 검색창 - clear-btn ***/
     const searchInput = document.getElementById("search__input");
