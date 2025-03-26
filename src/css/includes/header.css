@@ -4,7 +4,7 @@ header {
   display: block;
 }
 
-/* header-top */
+/*** header-top ***/
 #header__wrapper {
   position: relative;
   z-index: 1102;
@@ -403,6 +403,11 @@ header {
   height: 12px;
 }
 
+.navigation__submenu {
+  overflow: hidden;
+  transition: height 0.3s;
+}
+
 .navigation__submenu-list {
   padding: 0px;
 }
@@ -552,6 +557,7 @@ header {
   outline: none;
   vertical-align: middle;
   white-space: nowrap;
+  color: rgb(47, 52, 56)
 }
 
 .submenu-item__link:hover,
