@@ -23,7 +23,7 @@
 
           <div id="header__logo">
             <a id="header__logo-link" href="/" aria-label="오늘의집 로고">
-              <img id="header__logo-icon" src="/src/assets/icons/header/header_logo.svg"></img>
+              <img src="/src/assets/icons/header/header_logo.svg"></img>
             </a>
           </div>
 
@@ -41,6 +41,375 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- 네비게이션 -->
+    <div id="navigation__overlay">
+      <div id="navigation__container">
+        <div id="navigation__top">
+          <a id="navigation__logo-link" href="/" aria-label="오늘의집 로고">
+            <img src="/src/assets/icons/header/header_logo.svg"></img>
+          </a>
+          <button type="button" id="download-btn">
+            앱다운로드
+            <span id="download-btn__icon">
+              <img src="/src/assets/icons/header/download-icon.png"></img>
+            </span>
+          </button>
+        </div>
+
+        <div id="header__auth-links">
+          <a href="/" id="auth-links__login">로그인</a>
+          <a href="/" id="auth-links__signup">회원가입</a>
+        </div>
+        <hr class="navigation-divider">
+
+        <ul id="navigation">
+          <li class="navigation__item">
+            <button type="button" class="navigation__btn--active">
+              <div class="navigation__btn-text">
+                <span class="navigation__btn-icon">
+                  <img src="/src/assets/icons/header/navigation__home-icon.png" alt="" />
+                </span> 커뮤니티
+              </div>
+              <span class="icon-chevron-up">
+                <img src="/src/assets/icons/header/icon-chevron-up.png" alt="" />
+              </span>
+            </button>
+            <div class="navigation__submenu" style="height: 0px; display: none;">
+              <ul class="navigation__submenu-list">
+                <li class="submenu-item--active">
+                  <a href="/" class="submenu-item__link--active">
+                    <div>홈</div>
+                  </a>
+                </li>
+                <li class="submenu-item">
+                  <a href="/" class="submenu-item__link">
+                    <div>추천</div>
+                  </a>
+                </li>
+                <li class="submenu-item">
+                  <a href="/" class="submenu-item__link">
+                    <div>#채널</div>
+                  </a>
+                </li>
+                <li class="submenu-item">
+                  <a href="/" class="submenu-item__link">
+                    <div>집들이</div>
+                  </a>
+                </li>
+                <li class="submenu-item">
+                  <a href="/" class="submenu-item__link">
+                    <div>집사진</div>
+                  </a>
+                </li>
+                <li class="submenu-item">
+                  <a href="/" class="submenu-item__link">
+                    <div>3D인테리어</div>
+                  </a>
+                </li>
+                <li class="submenu-item">
+                  <a href="/" class="submenu-item__link">
+                    <div>살림수납</div>
+                  </a>
+                </li>
+                <li class="submenu-item">
+                  <a href="/" class="submenu-item__link">
+                    <div>반려동물</div>
+                  </a>
+                </li>
+                <li class="submenu-item">
+                  <a href="/" class="submenu-item__link">
+                    <div>육아</div>
+                  </a>
+                </li>
+                <li class="submenu-item">
+                  <a href="/" class="submenu-item__link">
+                    <div>홈스토랑</div>
+                  </a>
+                </li>
+                <li class="submenu-item">
+                  <a href="/" class="submenu-item__link">
+                    <div>플랜테리어</div>
+                  </a>
+                </li>
+                <li class="submenu-item">
+                  <a href="/" class="submenu-item__link">
+                    <div>콜렉터블</div>
+                  </a>
+                </li>
+                <li class="submenu-item">
+                  <a href="/" class="submenu-item__link">
+                    <div>캠핑</div>
+                  </a>
+                </li>
+                <li class="submenu-item">
+                  <a href="/" class="submenu-item__link">
+                    <div>취미</div>
+                  </a>
+                </li>
+                <li class="submenu-item">
+                  <a href="/" class="submenu-item__link">
+                    <div>핫플레이스</div>
+                  </a>
+                </li>
+                <li class="submenu-item">
+                  <a href="/" class="submenu-item__link">
+                    <div>이벤트</div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="navigation__item">
+            <button type="button" class="navigation__btn">
+              <div class="navigation__btn-text">
+                <span class="navigation__btn-icon">
+                  <img src="/src/assets/icons/header/navigation__store-icon.png" alt="" />
+                </span> 쇼핑
+              </div>
+              <span class="icon-chevron-down">
+                <img src="/src/assets/icons/header/icon-chevron-down.png" alt="" />
+              </span>
+            </button>
+            <div class="navigation__submenu" style="height: 0px; display: none;">
+              <ul class="navigation__submenu-list">
+                <li class="submenu-item">
+                  <a href="/" class="submenu-item__link">
+                    <div>쇼핑홈</div>
+                  </a>
+                </li>
+                <li class="submenu-item">
+                  <button type="button" class="submenu-item__btn">
+                    <div class="submenu-item__text">카테고리</div>
+                    <span class="icon-chevron-down">
+                      <img src="/src/assets/icons/header/icon-chevron-down.png" alt="">
+                    </span>
+                  </button>
+                  <div class="navigation__submenu" style="height: 0px; display: none;">
+                    <ul class="navigation__submenu-list">
+                      <li class="submenu-item">
+                        <a href="/" class="submenu-item-sub__link">
+                          <div>가구</div>
+                        </a>
+                      </li>
+                      <li class="submenu-item">
+                        <a href="/" class="submenu-item-sub__link">
+                          <div>패브릭</div>
+                        </a>
+                      </li>
+                      <li class="submenu-item">
+                        <a href="/" class="submenu-item-sub__link">
+                          <div>가전·디지털</div>
+                        </a>
+                      </li>
+                      <li class="submenu-item">
+                        <a href="/" class="submenu-item-sub__link">
+                          <div>주방용품</div>
+                        </a>
+                      </li>
+                      <li class="submenu-item">
+                        <a href="/" class="submenu-item-sub__link">
+                          <div>식품</div>
+                        </a>
+                      </li>
+                      <li class="submenu-item">
+                        <a href="/" class="submenu-item-sub__link">
+                          <div>데코·식물</div>
+                        </a>
+                      </li>
+                      <li class="submenu-item">
+                        <a href="/" class="submenu-item-sub__link">
+                          <div>조명</div>
+                        </a>
+                      </li>
+                      <li class="submenu-item">
+                        <a href="/" class="submenu-item-sub__link">
+                          <div>수납·정리</div>
+                        </a>
+                      </li>
+                      <li class="submenu-item">
+                        <a href="/" class="submenu-item-sub__link">
+                          <div>생활용품</div>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="submenu-item">
+                  <a href="/" class="submenu-item__link">
+                    <div>베스트</div>
+                  </a>
+                </li>
+                <li class="submenu-item">
+                  <a href="/" class="submenu-item__link">
+                    <div>오늘의딜</div>
+                  </a>
+                </li>
+                <li class="submenu-item">
+                  <a href="/" class="submenu-item__link">
+                    <div>단독상품</div>
+                  </a>
+                </li>
+                <li class="submenu-item">
+                  <a href="/" class="submenu-item__link">
+                    <div>리퍼마켓</div>
+                  </a>
+                </li>
+                <li class="submenu-item">
+                  <a href="/" class="submenu-item__link">
+                    <div>오마트</div>
+                  </a>
+                </li>
+                <li class="submenu-item">
+                  <a href="/" class="submenu-item__link">
+                    <div>빠른배송</div>
+                  </a>
+                </li>
+                <li class="submenu-item">
+                  <a href="/" class="submenu-item__link">
+                    <div>오!쇼룸</div>
+                  </a>
+                </li>
+                <li class="submenu-item">
+                  <a href="/" class="submenu-item__link">
+                    <div>기획전</div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="navigation__item">
+            <button type="button" class="navigation__btn">
+              <div class="navigation__btn-text">
+                <span class="navigation__btn-icon">
+                  <img src="/src/assets/icons/header/navigation__truck-icon.png" alt="" />
+                </span> 인테리어/생활
+              </div>
+              <span class="icon-chevron-down">
+                <img src="/src/assets/icons/header/icon-chevron-down.png" alt="" />
+              </span>
+            </button>
+            <div class="navigation__submenu" style="height: 0px; display: none;">
+              <ul class="navigation__submenu-list">
+                <li class="submenu-item">
+                  <a href="/" class="submenu-item__link">
+                    <div>홈</div>
+                  </a>
+                </li>
+                <li class="submenu-item">
+                  <a href="/" class="submenu-item__link">
+                    <div>주거공간시공</div>
+                  </a>
+                </li>
+                <li class="submenu-item">
+                  <a href="/" class="submenu-item__link">
+                    <div>부분시공</div>
+                  </a>
+                </li>
+                <li class="submenu-item">
+                  <a href="/" class="submenu-item__link">
+                    <div>시공자재랭킹</div>
+                  </a>
+                </li>
+                <li class="submenu-item">
+                  <a href="/" class="submenu-item__link">
+                    <div>제품설치</div>
+                  </a>
+                </li>
+                <li class="submenu-item">
+                  <a href="/" class="submenu-item__link">
+                    <div>이사</div>
+                  </a>
+                </li>
+                <li class="submenu-item">
+                  <a href="/" class="submenu-item__link">
+                    <div>집보기체크리스트</div>
+                  </a>
+                </li>
+                <li class="submenu-item">
+                  <a href="/" class="submenu-item__link">
+                    <div>아파트시공사례
+
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+        <hr class="navigation-divider">
+
+        <ul class="navigation__item">
+          <li class="submenu-item">
+            <a href="/" class="submenu-item-user__link">
+              <div>마이페이지</div>
+            </a>
+          </li>
+          <li class="submenu-item">
+            <a href="/" class="submenu-item-user__link">
+              <div>나의 쇼핑</div>
+            </a>
+          </li>
+          <li class="submenu-item">
+            <a href="/" class="submenu-item-user__link">
+              <div>스크랩북</div>
+            </a>
+          </li>
+          <li class="submenu-item">
+            <a href="/" class="submenu-item-user__link">
+              <div>알림</div>
+            </a>
+          </li>
+          <li class="submenu-item">
+            <a href="/" class="submenu-item-user__link">
+              <div>이벤트</div>
+            </a>
+          </li>
+          <li class="submenu-item">
+            <a href="/" class="submenu-item-user__link">
+              <div>사진 올리기</div>
+            </a>
+          </li>
+          <li class="submenu-item">
+            <a href="/" class="submenu-item-user__link">
+              <div>집들이 글쓰기</div>
+            </a>
+          </li>
+          <li class="submenu-item">
+            <a href="/" class="submenu-item-user__link">
+              <div>노하우 글쓰기</div>
+            </a>
+          </li>
+          <li class="submenu-item">
+            <a href="/" class="submenu-item-user__link">
+              <div>상품 리뷰 쓰기</div>
+            </a>
+          </li>
+          <li class="submenu-item">
+            <a href="/" class="submenu-item-user__link">
+              <div>시공 전문가 리뷰 쓰기</div>
+            </a>
+          </li>
+          <li class="submenu-item">
+            <a href="/" class="submenu-item-user__link">
+              <div>고객센터</div>
+            </a>
+          </li>
+        </ul>
+        <hr class="navigation-divider">
+
+        <ul id="navigation__apply-links">
+          <li class="apply-item">
+            <a href="/" class="apply-item__link">전문가 신청</a>
+          </li>
+          <li class="apply-item">
+            <a href="/" class="apply-item__link">판매자 신청</a>
+          </li>
+        </ul>
       </div>
     </div>
 
@@ -118,6 +487,15 @@
                   <a class="subnav__link-item" href="/">
                     <div class="subnav__text">
                       <p class="subnav__label">집사진</p>
+                    </div>
+                  </a>
+                </div>
+              </span>
+              <span class="subnav__item">
+                <div class="subnav__link">
+                  <a class="subnav__link-item" href="/">
+                    <div class="subnav__text">
+                      <p class="subnav__label">3D인테리어</p>
                     </div>
                   </a>
                 </div>
@@ -249,6 +627,9 @@
             </span>
             <span class="subnav__dropdown-item">
               <a href="/" class="subnav__dropdown-text">집사진</a>
+            </span>
+            <span class="subnav__dropdown-item">
+              <a href="/" class="subnav__dropdown-text">3D인테리어</a>
             </span>
             <span class="subnav__dropdown-item">
               <a href="/" class="subnav__dropdown-text">살림수납</a>
