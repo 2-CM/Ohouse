@@ -717,6 +717,10 @@ header {
   color: #2F3438;
 }
 
+.subnav__label:hover {
+  color: rgb(10, 165, 255);
+}
+
 #subnav__dropdown {
   line-height: 0;
 }
@@ -863,6 +867,10 @@ header {
   padding: 10px 0px 10px 26px;
   text-align: start;
   font-weight: 700;
+}
+
+.subnav__dropdown-text:hover {
+  color: rgb(10, 165, 255);
 }
 
 /*** search ***/
