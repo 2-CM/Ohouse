@@ -122,6 +122,445 @@ header {
   height: 24px;
 }
 
+/*** navigation ***/
+#navigation__overlay {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  z-index: 1300;
+  background-color: rgba(33, 38, 41, 0.5);
+}
+
+#navigation__container {
+  position: absolute;
+  overflow-y: auto;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  width: 270px;
+  height: 100%;
+  padding: 26px 16px;
+  box-sizing: border-box;
+  background: rgb(255, 255, 255);
+  text-align: left;
+}
+
+#navigation__top {
+  position: relative;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+#navigation__logo-link {
+  border: none;
+  background: none;
+  font-style: inherit;
+  font-variant: inherit;
+  font-weight: inherit;
+  font-stretch: inherit;
+  font-family: inherit;
+  font-optical-sizing: inherit;
+  font-size-adjust: inherit;
+  font-kerning: inherit;
+  font-feature-settings: inherit;
+  font-variation-settings: inherit;
+  display: inline-flex;
+  align-items: center;
+  margin: -4px;
+  padding: 4px;
+  font-size: 0px;
+  line-height: 0;
+  color: rgb(33, 38, 41);
+  outline: none;
+}
+
+#download-btn {
+  margin: 0px;
+  border: none;
+  background: none;
+  font-style: inherit;
+  font-variant: inherit;
+  font-stretch: inherit;
+  font-family: inherit;
+  font-optical-sizing: inherit;
+  font-size-adjust: inherit;
+  font-kerning: inherit;
+  font-feature-settings: inherit;
+  font-variation-settings: inherit;
+  height: 32px;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 18px;
+  padding: 0px 6px;
+  color: rgb(10, 165, 255);
+  font-weight: 700;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  display: flex;
+  align-items: center;
+  outline: none;
+}
+
+#download-btn:hover {
+  background-color: rgb(247, 249, 250);
+}
+
+#download-btn__icon {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  line-height: 1;
+  color: rgb(10, 165, 255);
+  margin-left: 4px;
+}
+
+#download-btn__icon img {
+  width: 12px;
+  height: 12px;
+}
+
+#header__auth-links {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 20px 0px 10px;
+}
+
+#auth-links__login {
+  margin: 0px;
+  background: none;
+  font-style: inherit;
+  font-variant: inherit;
+  font-stretch: inherit;
+  font-family: inherit;
+  font-optical-sizing: inherit;
+  font-size-adjust: inherit;
+  font-kerning: inherit;
+  font-feature-settings: inherit;
+  font-variation-settings: inherit;
+  font-size: 14px;
+  line-height: 18px;
+  width: auto;
+  border-radius: 4px;
+  padding: 0px 16px;
+  box-sizing: border-box;
+  text-align: center;
+  color: rgb(10, 165, 255);
+  border: 1px solid rgb(10, 165, 255);
+  font-weight: bold;
+  outline: none;
+  display: flex;
+  flex: 1 1 0%;
+  justify-content: center;
+  align-items: center;
+  height: 42px;
+}
+
+#auth-links__login:hover {
+  background-color: rgb(229, 246, 255);
+}
+
+#auth-links__signup {
+  margin: 0px 0px 0px 8px;
+  border: none;
+  background: none rgb(10, 165, 255);
+  font-style: inherit;
+  font-variant: inherit;
+  font-stretch: inherit;
+  font-family: inherit;
+  font-optical-sizing: inherit;
+  font-size-adjust: inherit;
+  font-kerning: inherit;
+  font-feature-settings: inherit;
+  font-variation-settings: inherit;
+  font-size: 14px;
+  line-height: 18px;
+  width: auto;
+  height: 44px;
+  border-radius: 4px;
+  padding: 0px 16px;
+  box-sizing: border-box;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  outline: none;
+  display: flex;
+  flex: 1 1 0%;
+  justify-content: center;
+  align-items: center;
+}
+
+#auth-links__signup:hover {
+  background-color: rgb(1, 152, 237);
+}
+
+.navigation-divider {
+  padding: 0px;
+  height: 1px;
+  border: none;
+  background-color: rgb(234, 237, 239);
+  margin: 20px 0px;
+}
+
+#navigation {
+  padding: 0px;
+}
+
+.navigation__item {
+  margin: 4px 0px 0px;
+  padding: 0px;
+  font-size: 16px;
+  font-weight: bold;
+  color: rgb(47, 52, 56);
+}
+
+.navigation__btn--active {
+  border: none;
+  background: rgb(247, 249, 250);
+  font: inherit;
+  overflow: hidden;
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 40px;
+  margin: 0px;
+  padding: 0px 40px 0px 14px;
+  color: inherit;
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  box-sizing: border-box;
+  outline: none;
+  border-radius: 4px;
+}
+
+.navigation__btn {
+  border: none;
+  background: none;
+  font: inherit;
+  overflow: hidden;
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 40px;
+  margin: 0px;
+  padding: 0px 40px 0px 14px;
+  color: inherit;
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  box-sizing: border-box;
+  outline: none;
+  border-radius: 4px;
+}
+
+.navigation__btn:hover {
+  background: rgb(247, 249, 250);
+}
+
+.navigation__btn-text {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  line-height: 1;
+}
+
+.navigation__btn-icon {
+  display: inline-block;
+  margin-right: 8px;
+  border-radius: 4px;
+  width: 24px;
+  height: 24px;
+}
+
+.navigation__btn-icon img {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+}
+
+.icon-chevron-down,
+.icon-chevron-up {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  line-height: 1;
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  color: rgb(47, 52, 56);
+}
+
+.icon-chevron-down img,
+.icon-chevron-up img {
+  width: 12px;
+  height: 12px;
+}
+
+.navigation__submenu-list {
+  padding: 0px;
+}
+
+.submenu-item--active {
+  margin: 4px 0px 0px;
+  padding: 0px;
+  font-size: 14px;
+  font-weight: bold;
+  color: rgb(47, 52, 56);
+}
+
+.submenu-item {
+  margin: 4px 0px 0px;
+  padding: 0px;
+  font-size: 14px;
+  font-weight: normal;
+  color: rgb(47, 52, 56);
+}
+
+.submenu-item__link--active {
+  margin: 0px;
+  border: none;
+  background: none rgb(247, 249, 250);
+  font: inherit;
+  overflow: hidden;
+  display: block;
+  width: 100%;
+  height: 40px;
+  padding: 0px 14px 0px 42px;
+  color: inherit;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  box-sizing: border-box;
+  outline: none;
+  border-radius: 4px;
+}
+
+.submenu-item__link {
+  margin: 0px;
+  border: none;
+  background: none;
+  font: inherit;
+  overflow: hidden;
+  display: block;
+  width: 100%;
+  height: 40px;
+  padding: 0px 14px 0px 42px;
+  color: inherit;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  box-sizing: border-box;
+  outline: none;
+  border-radius: 4px;
+}
+
+.submenu-item__btn {
+  border: none;
+  background: none;
+  font: inherit;
+  overflow: hidden;
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 40px;
+  margin: 0px;
+  padding: 0px 40px 0px 42px;
+  color: inherit;
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  box-sizing: border-box;
+  outline: none;
+  border-radius: 4px;
+}
+
+.submenu-item-sub__link {
+  margin: 0px;
+  border: none;
+  background: none;
+  font: inherit;
+  overflow: hidden;
+  display: block;
+  width: 100%;
+  height: 40px;
+  padding: 0px 14px 0px 50px;
+  color: inherit;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  box-sizing: border-box;
+  outline: none;
+  border-radius: 4px;
+}
+
+.submenu-item-user__link {
+  margin: 0px;
+  border: none;
+  background: none;
+  font: inherit;
+  overflow: hidden;
+  display: block;
+  width: 100%;
+  height: 40px;
+  padding: 0px 14px;
+  color: inherit;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  box-sizing: border-box;
+  outline: none;
+  border-radius: 4px;
+}
+
+.submenu-item__link--active div,
+.submenu-item__link div,
+.submenu-item-sub__link div,
+.submenu-item-user__link div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  line-height: 1;
+}
+
+#navigation__apply-links {
+  padding: 0px;
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.apply-item {
+  display: inline-block;
+  padding: 6px;
+  border-radius: 4px;
+  margin: 0px 0px 0px 7px;
+  line-height: 18px;
+}
+
+.apply-item:first-of-type {
+  margin: 0px;
+}
+
+.apply-item__link {
+  font-size: 14px;
+  line-height: 18px;
+  outline: none;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.submenu-item__link:hover,
+.submenu-item-sub__link:hover,
+.submenu-item-user__link:hover,
+.apply-item:hover {
+  background: rgb(247, 249, 250);
+}
+
 /*** subnav ***/
 #subnav__container {
   position: relative;
