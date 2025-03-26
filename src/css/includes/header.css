@@ -132,6 +132,14 @@ header {
   text-align: center;
   z-index: 1300;
   background-color: rgba(33, 38, 41, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+}
+
+#navigation__overlay.active {
+  opacity: 1;
+  visibility: visible;
 }
 
 #navigation__container {
@@ -146,6 +154,17 @@ header {
   box-sizing: border-box;
   background: rgb(255, 255, 255);
   text-align: left;
+  transform: translateX(-100%);
+  /* 처음엔 왼쪽 바깥에 위치 */
+  opacity: 0;
+  transition: all 0.3s;
+  ;
+}
+
+#navigation__container.active {
+  transform: translateX(0);
+  /* 화면 안으로 들어옴 */
+  opacity: 1;
 }
 
 #navigation__top {

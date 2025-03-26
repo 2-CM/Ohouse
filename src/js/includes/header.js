@@ -7,19 +7,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 네비게이션창 열기
     menuBtn.addEventListener("click", function () {
-        navOverlay.style.display = "block";
+        nav.classList.toggle("active");
+        navOverlay.classList.toggle("active");
     });
 
     // 네비게이션창 닫기
     navOverlay.addEventListener("click", (event) => {
-        // dropdown 영역 바깥을 클릭하면 닫힘
-        if (!nav.contains(event.target)) {
-            navOverlay.style.display = "none";
-        }
+        nav.classList.remove("active");
+        navOverlay.classList.remove("active");
     });
-
-    // 초기 로드시 숨기기 (새로고침했을 때도 숨김 유지)
-    navOverlay.style.display = "none";
 
 
     /*** 네비게이션창 -  navigation__btn ***/
