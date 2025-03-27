@@ -422,8 +422,13 @@ header {
 }
 
 .navigation__submenu {
+  max-height: 0;
   overflow: hidden;
-  transition: height 0.3s;
+  transition: max-height 0.3s;
+}
+
+.navigation__submenu.open {
+  max-height: 1000px;
 }
 
 .navigation__submenu-list {
