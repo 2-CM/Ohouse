@@ -184,7 +184,8 @@ footer {
 }
 
 #footer__company {
-    overflow-x: hidden;
+    overflow: hidden;
+    /* 수정 : overflow-x -> overflow */
 }
 
 #footer__company-btn {
