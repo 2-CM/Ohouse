@@ -2,4 +2,5 @@
 @import url(./common/font.css);
 @import url(./common/theme.css);
 
+@import url(./includes/header.css);
 @import url(./pages/community/home.css);
