@@ -188,6 +188,7 @@ body {
     overflow: hidden;
     position: relative;
     width: calc(100% - 12px);
+    display: flex;
 }
 
 .feed-content .feed-post-image {
