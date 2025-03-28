@@ -204,6 +204,7 @@ body {
     padding: 8px;
     display: flex;
     align-items: center;
+    z-index: 1;
 }
 
 .feed-content .profile-image {
@@ -226,8 +227,28 @@ body {
     max-width: 100px;
 }
 
-.feed-content .bookmark-icon {
+.feed-content .bookmark-wrapper {
     position: absolute;
     bottom: 0;
     right: 0;
+    z-index: 1;
+}
+
+.feed-content .bookmark-button {
+    border: none;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 2px;
+}
+
+.feed-content .bookmark-icon {
+    filter: drop-shadow(rgba(63, 71, 77, 0.25) 0px 2px 5px);
+}
+
+.feed-content .feed-link {
+    position: absolute;
+    inset: 0px;
 }
