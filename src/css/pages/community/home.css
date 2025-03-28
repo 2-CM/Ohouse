@@ -219,6 +219,7 @@ body {
     font-size: 12px;
     font-weight: 700;
     color: rgb(255, 255, 255);
+    letter-spacing: -0.3px;
 }
 
 .feed-content .bookmark-icon {
