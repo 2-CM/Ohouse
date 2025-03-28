@@ -115,9 +115,10 @@ body {
     margin: 0px;
 }
 
-/* 인테리어 피드 */
+/* 인테리어 피드 - header */
 #interior-feed {
     padding: 0 16px;
+    padding-bottom: 20px;
 }
 
 .feed-header {
@@ -167,6 +168,7 @@ body {
     vertical-align: middle;
 }
 
+/* 인테리어 피드 - content */
 .feed-content {
     width: calc(100% + 32px);
     margin-left: -16px;
@@ -192,4 +194,34 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.feed-content .profile-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.feed-content .profile-image {
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+    border-radius: 100%;
+    overflow: hidden;
+}
+
+.feed-content .profile-name {
+    margin-left: 4px;
+    font-size: 12px;
+    font-weight: 700;
+    color: rgb(255, 255, 255);
+}
+
+.feed-content .bookmark-icon {
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }
