@@ -50,4 +50,19 @@ document.addEventListener('DOMContentLoaded', function () {
         slidesPerView: 2.5,
         slidesOffsetAfter: 35,
     });
+
+    // 북마크 버튼 클릭 시 빈 아이콘과 꽉 찬 아이콘을 토글
+    const bookmarkButtons = document.querySelectorAll('.bookmark-button');
+
+    bookmarkButtons.forEach((button) => {
+        const bookmarkIcon = button.querySelector('.bookmark-icon');
+
+        button.addEventListener('click', function () {
+            if (bookmarkIcon.src.includes('bookmark-empty.svg')) {
+                bookmarkIcon.src = '../../assets/icons/bookmark-filled.svg';
+            } else {
+                bookmarkIcon.src = '../../assets/icons/bookmark-empty.svg';
+            }
+        });
+    });
 });
