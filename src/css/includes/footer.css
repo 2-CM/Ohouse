@@ -1,0 +1,310 @@
+/* footer.css */
+
+footer {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+}
+
+.layout-footer {
+    margin-top: auto;
+    z-index: 100;
+    flex: 0 0 auto;
+}
+
+.footer {
+    padding: 40px 0;
+    background-color: #F7F9FA;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+#footer__container {
+    width: 100%;
+    padding: 0 16px;
+    box-sizing: border-box;
+    font-size: 12px;
+    line-height: 16px;
+    display: grid;
+    grid-template-columns: 256px 1px 256px 1px 2fr;
+    grid-column-gap: 24px;
+}
+
+/*** footer__top ***/
+#footer__top {
+    color: #2F3438;
+}
+
+#footer__header-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+#footer__header {
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+}
+
+#footer__top-chevron {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+}
+
+#footer__top-chevron img {
+    vertical-align: top;
+    width: 12px;
+    height: 12px;
+}
+
+#footer__contact-info {
+    display: flex;
+    align-items: center;
+    margin: 20px 0 8px;
+}
+
+#footer__info-phone {
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 700;
+    white-space: nowrap;
+    margin-right: 6px;
+}
+
+.footer__info-time {
+    font-size: 14px;
+    line-height: 20px;
+}
+
+#footer__operating-hours {
+    font-size: 12px;
+    line-height: 20px;
+    white-space: normal;
+    /* 수정 : pre-wrap -> normal */
+    margin-bottom: 12px;
+}
+
+.footer__hours-item {
+    position: relative;
+    padding-left: 20px;
+    line-height: 20px;
+    /* 추가 */
+}
+
+.footer__hours-item::before {
+    content: '•';
+    position: absolute;
+    font-size: 10px;
+    left: 7px;
+}
+
+#footer__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+#footer__action-btn {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    font: inherit;
+    font-size: 14px;
+    line-height: 20px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: 32px;
+    border-radius: 4px;
+    padding: 0 8px;
+    font-weight: 400;
+    box-sizing: border-box;
+    text-align: center;
+    color: #2F3438;
+    border: 1px solid #E6E6E6;
+    width: fit-content;
+    white-space: nowrap;
+}
+
+#footer__divider-top {
+    width: 1px;
+    background-color: #EAEDEF;
+}
+
+/*** footer__links ***/
+#footer__links {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(6, min-content);
+    grid-auto-flow: column;
+    grid-column-gap: 8px;
+    grid-row-gap: 20px;
+}
+
+.footer__link--bold {
+    font-size: 12px;
+    line-height: 16px;
+    display: inline-block;
+    color: #2F3438;
+    white-space: nowrap;
+    font-weight: 700;
+}
+
+.footer__link {
+    font-size: 12px;
+    line-height: 16px;
+    display: inline-block;
+    color: #2F3438;
+    white-space: nowrap;
+}
+
+#footer__divider-bottom {
+    width: 1px;
+    background-color: #EAEDEF;
+}
+
+/*** footer__bottom ***/
+#footer__bottom {
+    font-size: 10px;
+    line-height: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    color: #828C94;
+}
+
+#footer__company {
+    overflow: hidden;
+    /* 수정 : overflow-x -> overflow */
+}
+
+#footer__company-btn {
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    background: none;
+    font-style: inherit;
+    font-variant: inherit;
+    font-stretch: inherit;
+    font-family: inherit;
+    font-optical-sizing: inherit;
+    font-size-adjust: inherit;
+    font-kerning: inherit;
+    font-feature-settings: inherit;
+    font-variation-settings: inherit;
+    font-size: 12px;
+    line-height: 16px;
+    color: rgb(47, 52, 56);
+    font-weight: 700;
+    display: flex;
+    gap: 2px;
+    align-items: center;
+}
+
+#footer__company-icon {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+}
+
+#footer__company-icon img {
+    width: 12px;
+    height: 12px;
+}
+
+.footer__company-info {
+    display: none;
+    margin-top: 12px;
+}
+
+.footer__company-info--active {
+    display: block;
+}
+
+.footer__company-detail {
+    font-size: 12px;
+    line-height: 20px;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+#footer__company-address {
+    display: inline-block;
+    font-style: normal;
+}
+
+.footer__detail-link {
+    font-weight: 700;
+    color: #828C94;
+}
+
+.footer__social-link {
+    display: inline-block;
+    margin-right: 12px;
+}
+
+.footer__social-icon {
+    vertical-align: top;
+    color: #828C94;
+}
+
+@media (max-width: 767px) {
+    .footer {
+        padding: 30px 0;
+    }
+
+    #footer__container {
+        padding: 0 16px;
+        grid-template-columns: 1fr;
+        grid-row-gap: 20px;
+    }
+
+    #footer__actions {
+        flex-direction: row;
+    }
+
+    #footer__action-btn {
+        white-space: normal;
+    }
+
+    #footer__divider-top {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        width: 100%;
+        height: 1px;
+    }
+
+    #footer__links {
+        display: block;
+        grid-column-gap: 10px;
+    }
+
+    .footer__link--bold,
+    .footer__link {
+        margin: 8px 12px 8px 0
+    }
+
+    #footer__divider-bottom {
+        grid-column-start: 1;
+        grid-column-end: 2;
+    }
+
+    #footer__bottom {
+        grid-column-start: 1;
+        grid-column-end: 2;
+    }
+
+    .footer__company-detail {
+        display: block;
+    }
+}

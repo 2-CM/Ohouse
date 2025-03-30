@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         iconReset.classList.remove('icon-chevron-up');
                         iconReset.classList.add('icon-chevron-down');
                         const img = iconReset.querySelector('img');
-                        img.src = '/src/assets/icons/header/icon-chevron-down.png'; // down 이미지로 변경
+                        img.src = '/src/assets/icons/icon-chevron-down.png'; // down 이미지로 변경
                     }
                 }
             });
@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 icon.classList.remove('icon-chevron-up');
                 icon.classList.add('icon-chevron-down');
                 const img = icon.querySelector('img');
-                img.src = '/src/assets/icons/header/icon-chevron-down.png'; // down 이미지로 변경
+                img.src = '/src/assets/icons/icon-chevron-down.png'; // down 이미지로 변경
                 return; // 여기서 함수 종료 (새로 열지 않음)
             }
 
@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
             icon.classList.remove('icon-chevron-down');
             icon.classList.add('icon-chevron-up');
             const img = icon.querySelector('img');
-            img.src = '/src/assets/icons/header/icon-chevron-up.png'; // up 이미지로 변경
+            img.src = '/src/assets/icons/icon-chevron-up.png'; // up 이미지로 변경
         });
     });
 
