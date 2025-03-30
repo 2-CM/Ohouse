@@ -48,5 +48,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // 인테리어 피드
     const interiorFeedSwiper = new Swiper('#interior-feed .swiper', {
         slidesPerView: 2.5,
+        slidesOffsetAfter: 35,
     });
 });

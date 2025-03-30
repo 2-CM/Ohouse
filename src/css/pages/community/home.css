@@ -179,7 +179,7 @@ body {
 }
 
 .feed-content .swiper-slide {
-    flex-shrink: 0;
+    width: auto;
 }
 
 .feed-content .feed-post {
@@ -251,4 +251,43 @@ body {
 .feed-content .feed-link {
     position: absolute;
     inset: 0px;
+}
+
+.feed-content .more-slide {
+    /* width: auto !important; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+}
+
+.feed-content .more-link {
+    color: rgb(47, 52, 56);
+    font-weight: 500;
+    padding: 6px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.feed-content .more-icon-wrapper {
+    width: 40px;
+    height: 40px;
+    background-color: rgb(234, 237, 239);
+    border-radius: 20px;
+    position: relative;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feed-content .more-icon {
+    width: 18px;
+    height: 18px;
+}
+
+.feed-content .more-text {
+    font-size: 14px;
+    line-height: 20px;
 }
