@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>app-promotion</title>
     <link rel="stylesheet" href="/src/css/main.css">
+    <script src="/src/js/includes/app.promotion.js"></script>
 </head>
 
 <body>
@@ -42,6 +43,18 @@
         </div>
     </div>
     <!-- 앱 다운로드 상단 배너 -->
+    <div id="appBanner">
+        <button type="button" aria-label="오늘의집 앱으로 보기" id="appBanner__btn"></button>
+        <button type="button" aria-label="닫기" id="appBanner__close-btn">
+            <img src="/src/assets/icons/app-promotion/appBanner__close-btn.svg" />
+        </button>
+        <div id="appBanner__text">
+            <img id="appBanner__applogo" src="/src/assets/icons/app-promotion/app-logo.svg" />
+            <div id="appBanner__title">앱에서 1초만에!
+                간편하게 로그인하기</div>
+            <button class="appBanner__cta-btn">앱으로 보기</button>
+        </div>
+    </div>
 </body>
 
 </html>
