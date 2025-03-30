@@ -28,4 +28,33 @@ document.addEventListener('DOMContentLoaded', function () {
             window.location.href = "/"; // 앱 다운로드 페이지
         });
     });
+
+    /*** 앱 다운로드 상단 배너 관련 처리 ***/
+    const appBanner = document.getElementById("appBanner");
+    const closeBannerBtn = document.getElementById("appBanner__close-btn");
+
+    // localStorage에서 배너 닫힘 상태 확인
+    if (localStorage.getItem("appBannerClosed") !== "true" && appModalClosed === "true") {
+        // appModal이 닫혔고, 배너가 닫히지 않았다면 배너를 표시
+        appBanner.style.display = "flex"; // 배너 표시
+    } else {
+        appBanner.style.display = "none"; // 배너 숨기기
+    }
+
+    // "모바일 웹으로 보기" 클릭 시 배너를 보이도록 처리
+    closeModalBtn.addEventListener("click", function () {
+        appBanner.style.display = "flex"; // 모바일 웹으로 보기 클릭 시 배너 표시
+    });
+
+    // 배너의 "닫기" 버튼 클릭 시
+    closeBannerBtn.addEventListener("click", function () {
+        appBanner.style.display = "none"; // 배너 숨기기
+        // 배너를 다시 표시하지 않도록 localStorage에 상태 저장
+        localStorage.setItem("appBannerClosed", "true");
+    });
+
+    // 페이지 리프레시 시 배너가 닫히지 않도록 처리 (localStorage 사용)
+    if (localStorage.getItem("appBannerClosed") === "true") {
+        appBanner.style.display = "none"; // "닫기" 버튼을 눌러 배너가 닫혔으면 표시 안 함
+    }
 });
