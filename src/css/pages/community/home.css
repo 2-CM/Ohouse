@@ -35,13 +35,13 @@ body {
     display: flex;
 }
 
-#banner .event {
+.event {
     width: 100%;
     object-fit: cover;
     transition: transform 0.2s;
 }
 
-#banner .event:hover {
+.event:hover {
     transform: scale(1.05);
 }
 
@@ -195,6 +195,11 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.2s;
+}
+
+.feed-post:hover .feed-post-image {
+    transform: scale(1.05);
 }
 
 .feed-content .profile-info {
