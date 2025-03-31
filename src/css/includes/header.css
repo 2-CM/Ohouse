@@ -54,10 +54,19 @@ header {
   outline: none;
 }
 
-#header__menu-btn img {
+.header__menu-btn-icon {
   display: inline-block;
-  width: 24px;
-  height: 24px;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.header__menu-btn-icon::before {
+  font-family: OhouseIcon;
+  vertical-align: top;
+}
+
+._menu_24::before {
+  content: "\ea05";
 }
 
 #header__logo {
@@ -112,10 +121,23 @@ header {
   outline: none;
 }
 
-#header__search-btn img {
+#header__search-btn:hover {
+  color: #0AA5FF;
+}
+
+.header__search-btn-icon {
   display: inline-block;
-  width: 24px;
-  height: 24px;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.header__search-btn-icon::before {
+  font-family: OhouseIcon;
+  vertical-align: top;
+}
+
+._search_24::before {
+  content: "\ea4d";
 }
 
 #header__cart-link {
@@ -128,10 +150,23 @@ header {
   outline: none;
 }
 
-#header__cart-link img {
+#header__cart-link:hover {
+  color: #0AA5FF;
+}
+
+.header__cart-btn-icon {
   display: inline-block;
-  width: 24px;
-  height: 24px;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.header__cart-btn-icon::before {
+  font-family: OhouseIcon;
+  vertical-align: top;
+}
+
+._cart_24::before {
+  content: "\e94e";
 }
 
 /*** navigation ***/
