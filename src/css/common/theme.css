@@ -16,3 +16,13 @@ button {
     background-color: transparent;
     cursor: pointer;
 }
+
+body,
+html {
+    line-height: 1;
+    font-size: 13px;
+}
+
+html {
+    letter-spacing: -0.3px;
+}
