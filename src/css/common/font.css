@@ -2,5 +2,13 @@
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css');
 
 body {
-    font-family: 'Pretendard Variable', sans-serif; /* Pretendard 폰트 적용 */
+    font-family: 'Pretendard Variable', sans-serif;
+    /* Pretendard 폰트 적용 */
+}
+
+@font-face {
+    font-family: 'OhouseIcon';
+    src: url('/src/assets/fonts/d8923b386a66fd50.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
 }
