@@ -2,6 +2,7 @@
 @import url(./common/font.css);
 @import url(./common/theme.css);
 
-@import url(./includes/header.css);
+@import url(/src/css/includes/app-promotion.css);
+@import url(/src/css/includes/header.css);
 @import url(./pages/community/home.css);
 @import url(/src/css/includes/footer.css);
