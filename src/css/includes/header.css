@@ -1036,19 +1036,18 @@ header {
   border: 1px solid rgb(10, 165, 255);
 }
 
-#search__icon {
+.search__icon {
   display: inline-block;
-  width: 24px;
-  height: 24px;
+  font-size: 24px;
+  line-height: 1;
   vertical-align: middle;
-  margin-right: 6px;
+  padding-right: 6px;
   color: #828C94;
 }
 
-#search__icon img {
-  display: inline-block;
-  width: 24px;
-  height: 24px;
+.search__icon::before {
+  font-family: OhouseIcon;
+  vertical-align: top;
 }
 
 #search__input {
@@ -1090,10 +1089,19 @@ header {
   color: rgb(130, 140, 148);
 }
 
-#search__clear-icon img {
+.search__clear-icon {
   display: inline-block;
-  width: 24px;
-  height: 24px;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.search__clear-icon::before {
+  font-family: OhouseIcon;
+  vertical-align: top;
+}
+
+._dismiss_circle_24:before {
+  content: "\e9be";
 }
 
 #search__cancel-btn {
