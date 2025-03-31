@@ -1,6 +1,6 @@
 /* 모바일 스타일 */
 body {
-    overflow: scroll;
+    overflow: auto;
 }
 
 #home {
