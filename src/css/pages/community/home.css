@@ -72,10 +72,13 @@ body {
 }
 
 .banner__swiper-pagination .plus-icon {
-    max-width: 12px;
-    max-height: 12px;
-    object-fit: contain;
     margin-left: 2px;
+}
+
+.banner__swiper-pagination .plus-icon::before {
+    font-family: OhouseIcon;
+    vertical-align: top;
+    content: '\e918';
 }
 
 /* 퀵 메뉴 */
@@ -159,11 +162,15 @@ body {
 }
 
 .feed-more .arrow-right-icon {
-    width: 19px;
-    margin-right: 2px;
-    margin-top: 2px;
+    font-size: 24px;
+    color: rgb(47, 52, 56);
     cursor: pointer;
-    vertical-align: middle;
+}
+
+.feed-more .arrow-right-icon::before {
+    font-family: OhouseIcon;
+    vertical-align: top;
+    content: '\e976';
 }
 
 /* 인테리어 피드 - content */
@@ -285,8 +292,13 @@ body {
 }
 
 .feed-content .more-icon {
-    width: 18px;
-    height: 18px;
+    font-size: 18px;
+}
+
+.feed-content .more-icon::before {
+    font-family: OhouseIcon;
+    vertical-align: top;
+    content: '\e931';
 }
 
 .feed-content .more-text {
