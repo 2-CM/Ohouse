@@ -274,18 +274,21 @@ header {
   background-color: rgb(247, 249, 250);
 }
 
-#download-btn__icon {
+.download-btn__icon {
   display: inline-block;
-  width: 12px;
-  height: 12px;
+  font-size: 12px;
   line-height: 1;
   color: rgb(10, 165, 255);
   margin-left: 4px;
 }
 
-#download-btn__icon img {
-  width: 12px;
-  height: 12px;
+.download-btn__icon::before {
+  font-family: OhouseIcon;
+  vertical-align: top;
+}
+
+._chevron_right_12:before {
+  content: "\e968";
 }
 
 #header__auth-links {
@@ -436,25 +439,38 @@ header {
   line-height: 1;
 }
 
-.navigation__btn-icon {
+.navigation__btn-icon-wrapper {
   display: inline-block;
   margin-right: 8px;
   border-radius: 4px;
-  width: 24px;
-  height: 24px;
 }
 
-.navigation__btn-icon img {
+.navigation__btn-icon {
   display: inline-block;
-  width: 24px;
-  height: 24px;
+  font-size: 24px;
+  line-height: 1;
 }
 
-.icon-chevron-down,
-.icon-chevron-up {
+.navigation__btn-icon::before {
+  font-family: OhouseIcon;
+  vertical-align: top;
+}
+
+._home_outline_24:before {
+  content: "\e9e1";
+}
+
+._store_outline_24:before {
+  content: "\ea7f";
+}
+
+._truck_outline_24:before {
+  content: "\ea9d";
+}
+
+.icon-chevron {
   display: inline-block;
-  width: 12px;
-  height: 12px;
+  font-size: 12px;
   line-height: 1;
   position: absolute;
   top: 14px;
@@ -462,10 +478,17 @@ header {
   color: rgb(47, 52, 56);
 }
 
-.icon-chevron-down img,
-.icon-chevron-up img {
-  width: 12px;
-  height: 12px;
+.icon-chevron::before {
+  font-family: OhouseIcon;
+  vertical-align: top;
+}
+
+._chevron_thick_up_12:before {
+  content: "\e978";
+}
+
+._chevron_thick_down_12:before {
+  content: "\e96c";
 }
 
 .navigation__submenu {

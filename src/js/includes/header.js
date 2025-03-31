@@ -47,14 +47,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     const buttons = document.querySelectorAll('.navigation__btn, .navigation__btn--active, .submenu-item__btn');
-    const submenus = document.querySelectorAll('.navigation__submenu');
+
+    // 초기 상태 설정
+    buttons.forEach(button => {
+        const icon = button.querySelector('.icon-chevron');
+        if (icon?.classList.contains('_chevron_thick_up_12')) {
+            const submenu = button.nextElementSibling;
+            if (submenu) {
+                submenu.classList.add('open'); // 기본적으로 펼쳐진 상태로 설정
+            }
+        }
+    });
 
     buttons.forEach(button => {
         button.addEventListener('click', function (event) {
             event.stopPropagation(); // 이벤트 버블링 방지
 
             const submenu = this.nextElementSibling; // 버튼 바로 다음의 서브메뉴 div
-            const icon = this.querySelector('.icon-chevron-up, .icon-chevron-down'); // 아이콘 span 태그
+            const icon = this.querySelector('.icon-chevron'); // 아이콘 span 태그
 
             // 현재 클릭된 버튼이 속한 최상위 부모 서브메뉴 찾기
             const parentMenu = this.closest('.navigation__submenu');
@@ -63,37 +73,32 @@ document.addEventListener("DOMContentLoaded", () => {
             document.querySelectorAll('.navigation__submenu').forEach(sub => {
                 if (sub !== submenu && sub !== parentMenu) { // 클릭한 서브메뉴와 부모는 제외
                     sub.classList.remove('open'); // open 클래스 제거
-                    const iconReset = sub.previousElementSibling?.querySelector('.icon-chevron-up, .icon-chevron-down');
+                    const iconReset = sub.previousElementSibling?.querySelector('.icon-chevron');
                     if (iconReset) {
-                        iconReset.classList.remove('icon-chevron-up');
-                        iconReset.classList.add('icon-chevron-down');
-                        const img = iconReset.querySelector('img');
-                        img.src = '/src/assets/icons/icon-chevron-down.png'; // down 이미지로 변경
+                        iconReset.classList.remove('_chevron_thick_up_12');
+                        iconReset.classList.add('_chevron_thick_down_12');
                     }
                 }
             });
 
-            // 이미 열린 서브메뉴를 다시 클릭했는지 확인
+            // 현재 상태 확인
             const isOpen = submenu.classList.contains('open');
 
             // 만약 클릭한 버튼이 이미 열린 상태라면 닫기만 수행
             if (isOpen) {
                 submenu.classList.remove('open'); // 서브메뉴 닫기
-                icon.classList.remove('icon-chevron-up');
-                icon.classList.add('icon-chevron-down');
-                const img = icon.querySelector('img');
-                img.src = '/src/assets/icons/icon-chevron-down.png'; // down 이미지로 변경
+                icon.classList.remove('_chevron_thick_up_12');
+                icon.classList.add('_chevron_thick_down_12');
                 return; // 여기서 함수 종료 (새로 열지 않음)
             }
 
             // 클릭한 버튼의 서브메뉴를 열기
             submenu.classList.add('open');
-            icon.classList.remove('icon-chevron-down');
-            icon.classList.add('icon-chevron-up');
-            const img = icon.querySelector('img');
-            img.src = '/src/assets/icons/icon-chevron-up.png'; // up 이미지로 변경
+            icon.classList.remove('_chevron_thick_down_12');
+            icon.classList.add('_chevron_thick_up_12');
         });
     });
+
 
 
 
