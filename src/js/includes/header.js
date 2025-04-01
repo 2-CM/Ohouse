@@ -7,6 +7,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const headerWrapper = document.getElementById("header__wrapper");
     const subnavContainer = document.getElementById("subnav__container");
 
+    // 스크롤바 너비 계산 함수
+    function getScrollbarWidth() {
+        return window.innerWidth - document.documentElement.clientWidth;
+    }
+
     window.addEventListener("scroll", function () {
         let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
@@ -39,9 +44,12 @@ document.addEventListener("DOMContentLoaded", () => {
         navOverlay.classList.toggle("active");
 
         if (nav.classList.contains("active")) {
+            let scrollbarWidth = getScrollbarWidth();
             document.body.style.overflow = "hidden"; // 스크롤 막기
+            document.body.style.paddingRight = `${scrollbarWidth}px`; // 스크롤바 공간 유지
         } else {
-            document.body.style.overflow = ""; // 원래대로 복구
+            document.body.style.overflow = ""; // 스크롤 허용
+            document.body.style.paddingRight = ""; // 추가된 스크롤바 공간 제거
         }
     });
 
@@ -51,6 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
         navOverlay.classList.remove("active");
 
         document.body.style.overflow = ""; // 스크롤 허용
+        document.body.style.paddingRight = ""; // 추가된 스크롤바 공간 제거
     });
 
 
