@@ -37,12 +37,20 @@ document.addEventListener("DOMContentLoaded", () => {
     menuBtn.addEventListener("click", function () {
         nav.classList.toggle("active");
         navOverlay.classList.toggle("active");
+
+        if (nav.classList.contains("active")) {
+            document.body.style.overflow = "hidden"; // 스크롤 막기
+        } else {
+            document.body.style.overflow = ""; // 원래대로 복구
+        }
     });
 
     // 네비게이션창 닫기
     navOverlay.addEventListener("click", (event) => {
         nav.classList.remove("active");
         navOverlay.classList.remove("active");
+
+        document.body.style.overflow = ""; // 스크롤 허용
     });
 
 
@@ -160,6 +168,12 @@ document.addEventListener("DOMContentLoaded", () => {
     dropdownButton.addEventListener("click", () => {
         dropdownOverlay.classList.toggle("active");
         dropdown.classList.toggle("active");
+
+        if (dropdown.classList.contains("active")) {
+            document.body.style.overflow = "hidden"; // 스크롤 막기
+        } else {
+            document.body.style.overflow = ""; // 원래대로 복구
+        }
     });
 
     // 드롭다운 닫기
@@ -169,6 +183,7 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => {
             dropdownOverlay.classList.remove("active");
             dropdown.classList.remove("active", "closing");
+            document.body.style.overflow = ""; // 스크롤 허용
         }, 300);
     });
 
@@ -177,6 +192,7 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => {
             dropdownOverlay.classList.remove("active");
             dropdown.classList.remove("active", "closing");
+            document.body.style.overflow = ""; // 스크롤 허용
         }, 300);
     });
 });
