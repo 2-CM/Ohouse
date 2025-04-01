@@ -11,6 +11,8 @@ document.addEventListener("DOMContentLoaded", () => {
     function getScrollbarWidth() {
         return window.innerWidth - document.documentElement.clientWidth;
     }
+    let scrollbarWidth = getScrollbarWidth();
+
 
     window.addEventListener("scroll", function () {
         let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -44,7 +46,6 @@ document.addEventListener("DOMContentLoaded", () => {
         navOverlay.classList.toggle("active");
 
         if (nav.classList.contains("active")) {
-            let scrollbarWidth = getScrollbarWidth();
             document.body.style.overflow = "hidden"; // 스크롤 막기
             document.body.style.paddingRight = `${scrollbarWidth}px`; // 스크롤바 공간 유지
         } else {
@@ -130,12 +131,16 @@ document.addEventListener("DOMContentLoaded", () => {
     searchBtn.addEventListener("click", function () {
         search.classList.toggle("active");
         searchOverlay.classList.toggle("active");
+        document.body.style.overflow = "hidden"; // 스크롤 막기
+        document.body.style.paddingRight = `${scrollbarWidth}px`; // 스크롤바 공간 유지
     });
 
     // 검색창 닫기
     cancelBtn.addEventListener("click", function () {
         search.classList.remove("active");
         searchOverlay.classList.remove("active");
+        document.body.style.overflow = ""; // 스크롤 허용
+        document.body.style.paddingRight = ""; // 추가된 스크롤바 공간 제거
     });
 
     // 검색창 열리는 애니메이션이 끝난 후 포커스를 주기
