@@ -257,7 +257,7 @@ body {
     filter: drop-shadow(rgba(63, 71, 77, 0.25) 0px 2px 5px);
 }
 
-.feed-content .feed-link {
+.feed-link {
     position: absolute;
     inset: 0px;
 }
@@ -318,6 +318,7 @@ body {
     flex-direction: column;
     width: 100%;
     min-width: 0px;
+    position: relative;
 }
 
 #interior-collections .ic-image-wrapper {
