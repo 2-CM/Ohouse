@@ -311,6 +311,7 @@ body {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
+    padding: 0px 16px;
 }
 
 #interior-collections .grid-item {
@@ -324,6 +325,7 @@ body {
 #interior-collections .ic-image-wrapper {
     border-radius: 4px;
     overflow: hidden;
+    position: relative;
 }
 
 #interior-collections .ic-text-wrapper {
