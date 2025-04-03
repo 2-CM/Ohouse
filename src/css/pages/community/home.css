@@ -118,7 +118,7 @@ body {
 }
 
 /* 인테리어 피드 - header */
-#interior-feed {
+.home-feed {
     padding: 0 16px;
     padding-bottom: 20px;
 }
