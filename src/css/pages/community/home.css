@@ -305,3 +305,39 @@ body {
     font-size: 14px;
     line-height: 20px;
 }
+
+/* 인테리어 컬렉션 - content */
+#interior-collections .grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+#interior-collections .grid-item {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: 0px;
+}
+
+#interior-collections .ic-image-wrapper {
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+#interior-collections .ic-text-wrapper {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 400;
+    color: rgb(47, 52, 56);
+    line-height: 24px;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+}
+
+#interior-collections .ic-text {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
