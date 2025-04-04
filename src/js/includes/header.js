@@ -7,6 +7,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const headerWrapper = document.getElementById("header__wrapper");
     const subnavContainer = document.getElementById("subnav__container");
 
+    // 스크롤바 너비 계산 함수
+    function getScrollbarWidth() {
+        return window.innerWidth - document.documentElement.clientWidth;
+    }
+    let scrollbarWidth = getScrollbarWidth();
+
+
     window.addEventListener("scroll", function () {
         let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
@@ -37,24 +44,45 @@ document.addEventListener("DOMContentLoaded", () => {
     menuBtn.addEventListener("click", function () {
         nav.classList.toggle("active");
         navOverlay.classList.toggle("active");
+
+        if (nav.classList.contains("active")) {
+            document.body.style.overflow = "hidden"; // 스크롤 막기
+            document.body.style.paddingRight = `${scrollbarWidth}px`; // 스크롤바 공간 유지
+        } else {
+            document.body.style.overflow = ""; // 스크롤 허용
+            document.body.style.paddingRight = ""; // 추가된 스크롤바 공간 제거
+        }
     });
 
     // 네비게이션창 닫기
     navOverlay.addEventListener("click", (event) => {
         nav.classList.remove("active");
         navOverlay.classList.remove("active");
+
+        document.body.style.overflow = ""; // 스크롤 허용
+        document.body.style.paddingRight = ""; // 추가된 스크롤바 공간 제거
     });
 
 
     const buttons = document.querySelectorAll('.navigation__btn, .navigation__btn--active, .submenu-item__btn');
-    const submenus = document.querySelectorAll('.navigation__submenu');
+
+    // 초기 상태 설정
+    buttons.forEach(button => {
+        const icon = button.querySelector('.icon-chevron');
+        if (icon?.classList.contains('_chevron_thick_up_12')) {
+            const submenu = button.nextElementSibling;
+            if (submenu) {
+                submenu.classList.add('open'); // 기본적으로 펼쳐진 상태로 설정
+            }
+        }
+    });
 
     buttons.forEach(button => {
         button.addEventListener('click', function (event) {
             event.stopPropagation(); // 이벤트 버블링 방지
 
             const submenu = this.nextElementSibling; // 버튼 바로 다음의 서브메뉴 div
-            const icon = this.querySelector('.icon-chevron-up, .icon-chevron-down'); // 아이콘 span 태그
+            const icon = this.querySelector('.icon-chevron'); // 아이콘 span 태그
 
             // 현재 클릭된 버튼이 속한 최상위 부모 서브메뉴 찾기
             const parentMenu = this.closest('.navigation__submenu');
@@ -63,37 +91,32 @@ document.addEventListener("DOMContentLoaded", () => {
             document.querySelectorAll('.navigation__submenu').forEach(sub => {
                 if (sub !== submenu && sub !== parentMenu) { // 클릭한 서브메뉴와 부모는 제외
                     sub.classList.remove('open'); // open 클래스 제거
-                    const iconReset = sub.previousElementSibling?.querySelector('.icon-chevron-up, .icon-chevron-down');
+                    const iconReset = sub.previousElementSibling?.querySelector('.icon-chevron');
                     if (iconReset) {
-                        iconReset.classList.remove('icon-chevron-up');
-                        iconReset.classList.add('icon-chevron-down');
-                        const img = iconReset.querySelector('img');
-                        img.src = '/src/assets/icons/icon-chevron-down.png'; // down 이미지로 변경
+                        iconReset.classList.remove('_chevron_thick_up_12');
+                        iconReset.classList.add('_chevron_thick_down_12');
                     }
                 }
             });
 
-            // 이미 열린 서브메뉴를 다시 클릭했는지 확인
+            // 현재 상태 확인
             const isOpen = submenu.classList.contains('open');
 
             // 만약 클릭한 버튼이 이미 열린 상태라면 닫기만 수행
             if (isOpen) {
                 submenu.classList.remove('open'); // 서브메뉴 닫기
-                icon.classList.remove('icon-chevron-up');
-                icon.classList.add('icon-chevron-down');
-                const img = icon.querySelector('img');
-                img.src = '/src/assets/icons/icon-chevron-down.png'; // down 이미지로 변경
+                icon.classList.remove('_chevron_thick_up_12');
+                icon.classList.add('_chevron_thick_down_12');
                 return; // 여기서 함수 종료 (새로 열지 않음)
             }
 
             // 클릭한 버튼의 서브메뉴를 열기
             submenu.classList.add('open');
-            icon.classList.remove('icon-chevron-down');
-            icon.classList.add('icon-chevron-up');
-            const img = icon.querySelector('img');
-            img.src = '/src/assets/icons/icon-chevron-up.png'; // up 이미지로 변경
+            icon.classList.remove('_chevron_thick_down_12');
+            icon.classList.add('_chevron_thick_up_12');
         });
     });
+
 
 
 
@@ -108,12 +131,16 @@ document.addEventListener("DOMContentLoaded", () => {
     searchBtn.addEventListener("click", function () {
         search.classList.toggle("active");
         searchOverlay.classList.toggle("active");
+        document.body.style.overflow = "hidden"; // 스크롤 막기
+        document.body.style.paddingRight = `${scrollbarWidth}px`; // 스크롤바 공간 유지
     });
 
     // 검색창 닫기
     cancelBtn.addEventListener("click", function () {
         search.classList.remove("active");
         searchOverlay.classList.remove("active");
+        document.body.style.overflow = ""; // 스크롤 허용
+        document.body.style.paddingRight = ""; // 추가된 스크롤바 공간 제거
     });
 
     // 검색창 열리는 애니메이션이 끝난 후 포커스를 주기
@@ -155,6 +182,12 @@ document.addEventListener("DOMContentLoaded", () => {
     dropdownButton.addEventListener("click", () => {
         dropdownOverlay.classList.toggle("active");
         dropdown.classList.toggle("active");
+
+        if (dropdown.classList.contains("active")) {
+            document.body.style.overflow = "hidden"; // 스크롤 막기
+        } else {
+            document.body.style.overflow = ""; // 원래대로 복구
+        }
     });
 
     // 드롭다운 닫기
@@ -164,6 +197,7 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => {
             dropdownOverlay.classList.remove("active");
             dropdown.classList.remove("active", "closing");
+            document.body.style.overflow = ""; // 스크롤 허용
         }, 300);
     });
 
@@ -172,6 +206,7 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => {
             dropdownOverlay.classList.remove("active");
             dropdown.classList.remove("active", "closing");
+            document.body.style.overflow = ""; // 스크롤 허용
         }, 300);
     });
 });

@@ -42,10 +42,19 @@ header {
   outline: none;
 }
 
-#header__menu-btn img {
+.header__menu-btn-icon {
   display: inline-block;
-  width: 24px;
-  height: 24px;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.header__menu-btn-icon::before {
+  font-family: OhouseIcon;
+  vertical-align: top;
+}
+
+._menu_24::before {
+  content: "\ea05";
 }
 
 #header__logo {
@@ -100,10 +109,23 @@ header {
   outline: none;
 }
 
-#header__search-btn img {
+#header__search-btn:hover {
+  color: #0AA5FF;
+}
+
+.header__search-btn-icon {
   display: inline-block;
-  width: 24px;
-  height: 24px;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.header__search-btn-icon::before {
+  font-family: OhouseIcon;
+  vertical-align: top;
+}
+
+._search_24::before {
+  content: "\ea4d";
 }
 
 #header__cart-link {
@@ -116,10 +138,23 @@ header {
   outline: none;
 }
 
-#header__cart-link img {
+#header__cart-link:hover {
+  color: #0AA5FF;
+}
+
+.header__cart-btn-icon {
   display: inline-block;
-  width: 24px;
-  height: 24px;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.header__cart-btn-icon::before {
+  font-family: OhouseIcon;
+  vertical-align: top;
+}
+
+._cart_24::before {
+  content: "\e94e";
 }
 
 /*** navigation ***/
@@ -227,18 +262,21 @@ header {
   background-color: rgb(247, 249, 250);
 }
 
-#download-btn__icon {
+.download-btn__icon {
   display: inline-block;
-  width: 12px;
-  height: 12px;
+  font-size: 12px;
   line-height: 1;
   color: rgb(10, 165, 255);
   margin-left: 4px;
 }
 
-#download-btn__icon img {
-  width: 12px;
-  height: 12px;
+.download-btn__icon::before {
+  font-family: OhouseIcon;
+  vertical-align: top;
+}
+
+._chevron_right_12:before {
+  content: "\e968";
 }
 
 #header__auth-links {
@@ -389,25 +427,38 @@ header {
   line-height: 1;
 }
 
-.navigation__btn-icon {
+.navigation__btn-icon-wrapper {
   display: inline-block;
   margin-right: 8px;
   border-radius: 4px;
-  width: 24px;
-  height: 24px;
 }
 
-.navigation__btn-icon img {
+.navigation__btn-icon {
   display: inline-block;
-  width: 24px;
-  height: 24px;
+  font-size: 24px;
+  line-height: 1;
 }
 
-.icon-chevron-down,
-.icon-chevron-up {
+.navigation__btn-icon::before {
+  font-family: OhouseIcon;
+  vertical-align: top;
+}
+
+._home_outline_24:before {
+  content: "\e9e1";
+}
+
+._store_outline_24:before {
+  content: "\ea7f";
+}
+
+._truck_outline_24:before {
+  content: "\ea9d";
+}
+
+.icon-chevron {
   display: inline-block;
-  width: 12px;
-  height: 12px;
+  font-size: 12px;
   line-height: 1;
   position: absolute;
   top: 14px;
@@ -415,10 +466,17 @@ header {
   color: rgb(47, 52, 56);
 }
 
-.icon-chevron-down img,
-.icon-chevron-up img {
-  width: 12px;
-  height: 12px;
+.icon-chevron::before {
+  font-family: OhouseIcon;
+  vertical-align: top;
+}
+
+._chevron_thick_up_12:before {
+  content: "\e978";
+}
+
+._chevron_thick_down_12:before {
+  content: "\e96c";
 }
 
 .navigation__submenu {
@@ -761,11 +819,21 @@ header {
   background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgb(255, 255, 255) 50%);
 }
 
-#subnav__dropdown-btn img {
+.subnav__dropdown-btn-icon {
   display: inline-block;
-  width: 12px;
-  height: 12px;
+  font-size: 12px;
+  line-height: 1;
+  color: rgb(47, 52, 56);
   z-index: 2;
+}
+
+.subnav__dropdown-btn-icon::before {
+  font-family: OhouseIcon;
+  vertical-align: top;
+}
+
+._chevron_down_12:before {
+  content: "\e960";
 }
 
 /*** subnav__dropdown ***/
@@ -857,10 +925,20 @@ header {
   height: 24px;
 }
 
-#subnav__dropdown-close-btn img {
+.subnav__dropdown-close-btn-icon {
   display: inline-block;
-  width: 24px;
-  height: 24px;
+  font-size: 24px;
+  line-height: 1;
+  color: rgb(47, 52, 56);
+}
+
+.subnav__dropdown-close-btn-icon::before {
+  font-family: OhouseIcon;
+  vertical-align: top;
+}
+
+._dismiss_24:before {
+  content: "\e9ba";
 }
 
 #subnav__dropdown-content {
@@ -989,19 +1067,22 @@ header {
   border: 1px solid rgb(10, 165, 255);
 }
 
-#search__icon {
+#search__input-container input::placeholder {
+  color: #C2C8CC;
+}
+
+.search__icon {
   display: inline-block;
-  width: 24px;
-  height: 24px;
+  font-size: 24px;
+  line-height: 1;
   vertical-align: middle;
-  margin-right: 6px;
+  padding-right: 6px;
   color: #828C94;
 }
 
-#search__icon img {
-  display: inline-block;
-  width: 24px;
-  height: 24px;
+.search__icon::before {
+  font-family: OhouseIcon;
+  vertical-align: top;
 }
 
 #search__input {
@@ -1043,10 +1124,19 @@ header {
   color: rgb(130, 140, 148);
 }
 
-#search__clear-icon img {
+.search__clear-icon {
   display: inline-block;
-  width: 24px;
-  height: 24px;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.search__clear-icon::before {
+  font-family: OhouseIcon;
+  vertical-align: top;
+}
+
+._dismiss_circle_24:before {
+  content: "\e9be";
 }
 
 #search__cancel-btn {
