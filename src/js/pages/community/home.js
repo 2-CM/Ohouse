@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <div class="swiper-slide">
                 <a href="#">
                     <div class="image-wrapper">
-                        <img class="event" src="../../assets/images/community/home/banners/${image}" alt="배너 이미지" />
+                        <img class="event" src="/src/assets/images/community/home/banners/${image}" alt="배너 이미지" />
                     </div>
                 </a>
             </div>
@@ -59,9 +59,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
         button.addEventListener('click', function () {
             if (bookmarkIcon.src.includes('bookmark-empty.svg')) {
-                bookmarkIcon.src = '../../assets/icons/bookmark-filled.svg';
+                bookmarkIcon.src = '/src/assets/icons/bookmark-filled.svg';
             } else {
-                bookmarkIcon.src = '../../assets/icons/bookmark-empty.svg';
+                bookmarkIcon.src = '/src/assets/icons/bookmark-empty.svg';
             }
         });
     });
