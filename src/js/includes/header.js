@@ -25,6 +25,8 @@ document.addEventListener("DOMContentLoaded", () => {
             subnavContainer.style.top = `-${SUBNAV_HEIGHT - 0.25}px`;
             headerWrapper.style.width = window.innerWidth + "px";
             subnavContainer.style.width = window.innerWidth + "px";
+            headerWrapper.style.paddingRight = `${scrollbarWidth}px`;
+            subnavContainer.style.paddingRight = `${scrollbarWidth}px`;
         } else {
             // 스크롤 올릴 때: 헤더 표시
             headerWrapper.style.top = "0";
