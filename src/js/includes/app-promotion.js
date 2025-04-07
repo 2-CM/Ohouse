@@ -1,56 +1,45 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-    /*** 앱 유도 모달 관련 처리 ***/
     const appModal = document.getElementById("appModal__overlay");
     const closeModalBtn = document.querySelector(".appModal__btn--secondary");
     const openAppBtns = document.querySelectorAll(".appModal__btn--primary, .appBanner__cta-btn");
 
-    // 화면 너비가 767px 미만일 경우에만 모달 표시
-    function handleAppModal() {
-        const appModalClosed = localStorage.getItem("appModalClosed"); // 최신 localStorage 값 가져오기
+    const appBanner = document.getElementById("appBanner");
+    const closeBannerBtn = document.getElementById("appBanner__close-btn");
 
-        if (window.innerWidth < 767) {
-            if (appModalClosed !== "true") {
-                appModal.style.display = "flex";  // 모달 표시
-            } else {
-                appModal.style.display = "none";   // 이미 닫힌 경우 모달 숨기기
-            }
-        } else {
-            appModal.style.display = "none"; // 화면 크기가 767px 이상일 때 모달 숨기기
-        }
+    function shouldShowAppModal() {
+        const appModalClosed = localStorage.getItem("appModalClosed");
+        return window.innerWidth < 767 && appModalClosed !== "true";
+    }
+
+    function shouldShowAppBanner() {
+        const appModalClosed = localStorage.getItem("appModalClosed");
+        const appBannerClosed = localStorage.getItem("appBannerClosed");
+        return window.innerWidth < 767 && appModalClosed === "true" && appBannerClosed !== "true";
+    }
+
+    function handleAppModal() {
+        appModal.style.display = shouldShowAppModal() ? "flex" : "none";
+    }
+
+    function handleAppBanner() {
+        // 최상단이 아닌 경우는 header.js에서 관리하므로 여기선 표시 여부만 설정
+        const show = shouldShowAppBanner();
+        appBanner.dataset.shouldShow = show ? "true" : "false"; // header.js에서 참조할 수 있게 설정
     }
 
     closeModalBtn.addEventListener("click", function () {
         appModal.style.display = "none";
-        localStorage.setItem("appModalClosed", "true"); // localStorage에 "true" 저장
+        localStorage.setItem("appModalClosed", "true");
+
+        // 모달 닫은 후 배너 조건 확인
+        handleAppBanner();
     });
 
-    openAppBtns.forEach(function (btn) {
-        btn.addEventListener("click", function () {
-            window.location.href = "/"; // 앱 다운로드 페이지
+    openAppBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+            window.location.href = "/"; // 앱 다운로드 페이지 링크
         });
-    });
-
-    /*** 앱 다운로드 상단 배너 관련 처리 ***/
-    const appBanner = document.getElementById("appBanner");
-    const closeBannerBtn = document.getElementById("appBanner__close-btn");
-
-    function handleAppBanner() {
-        const appModalClosed = localStorage.getItem("appModalClosed"); // 최신 값 가져오기
-
-        if (window.innerWidth < 767) {
-            if (localStorage.getItem("appBannerClosed") !== "true" && appModalClosed === "true") {
-                appBanner.style.display = "flex"; // 배너 표시
-            } else {
-                appBanner.style.display = "none"; // 배너 숨기기
-            }
-        } else {
-            appBanner.style.display = "none";
-        }
-    }
-
-    closeModalBtn.addEventListener("click", function () {
-        appBanner.style.display = "flex";
     });
 
     closeBannerBtn.addEventListener("click", function () {
