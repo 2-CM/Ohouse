@@ -7,11 +7,57 @@
   <title>Header</title>
   <link rel="stylesheet" href="/src/css/main.css">
   <script src="/src/js/includes/header.js"></script>
+  <script src="/src/js/includes/app-promotion.js"></script>
 </head>
 
 <body>
+  <!-- 앱 유도 모달 -->
+  <div id="appModal__overlay">
+    <div id="appModal__container">
+      <div id="appModal__wrapper">
+        <div id="appModal__content-wrapper">
+          <div id="appModal__content">
+            <img id="appModal__applogo" src="/src/assets/icons/app-promotion/app-logo.svg"></img>
+            <div id="appModal__text">
+              <div id="appModal__title">앱에서는 1초만에!
+                간편하게 로그인하기</div>
+              <div id="appModal__subtitle">
+                <div id="appModal__stars">
+                  <img src="/src/assets/icons/app-promotion/star.svg" />
+                  <img src="/src/assets/icons/app-promotion/star.svg" />
+                  <img src="/src/assets/icons/app-promotion/star.svg" />
+                  <img src="/src/assets/icons/app-promotion/star.svg" />
+                  <img src="/src/assets/icons/app-promotion/star.svg" />
+                </div>
+                <div id="appModal__description">특가, 쿠폰 등 앱 전용 혜택까지</div>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="appModal__button appModal__btn--primary" aria-label="오늘의집 앱으로 보기">
+            편리한 앱으로 보기
+          </button>
+          <button type="button" class="appModal__button appModal__btn--secondary" aria-label="닫기">
+            모바일 웹으로 볼래요
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 앱 다운로드 상단 배너 -->
+  <div id="appBanner">
+    <button type="button" aria-label="오늘의집 앱으로 보기" id="appBanner__btn"></button>
+    <button type="button" aria-label="닫기" id="appBanner__close-btn">
+      <img src="/src/assets/icons/app-promotion/appBanner__close-btn.svg" />
+    </button>
+    <div id="appBanner__text">
+      <img id="appBanner__applogo" src="/src/assets/icons/app-promotion/app-logo.svg" />
+      <div id="appBanner__title">앱에서 1초만에!
+        간편하게 로그인하기</div>
+      <button class="appBanner__cta-btn">앱으로 보기</button>
+    </div>
+  </div>
+  <!-- 헤더 -->
   <header>
-    <!-- 헤더 -->
     <div id="header__container" style="height: 50.75px;">
       <div id="header__wrapper">
         <div id="header__top">
