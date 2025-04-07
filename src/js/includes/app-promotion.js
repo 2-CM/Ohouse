@@ -19,21 +19,25 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function handleAppModal() {
-        appModal.style.display = shouldShowAppModal() ? "flex" : "none";
+        const showModal = shouldShowAppModal();
+        appModal.style.display = showModal ? "flex" : "none";
+
+        // 모달이 열려있으면 배너는 무조건 숨기기
+        if (showModal) {
+            appBanner.style.display = "none";
+        }
     }
 
     function handleAppBanner() {
-        // 최상단이 아닌 경우는 header.js에서 관리하므로 여기선 표시 여부만 설정
         const show = shouldShowAppBanner();
-        appBanner.dataset.shouldShow = show ? "true" : "false"; // header.js에서 참조할 수 있게 설정
+        appBanner.dataset.shouldShow = show ? "true" : "false";
+        appBanner.style.display = show ? "flex" : "none";
     }
 
     closeModalBtn.addEventListener("click", function () {
         appModal.style.display = "none";
         localStorage.setItem("appModalClosed", "true");
-
-        // 모달 닫은 후 배너 조건 확인
-        handleAppBanner();
+        handleAppBanner(); // 모달 닫은 후 배너 표시 여부 다시 확인
     });
 
     openAppBtns.forEach(btn => {
@@ -47,13 +51,17 @@ document.addEventListener('DOMContentLoaded', function () {
         localStorage.setItem("appBannerClosed", "true");
     });
 
-    // 화면 크기 변경 시 모달과 배너 처리 함수 실행
+    // 초기 숨김 처리로 깜빡임 방지
+    appModal.style.display = "none";
+    appBanner.style.display = "none";
+
+    // 초기화
+    handleAppModal();
+    handleAppBanner();
+
+    // 화면 크기 변경 시 다시 조건 확인
     window.addEventListener('resize', function () {
         handleAppModal();
         handleAppBanner();
     });
-
-    // 초기 상태 처리 (페이지가 로드될 때)
-    handleAppModal();
-    handleAppBanner();
 });
