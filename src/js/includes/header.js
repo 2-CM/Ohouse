@@ -1,40 +1,74 @@
 document.addEventListener("DOMContentLoaded", () => {
-
-    /*** 스크롤시 헤더 고정 및 제거 ***/
-    let lastScrollTop = 0; // 이전 스크롤 위치
+    /*** 상수 및 요소 참조 ***/
     const HEADER_HEIGHT = 50.75; // #header__wrapper 높이
     const SUBNAV_HEIGHT = 40.75; // #subnav__container 높이
+
     const headerWrapper = document.getElementById("header__wrapper");
     const subnavContainer = document.getElementById("subnav__container");
+    const appBanner = document.getElementById("appBanner");
 
-    // 스크롤바 너비 계산 함수
+    let lastScrollTop = 0;
+
+    /*** 스크롤바 너비 계산 함수 ***/
     function getScrollbarWidth() {
         return window.innerWidth - document.documentElement.clientWidth;
     }
-    let scrollbarWidth = getScrollbarWidth();
+    const scrollbarWidth = getScrollbarWidth();
 
+    /*** 헤더 스타일 적용 함수 ***/
+    function applyHeaderStyles() {
+        const hasScrollbar = scrollbarWidth > 0;
 
-    window.addEventListener("scroll", function () {
-        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        headerWrapper.style.width = window.innerWidth + "px";
+        subnavContainer.style.width = window.innerWidth + "px";
 
-        if (scrollTop > lastScrollTop) {
-            // 스크롤 내릴 때: 헤더 숨기기
-            headerWrapper.classList.add("fixed");
-            subnavContainer.classList.add("fixed");
-            headerWrapper.style.top = `-${HEADER_HEIGHT}px`;
-            subnavContainer.style.top = `-${SUBNAV_HEIGHT - 0.25}px`;
-            headerWrapper.style.width = window.innerWidth + "px";
-            subnavContainer.style.width = window.innerWidth + "px";
+        if (hasScrollbar) {
             headerWrapper.style.paddingRight = `${scrollbarWidth}px`;
             subnavContainer.style.paddingRight = `${scrollbarWidth}px`;
         } else {
-            // 스크롤 올릴 때: 헤더 표시
-            headerWrapper.style.top = "0";
-            subnavContainer.style.top = `${HEADER_HEIGHT}px`;
+            headerWrapper.style.paddingRight = "0";
+            subnavContainer.style.paddingRight = "0";
+        }
+    }
+
+    /*** 스크롤 이벤트 핸들러 ***/
+    function handleScroll() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const atTop = scrollTop <= 0;
+        const shouldShowBanner = appBanner.dataset.shouldShow === "true";
+
+        // 헤더 고정 클래스는 항상 유지
+        headerWrapper.classList.add("fixed");
+        subnavContainer.classList.add("fixed");
+
+        if (scrollTop > lastScrollTop) {
+            // 스크롤 내릴 때: 헤더 숨기기
+            appBanner.style.display = "none";
+            headerWrapper.style.top = `-${HEADER_HEIGHT}px`;
+            subnavContainer.style.top = `-${SUBNAV_HEIGHT - 0.25}px`;
+        } else {
+            // 스크롤 올릴 때: 헤더 다시 표시
+            if (atTop && shouldShowBanner) {
+                appBanner.style.display = "flex";
+                headerWrapper.style.top = `${appBanner.offsetHeight}px`;
+                subnavContainer.style.top = `${appBanner.offsetHeight + HEADER_HEIGHT}px`;
+            } else {
+                appBanner.style.display = "none";
+                headerWrapper.style.top = "0";
+                subnavContainer.style.top = `${HEADER_HEIGHT}px`;
+            }
         }
 
-        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // 최상단에서 초기화
-    });
+        applyHeaderStyles(); // 스크롤 시에도 스타일 유지
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    }
+
+    // 초기 설정
+    applyHeaderStyles();
+
+    // 이벤트 바인딩
+    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("resize", applyHeaderStyles);
 
 
     /*** 네비게이션창 ***/
@@ -118,8 +152,6 @@ document.addEventListener("DOMContentLoaded", () => {
             icon.classList.add('_chevron_thick_up_12');
         });
     });
-
-
 
 
     /*** 검색창 (mobile) ***/
