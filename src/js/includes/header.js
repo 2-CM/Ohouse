@@ -70,6 +70,8 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("resize", applyHeaderStyles);
 
+    window.forceHeaderRecalculate = handleScroll;
+
 
     /*** 네비게이션창 ***/
     const menuBtn = document.getElementById("header__menu-btn");
