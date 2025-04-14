@@ -1,5 +1,5 @@
-document.addEventListener('DOMContentLoaded', function () {
-
+document.addEventListener('DOMContentLoaded', () => {
+    /*** 요소 참조 ***/
     const appModal = document.getElementById("appModal__overlay");
     const closeModalBtn = document.querySelector(".appModal__btn--secondary");
     const openAppBtns = document.querySelectorAll(".appModal__btn--primary, .appBanner__cta-btn");
@@ -7,37 +7,38 @@ document.addEventListener('DOMContentLoaded', function () {
     const appBanner = document.getElementById("appBanner");
     const closeBannerBtn = document.getElementById("appBanner__close-btn");
 
-    function shouldShowAppModal() {
-        const appModalClosed = localStorage.getItem("appModalClosed");
-        return window.innerWidth < 767 && appModalClosed !== "true";
-    }
+    /*** 상태 확인 함수 ***/
+    const isMobile = () => window.innerWidth < 767;
+    const isAppModalClosed = () => localStorage.getItem("appModalClosed") === "true";
+    const isAppBannerClosed = () => localStorage.getItem("appBannerClosed") === "true";
 
-    function shouldShowAppBanner() {
-        const appModalClosed = localStorage.getItem("appModalClosed");
-        const appBannerClosed = localStorage.getItem("appBannerClosed");
-        return window.innerWidth < 767 && appModalClosed === "true" && appBannerClosed !== "true";
-    }
+    const shouldShowAppModal = () => isMobile() && !isAppModalClosed();
+    const shouldShowAppBanner = () => isMobile() && isAppModalClosed() && !isAppBannerClosed();
 
-    function handleAppModal() {
-        const showModal = shouldShowAppModal();
-        appModal.style.display = showModal ? "flex" : "none";
+    /*** 표시 제어 함수 ***/
+    const toggleDisplay = (el, show) => {
+        el.style.display = show ? "flex" : "none";
+    };
 
-        // 모달이 열려있으면 배너는 무조건 숨기기
-        if (showModal) {
-            appBanner.style.display = "none";
-        }
-    }
+    const handleAppModal = () => {
+        const show = shouldShowAppModal();
+        toggleDisplay(appModal, show);
 
-    function handleAppBanner() {
+        if (show) toggleDisplay(appBanner, false); // 모달이 열리면 배너는 숨김
+    };
+
+    const handleAppBanner = () => {
         const show = shouldShowAppBanner();
         appBanner.dataset.shouldShow = show ? "true" : "false";
-        appBanner.style.display = show ? "flex" : "none";
-    }
+        toggleDisplay(appBanner, show);
+    };
 
-    closeModalBtn.addEventListener("click", function () {
-        appModal.style.display = "none";
+    /*** 이벤트 리스너 ***/
+    closeModalBtn.addEventListener("click", () => {
+        toggleDisplay(appModal, false);
         localStorage.setItem("appModalClosed", "true");
-        handleAppBanner(); // 모달 닫은 후 배너 표시 여부 다시 확인
+        handleAppBanner(); // 모달 닫은 후 배너 다시 확인
+        window.forceHeaderRecalculate?.(); // 헤더 위치 재조정
     });
 
     openAppBtns.forEach(btn => {
@@ -46,22 +47,23 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    closeBannerBtn.addEventListener("click", function () {
-        appBanner.style.display = "none";
+    closeBannerBtn.addEventListener("click", () => {
+        toggleDisplay(appBanner, false);
         localStorage.setItem("appBannerClosed", "true");
+        window.forceHeaderRecalculate?.(); // 헤더 위치 재조정
     });
 
-    // 초기 숨김 처리로 깜빡임 방지
-    appModal.style.display = "none";
-    appBanner.style.display = "none";
+    /*** 초기 숨김 처리로 깜빡임 방지 ***/
+    toggleDisplay(appModal, false);
+    toggleDisplay(appBanner, false);
 
-    // 초기화
+    /*** 초기화 및 반응형 대응 ***/
     handleAppModal();
     handleAppBanner();
 
-    // 화면 크기 변경 시 다시 조건 확인
-    window.addEventListener('resize', function () {
+    window.addEventListener("resize", () => {
         handleAppModal();
         handleAppBanner();
+        window.forceHeaderRecalculate?.(); // 리사이즈 시에도 헤더 위치 보정
     });
 });
