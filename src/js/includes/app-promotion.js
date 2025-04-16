@@ -1,70 +1,69 @@
-document.addEventListener('DOMContentLoaded', function () {
-
-    /*** 앱 유도 모달 관련 처리 ***/
+document.addEventListener('DOMContentLoaded', () => {
+    /*** 요소 참조 ***/
     const appModal = document.getElementById("appModal__overlay");
     const closeModalBtn = document.querySelector(".appModal__btn--secondary");
     const openAppBtns = document.querySelectorAll(".appModal__btn--primary, .appBanner__cta-btn");
 
-    // 화면 너비가 767px 미만일 경우에만 모달 표시
-    function handleAppModal() {
-        const appModalClosed = localStorage.getItem("appModalClosed"); // 최신 localStorage 값 가져오기
-
-        if (window.innerWidth < 767) {
-            if (appModalClosed !== "true") {
-                appModal.style.display = "flex";  // 모달 표시
-            } else {
-                appModal.style.display = "none";   // 이미 닫힌 경우 모달 숨기기
-            }
-        } else {
-            appModal.style.display = "none"; // 화면 크기가 767px 이상일 때 모달 숨기기
-        }
-    }
-
-    closeModalBtn.addEventListener("click", function () {
-        appModal.style.display = "none";
-        localStorage.setItem("appModalClosed", "true"); // localStorage에 "true" 저장
-    });
-
-    openAppBtns.forEach(function (btn) {
-        btn.addEventListener("click", function () {
-            window.location.href = "/"; // 앱 다운로드 페이지
-        });
-    });
-
-    /*** 앱 다운로드 상단 배너 관련 처리 ***/
     const appBanner = document.getElementById("appBanner");
     const closeBannerBtn = document.getElementById("appBanner__close-btn");
 
-    function handleAppBanner() {
-        const appModalClosed = localStorage.getItem("appModalClosed"); // 최신 값 가져오기
+    /*** 상태 확인 함수 ***/
+    const isMobile = () => window.innerWidth < 767;
+    const isAppModalClosed = () => localStorage.getItem("appModalClosed") === "true";
+    const isAppBannerClosed = () => localStorage.getItem("appBannerClosed") === "true";
 
-        if (window.innerWidth < 767) {
-            if (localStorage.getItem("appBannerClosed") !== "true" && appModalClosed === "true") {
-                appBanner.style.display = "flex"; // 배너 표시
-            } else {
-                appBanner.style.display = "none"; // 배너 숨기기
-            }
-        } else {
-            appBanner.style.display = "none";
-        }
-    }
+    const shouldShowAppModal = () => isMobile() && !isAppModalClosed();
+    const shouldShowAppBanner = () => isMobile() && isAppModalClosed() && !isAppBannerClosed();
 
-    closeModalBtn.addEventListener("click", function () {
-        appBanner.style.display = "flex";
+    /*** 표시 제어 함수 ***/
+    const toggleDisplay = (el, show) => {
+        el.style.display = show ? "flex" : "none";
+    };
+
+    const handleAppModal = () => {
+        const show = shouldShowAppModal();
+        toggleDisplay(appModal, show);
+
+        if (show) toggleDisplay(appBanner, false); // 모달이 열리면 배너는 숨김
+    };
+
+    const handleAppBanner = () => {
+        const show = shouldShowAppBanner();
+        appBanner.dataset.shouldShow = show ? "true" : "false";
+        toggleDisplay(appBanner, show);
+    };
+
+    /*** 이벤트 리스너 ***/
+    closeModalBtn.addEventListener("click", () => {
+        toggleDisplay(appModal, false);
+        localStorage.setItem("appModalClosed", "true");
+        handleAppBanner(); // 모달 닫은 후 배너 다시 확인
+        window.forceHeaderRecalculate?.(); // 헤더 위치 재조정
     });
 
-    closeBannerBtn.addEventListener("click", function () {
-        appBanner.style.display = "none";
+    openAppBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+            window.location.href = "/"; // 앱 다운로드 페이지 링크
+        });
+    });
+
+    closeBannerBtn.addEventListener("click", () => {
+        toggleDisplay(appBanner, false);
         localStorage.setItem("appBannerClosed", "true");
+        window.forceHeaderRecalculate?.(); // 헤더 위치 재조정
     });
 
-    // 화면 크기 변경 시 모달과 배너 처리 함수 실행
-    window.addEventListener('resize', function () {
-        handleAppModal();
-        handleAppBanner();
-    });
+    /*** 초기 숨김 처리로 깜빡임 방지 ***/
+    toggleDisplay(appModal, false);
+    toggleDisplay(appBanner, false);
 
-    // 초기 상태 처리 (페이지가 로드될 때)
+    /*** 초기화 및 반응형 대응 ***/
     handleAppModal();
     handleAppBanner();
+
+    window.addEventListener("resize", () => {
+        handleAppModal();
+        handleAppBanner();
+        window.forceHeaderRecalculate?.(); // 리사이즈 시에도 헤더 위치 보정
+    });
 });
