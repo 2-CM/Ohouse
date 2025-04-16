@@ -50,6 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
     closeBannerBtn.addEventListener("click", () => {
         toggleDisplay(appBanner, false);
         localStorage.setItem("appBannerClosed", "true");
+        appBanner.dataset.shouldShow = "false";
         window.forceHeaderRecalculate?.(); // 헤더 위치 재조정
     });
 
