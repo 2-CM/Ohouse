@@ -1221,3 +1221,28 @@ header {
     height: 455px;
   }
 }
+
+@media (min-width: 768px) {
+  #header__top {
+    height: 80px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding: 0 40px;
+  }
+
+  #header__menu-btn-wrapper {
+    display: none;
+  }
+
+  #header__logo {
+    position: static;
+    margin-right: 20px;
+    left: none;
+    top: none;
+    transform: none;
+  }
+
+  #header__actions {
+    flex: 0 1 476px;
+  }
+}
