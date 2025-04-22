@@ -212,6 +212,78 @@ header {
   content: "\e94e";
 }
 
+#header__menu {
+  display: flex;
+  align-items: center;
+}
+
+#header__menu-links {
+  display: flex;
+  margin: 0 10px 0 8px;
+}
+
+.header__menu-link {
+  font-size: 14px;
+  line-height: 18px;
+  color: #2F3438;
+  padding: 0 10px;
+  border-left: 1px solid #EAEDEF;
+}
+
+.header__menu-link:first-of-type {
+  border-left: none;
+}
+
+#header__write {
+  line-height: 0;
+}
+
+.header__write-btn {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  font-size: 14px;
+  line-height: 18px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: 40px;
+  border-radius: 4px;
+  padding: 0 16px;
+  font-weight: 400;
+  box-sizing: border-box;
+  text-align: center;
+  color: #FFFFFF;
+  background-color: #0AA5FF;
+  outline: none;
+  overflow: hidden;
+}
+
+.header__write-text {
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.header__write-icon {
+  font-size: 18px;
+  line-height: 1;
+  vertical-align: middle;
+  display: none;
+}
+
+.header__write-icon::before {
+  font-family: Ohouseicon;
+  vertical-align: top;
+}
+
+._chevron_down_18:before {
+  content: "\e961";
+}
+
 /*** navigation ***/
 #navigation__overlay {
   position: fixed;
@@ -1269,6 +1341,10 @@ header {
     margin: 0px;
     height: 455px;
   }
+
+  #header__menu {
+    display: none;
+  }
 }
 
 @media (min-width: 768px) {
@@ -1297,5 +1373,20 @@ header {
 
   #nav-tabs {
     display: block;
+  }
+
+  #subnav__wrapper {
+    padding: 0 40px;
+  }
+}
+
+@media (min-width: 1024px) {
+
+  .header__write-text {
+    margin-right: 6px;
+  }
+
+  .header__write-icon {
+    display: inline-block;
   }
 }
