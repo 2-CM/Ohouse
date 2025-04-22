@@ -1,76 +1,92 @@
 document.addEventListener("DOMContentLoaded", () => {
-    /*** 상수 및 요소 참조 ***/
-    const HEADER_HEIGHT = 50.75; // #header__wrapper 높이
-    const SUBNAV_HEIGHT = 40.75; // #subnav__container 높이
-
     const headerWrapper = document.getElementById("header__wrapper");
     const subnavContainer = document.getElementById("subnav__container");
     const appBanner = document.getElementById("appBanner");
 
     let lastScrollTop = 0;
 
-    /*** 스크롤바 너비 계산 함수 ***/
     function getScrollbarWidth() {
         return window.innerWidth - document.documentElement.clientWidth;
     }
     const scrollbarWidth = getScrollbarWidth();
 
-    /*** 헤더 스타일 적용 함수 ***/
     function applyHeaderStyles() {
         const hasScrollbar = scrollbarWidth > 0;
+        const width = window.innerWidth + "px";
 
-        headerWrapper.style.width = window.innerWidth + "px";
-        subnavContainer.style.width = window.innerWidth + "px";
+        headerWrapper.style.width = width;
+        subnavContainer.style.width = width;
 
-        if (hasScrollbar) {
-            headerWrapper.style.paddingRight = `${scrollbarWidth}px`;
-            subnavContainer.style.paddingRight = `${scrollbarWidth}px`;
+        const paddingRight = hasScrollbar ? `${scrollbarWidth}px` : "0";
+        headerWrapper.style.paddingRight = paddingRight;
+        subnavContainer.style.paddingRight = paddingRight;
+    }
+
+    function updateContainerHeights() {
+        const stickyContainers = document.querySelectorAll(".sticky__container");
+
+        if (window.innerWidth < 768) {
+            // 모바일
+            if (stickyContainers[0]) stickyContainers[0].style.height = "50.75px";
+            if (stickyContainers[1]) stickyContainers[1].style.height = "40.75px";
         } else {
-            headerWrapper.style.paddingRight = "0";
-            subnavContainer.style.paddingRight = "0";
+            // PC
+            if (stickyContainers[0]) stickyContainers[0].style.height = "80.75px";
+            if (stickyContainers[1]) stickyContainers[1].style.height = "51.75px";
         }
     }
 
-    /*** 스크롤 이벤트 핸들러 ***/
     function handleScroll() {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const isMobile = window.innerWidth < 768;
         const atTop = scrollTop <= 0;
         const shouldShowBanner = appBanner.dataset.shouldShow === "true";
 
-        // 헤더 고정 클래스는 항상 유지
-        headerWrapper.classList.add("fixed");
-        subnavContainer.classList.add("fixed");
+        if (isMobile) {
+            headerWrapper.classList.add("fixed");
+            subnavContainer.classList.add("fixed");
 
-        if (scrollTop > lastScrollTop) {
-            // 스크롤 내릴 때: 헤더 숨기기
-            appBanner.style.display = "none";
-            headerWrapper.style.top = `-${HEADER_HEIGHT}px`;
-            subnavContainer.style.top = `-${SUBNAV_HEIGHT - 0.25}px`;
-        } else {
-            // 스크롤 올릴 때: 헤더 다시 표시
-            if (atTop && shouldShowBanner) {
-                appBanner.style.display = "flex";
-                headerWrapper.style.top = `${appBanner.offsetHeight}px`;
-                subnavContainer.style.top = `${appBanner.offsetHeight + HEADER_HEIGHT}px`;
-            } else {
+            if (scrollTop > lastScrollTop) {
                 appBanner.style.display = "none";
-                headerWrapper.style.top = "0";
-                subnavContainer.style.top = `${HEADER_HEIGHT}px`;
+                headerWrapper.style.top = "-50.75px";
+                subnavContainer.style.top = "-40.75px";
+            } else {
+                if (atTop && shouldShowBanner) {
+                    appBanner.style.display = "flex";
+                    headerWrapper.style.top = `${appBanner.offsetHeight}px`;
+                    subnavContainer.style.top = `${appBanner.offsetHeight + 50.75}px`;
+                } else {
+                    appBanner.style.display = "none";
+                    headerWrapper.style.top = "0";
+                    subnavContainer.style.top = "50.75px";
+                }
+            }
+        } else {
+            headerWrapper.classList.add("fixed");
+            subnavContainer.classList.add("fixed");
+
+            headerWrapper.style.top = "0";
+
+            if (scrollTop > lastScrollTop) {
+                subnavContainer.style.top = "29px";
+            } else {
+                subnavContainer.style.top = "80.75px";
             }
         }
 
-        applyHeaderStyles(); // 스크롤 시에도 스타일 유지
+        applyHeaderStyles();
+        updateContainerHeights(); // 👈 이 부분이 중요!
         lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
     }
 
-    // 초기 설정
     applyHeaderStyles();
-
-    // 이벤트 바인딩
+    updateContainerHeights();
     window.addEventListener("scroll", handleScroll);
-    window.addEventListener("resize", applyHeaderStyles);
-
-    window.forceHeaderRecalculate = handleScroll;
+    window.addEventListener("resize", () => {
+        applyHeaderStyles();
+        updateContainerHeights();
+        handleScroll(); // 리사이즈 시 스크롤 상태도 반영
+    });
 
 
     /*** 네비게이션창 ***/
