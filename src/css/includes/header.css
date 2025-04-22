@@ -821,6 +821,15 @@ header {
   height: 51px;
 }
 
+.subnav__list--web {
+  overflow: hidden;
+  display: flex;
+  align-items: stretch;
+  white-space: nowrap;
+  margin: 0 -5px;
+  height: 51px;
+}
+
 .subnav__item {
   height: inherit;
   display: block;
@@ -829,6 +838,10 @@ header {
 /*수정*/
 .subnav__list--mobile>span {
   margin: 0px 5px;
+}
+
+.subnav__list--web>span {
+  margin: 0 5px;
 }
 
 .subnav__link {

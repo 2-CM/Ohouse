@@ -245,4 +245,20 @@ document.addEventListener("DOMContentLoaded", () => {
             document.body.style.overflow = ""; // 스크롤 허용
         }, 300);
     });
+
+    /*** subnav__list ***/
+    const subnav = document.querySelector('.subnav__list');
+
+    function updateSubnavClass() {
+        if (window.innerWidth >= 768) {
+            subnav.classList.remove('subnav__list--mobile');
+            subnav.classList.add('subnav__list--web');
+        } else {
+            subnav.classList.remove('subnav__list--web');
+            subnav.classList.add('subnav__list--mobile');
+        }
+    }
+
+    updateSubnavClass();
+    window.addEventListener('resize', updateSubnavClass);
 });
