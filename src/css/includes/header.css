@@ -1003,6 +1003,96 @@ header {
   overflow: hidden;
 }
 
+.realtime-keyword__row {
+  visibility: visible;
+}
+
+.realtime-keyword__link {
+  display: block;
+}
+
+.realtime-keyword__info {
+  display: flex;
+  align-items: center;
+}
+
+.realtime-keyword__rank {
+  display: inline-block;
+  font-size: 16px;
+  line-height: 20px;
+  font-style: normal;
+  font-weight: 700;
+  color: #2F3438;
+  text-align: center;
+  margin-right: 2px;
+  min-width: 20px;
+}
+
+.realtime-keyword__text {
+  display: inline-block;
+  font-size: 16px;
+  line-height: 20px;
+  flex: 1 0 auto;
+  font-style: normal;
+  font-weight: 400;
+  color: #2F3438;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 104px;
+}
+
+.realtime-keyword__icon {
+  margin-right: 6px;
+  display: flex;
+  align-items: center;
+}
+
+.realtime-keyword__icon-new {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+
+.realtime-keyword__icon-new svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  color: #f05656;
+}
+
+.realtime-keyword__icon--up {
+  display: block;
+  transform: rotate(180deg);
+}
+
+.icon--up__wrapper {
+  display: block;
+}
+
+.icon--up__wrapper.higher {
+  color: rgb(240, 86, 86);
+}
+
+.icon--up__wrapper span {
+  display: block;
+}
+
+.icon--up {
+  display: inline-block;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.icon--up::before {
+  font-family: OhouseIcon;
+  vertical-align: top;
+}
+
+._dropdown_24::before {
+  content: "\e9ca";
+}
+
 .realtime-keyword__toggle {
   display: inline-block;
   margin: 0;

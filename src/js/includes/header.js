@@ -293,4 +293,67 @@ document.addEventListener("DOMContentLoaded", () => {
 
     updateSubnavClass();
     window.addEventListener('resize', updateSubnavClass);
+
+    /*** realtime-keyword ***/
+    const keywords = [
+        { rank: 1, text: "이불 세트", href: "/", change: "up" },
+        { rank: 2, text: "커튼", href: "/", change: "up" },
+        { rank: 3, text: "침대 프레임", href: "/", change: "new" },
+        { rank: 4, text: "러그", href: "/", change: "up" },
+        { rank: 5, text: "수납장", href: "/", change: "new" },
+        { rank: 6, text: "의자", href: "/", change: "up" },
+        { rank: 7, text: "식탁", href: "/", change: "new" },
+        { rank: 8, text: "화장대", href: "/", change: "up" },
+        { rank: 9, text: "스탠드", href: "/", change: "new" },
+        { rank: 10, text: "수건", href: "/", change: "new" },
+    ];
+
+    const itemContainer = document.querySelector('#realtime-keyword__item');
+    let currentIndex = 0;
+
+    function getKeywordHTML(keyword) {
+        let icon = "";
+        switch (keyword.change) {
+            case "up":
+                icon = `
+                <span class="realtime-keyword__icon--up">
+                    <span class="higher icon--up__wrapper">
+                        <span class="_dropdown_24 icon--up"></span>
+                    </span>
+                </span>
+                `;
+                break;
+            case "new":
+                icon = `
+                <span class="realtime-keyword__icon-new">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+                        <path fill="currentColor" d="M4.186 15v-3.93h.037L6.994 15h1.027V9H6.834v3.909h-.033L4.035 9H3v6zM12.794 13.96H10.11v-1.513h2.533v-.965H10.11v-1.447h2.684V9H8.87v6h3.924zM17.096 10.9h.037l1.125 4.1h1.17L21 9h-1.285l-.936 4.345h-.033L17.638 9H16.59l-1.108 4.345h-.033L14.518 9h-1.285l1.568 6h1.17z"></path>
+                    </svg>
+                </span>
+                `;
+                break;
+        }
+
+        return `
+          <div class="realtime-keyword__row">
+            <a href="${keyword.href}" class="realtime-keyword__link">
+              <div class="realtime-keyword__info">
+                <span class="realtime-keyword__rank">${keyword.rank}</span>
+                <span class="realtime-keyword__icon">${icon}</span>
+                <span class="realtime-keyword__text">${keyword.text}</span>
+              </div>
+            </a>
+          </div>
+        `;
+    }
+
+    function updateKeyword() {
+        itemContainer.innerHTML = getKeywordHTML(keywords[currentIndex]);
+        currentIndex = (currentIndex + 1) % keywords.length;
+    }
+
+    // 최초 실행 + 주기적 갱신
+    updateKeyword();
+    setInterval(updateKeyword, 3000);
+
 });
