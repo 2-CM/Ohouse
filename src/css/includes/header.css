@@ -1564,6 +1564,16 @@ header {
     display: block;
     margin-left: 10px;
   }
+
+  #search__container {
+    min-width: 256px;
+    max-width: 326px;
+    padding: 30px;
+  }
+
+  #search__cancel-btn {
+    display: none;
+  }
 }
 
 @media (min-width: 1024px) {

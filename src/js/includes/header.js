@@ -188,7 +188,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    /*** 검색창 (mobile) ***/
+    /*** 검색창 (mobile, web-768) ***/
     const searchBtn = document.getElementById("header__search-btn");
     const searchOverlay = document.getElementById("search__overlay");
     const search = document.getElementById("search__container");
@@ -204,11 +204,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // 검색창 닫기
-    cancelBtn.addEventListener("click", function () {
+    function closeSearch() {
         search.classList.remove("active");
         searchOverlay.classList.remove("active");
-        document.body.style.overflow = ""; // 스크롤 허용
-        document.body.style.paddingRight = ""; // 추가된 스크롤바 공간 제거
+        document.body.style.overflow = "";
+        document.body.style.paddingRight = "";
+    }
+
+    cancelBtn.addEventListener("click", closeSearch);
+    searchOverlay.addEventListener("click", function () {
+        if (window.innerWidth >= 768) {
+            closeSearch();
+        }
     });
 
     // 검색창 열리는 애니메이션이 끝난 후 포커스를 주기
