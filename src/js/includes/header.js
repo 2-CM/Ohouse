@@ -378,4 +378,44 @@ document.addEventListener("DOMContentLoaded", () => {
     updateKeyword();
     setInterval(updateKeyword, 2500);
 
+
+    /*** 글쓰기 드롭다운 ***/
+    const writeButton = document.querySelector('.header__write-btn');
+    const writeDropdown = document.querySelector('.write-dropdown');
+
+    function toggleDropdown() {
+        if (writeDropdown.classList.contains('open')) {
+            writeDropdown.classList.remove('open', 'open-active');
+            // 열 때 적용했던 transform 초기화
+            writeDropdown.style.transform = '';
+        } else {
+
+            // 기본 위치 + 스크롤바 보정
+            const baseX = 442;
+            const baseY = 70;
+            const adjustedX = baseX - scrollbarWidth;
+
+            writeDropdown.style.transform = `translate3d(${adjustedX}px, ${baseY}px, 0px)`;
+
+            writeDropdown.classList.add('open');
+            setTimeout(() => writeDropdown.classList.add('open-active'), 10);
+        }
+    }
+
+    writeButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleDropdown();
+    });
+
+    document.addEventListener('click', (e) => {
+        if (
+            writeDropdown.classList.contains('open') &&
+            !writeDropdown.contains(e.target) &&
+            !writeButton.contains(e.target)
+        ) {
+            writeDropdown.classList.remove('open', 'open-active');
+        }
+    });
+
+
 });
