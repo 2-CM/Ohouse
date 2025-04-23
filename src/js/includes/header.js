@@ -316,21 +316,21 @@ document.addEventListener("DOMContentLoaded", () => {
         switch (keyword.change) {
             case "up":
                 icon = `
-                <span class="realtime-keyword__icon--up">
-                    <span class="higher icon--up__wrapper">
-                        <span class="_dropdown_24 icon--up"></span>
-                    </span>
+              <span class="realtime-keyword__icon--up">
+                <span class="higher icon--up__wrapper">
+                  <span class="_dropdown_24 icon--up"></span>
                 </span>
-                `;
+              </span>
+            `;
                 break;
             case "new":
                 icon = `
-                <span class="realtime-keyword__icon-new">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
-                        <path fill="currentColor" d="M4.186 15v-3.93h.037L6.994 15h1.027V9H6.834v3.909h-.033L4.035 9H3v6zM12.794 13.96H10.11v-1.513h2.533v-.965H10.11v-1.447h2.684V9H8.87v6h3.924zM17.096 10.9h.037l1.125 4.1h1.17L21 9h-1.285l-.936 4.345h-.033L17.638 9H16.59l-1.108 4.345h-.033L14.518 9h-1.285l1.568 6h1.17z"></path>
-                    </svg>
-                </span>
-                `;
+              <span class="realtime-keyword__icon-new">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+                  <path fill="currentColor" d="M4.186 15v-3.93h.037L6.994 15h1.027V9H6.834v3.909h-.033L4.035 9H3v6zM12.794 13.96H10.11v-1.513h2.533v-.965H10.11v-1.447h2.684V9H8.87v6h3.924zM17.096 10.9h.037l1.125 4.1h1.17L21 9h-1.285l-.936 4.345h-.033L17.638 9H16.59l-1.108 4.345h-.033L14.518 9h-1.285l1.568 6h1.17z"></path>
+                </svg>
+              </span>
+            `;
                 break;
         }
 
@@ -348,12 +348,27 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function updateKeyword() {
-        itemContainer.innerHTML = getKeywordHTML(keywords[currentIndex]);
-        currentIndex = (currentIndex + 1) % keywords.length;
+        // 기존 검색어 항목을 애니메이션 후에 제거
+        const currentItem = itemContainer.querySelector('.realtime-keyword__row');
+        if (currentItem) {
+            currentItem.classList.add('exit');
+            setTimeout(() => {
+                currentItem.remove(); // exit 애니메이션 후에 DOM에서 제거
+            }, 200); // exit 애니메이션 시간 후에 DOM에서 제거
+        }
+
+        // 새로운 검색어 추가
+        const newKeywordHTML = getKeywordHTML(keywords[currentIndex]);
+        itemContainer.insertAdjacentHTML('beforeend', newKeywordHTML);
+
+        const newItem = itemContainer.querySelector('.realtime-keyword__row:last-child');
+        newItem.classList.add('slideIn'); // 새 항목에 slideIn 애니메이션 추가
+
+        currentIndex = (currentIndex + 1) % keywords.length; // 인덱스 순환
     }
 
     // 최초 실행 + 주기적 갱신
     updateKeyword();
-    setInterval(updateKeyword, 3000);
+    setInterval(updateKeyword, 2500);
 
 });

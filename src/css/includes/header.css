@@ -1004,7 +1004,32 @@ header {
 }
 
 .realtime-keyword__row {
-  visibility: visible;
+  opacity: 0;
+  animation: slideIn 0.2s ease-in forwards;
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.realtime-keyword__row.exit {
+  animation: slideOut 0.2s ease-out forwards;
+}
+
+@keyframes slideOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }
 
 .realtime-keyword__link {
