@@ -45,6 +45,11 @@ document.addEventListener('DOMContentLoaded', function () {
         },
     });
 
+    // 창 크기 변경 시 swiper 내부 상태를 재계산하여 슬라이드 위치 버벅임 방지
+    bannerSwiper.on('resize', () => {
+        bannerSwiper.update();
+    });
+
     // 인테리어 피드
     const interiorFeedSwiper = new Swiper('#interior-feed .swiper', {
         slidesPerView: 2.5,
