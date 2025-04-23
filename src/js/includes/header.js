@@ -379,23 +379,22 @@ document.addEventListener("DOMContentLoaded", () => {
     setInterval(updateKeyword, 2500);
 
 
-    /*** 글쓰기 드롭다운 ***/
+    /*** header-dropdown - write ***/
     const writeButton = document.querySelector('.header__write-btn');
     const writeDropdown = document.querySelector('.write-dropdown');
 
     function toggleDropdown() {
         if (writeDropdown.classList.contains('open')) {
             writeDropdown.classList.remove('open', 'open-active');
-            // 열 때 적용했던 transform 초기화
-            writeDropdown.style.transform = '';
         } else {
 
-            // 기본 위치 + 스크롤바 보정
-            const baseX = 442;
-            const baseY = 70;
-            const adjustedX = baseX - scrollbarWidth;
-
-            writeDropdown.style.transform = `translate3d(${adjustedX}px, ${baseY}px, 0px)`;
+            if (scrollbarWidth > 0) {
+                // HTML 기본값에서 스크롤바 보정
+                const baseX = 442;
+                const baseY = 70;
+                const adjustedX = baseX - scrollbarWidth;
+                writeDropdown.style.transform = `translate3d(${adjustedX}px, ${baseY}px, 0px)`;
+            }
 
             writeDropdown.classList.add('open');
             setTimeout(() => writeDropdown.classList.add('open-active'), 10);

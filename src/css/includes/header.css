@@ -284,34 +284,29 @@ header {
   content: "\e961";
 }
 
-.write-dropdown {
+.header-dropdown {
   display: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  transform: translate3d(442px, 70px, 0px);
-  /* 버튼 아래에 위치 */
   z-index: 900;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.2s;
 }
 
-.write-dropdown.open {
+.header-dropdown.open {
   display: block;
 }
 
-.write-dropdown.open-active {
+.header-dropdown.open-active {
   opacity: 1;
   pointer-events: auto;
 }
 
-.write-dropdown.open .popper-item {
+.header-dropdown.open .popper-item {
   transform: none;
   transition: transform 0.2s;
 }
 
-.write-dropdown__list {
+.header-dropdown__list {
   position: relative;
   padding: 8px;
   background-color: rgb(255, 255, 255);
