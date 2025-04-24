@@ -265,82 +265,123 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /*** subnav__modal (mobile) ***/
+    /*** header-dropdown (subnav, write) ***/
+    // 요소 선택
     const modalOverlay = document.querySelector("#subnav__modal-overlay");
     const subnavModal = document.querySelector("#subnav__modal-container");
     const subnavModalBtn = document.querySelector("#subnav__modal-btn");
     const subnavModalCloseBtn = document.querySelector("#subnav__modal-close-btn");
+    const subnavDropdown = document.querySelector(".subnav-dropdown");
 
-    // 모달 열기
-    subnavModalBtn.addEventListener("click", () => {
-        modalOverlay.classList.toggle("active");
-        subnavModal.classList.toggle("active");
+    const writeButton = document.querySelector(".header__write-btn");
+    const writeDropdown = document.querySelector(".write-dropdown");
 
-        if (subnavModal.classList.contains("active")) {
-            document.body.style.overflow = "hidden"; // 스크롤 막기
+    // 공통 드롭다운 토글 함수
+    function toggleDropdown(dropdownElement, buttonElement, baseX = 0, baseY = 0, scrollbarWidth = 0) {
+        const isOpen = dropdownElement.classList.contains("open");
+
+        // 다른 드롭다운 닫기
+        document.querySelectorAll(".header-dropdown.open").forEach((el) => {
+            if (el !== dropdownElement) {
+                el.classList.remove("open", "open-active");
+            }
+        });
+
+        if (isOpen) {
+            dropdownElement.classList.remove("open", "open-active");
         } else {
-            document.body.style.overflow = ""; // 원래대로 복구
-        }
-    });
-
-    // 모달 닫기
-    subnavModalCloseBtn.addEventListener("click", () => {
-        subnavModal.classList.add("closing");
-        // 모달 영역을 닫을 때 애니메이션 효과가 끝난 후 클래스를 제거
-        setTimeout(() => {
-            modalOverlay.classList.remove("active");
-            subnavModal.classList.remove("active", "closing");
-            document.body.style.overflow = ""; // 스크롤 허용
-        }, 300);
-    });
-
-    modalOverlay.addEventListener("click", (event) => {
-        subnavModal.classList.add("closing");
-        setTimeout(() => {
-            modalOverlay.classList.remove("active");
-            subnavModal.classList.remove("active", "closing");
-            document.body.style.overflow = ""; // 스크롤 허용
-        }, 300);
-    });
-
-
-    /*** header-dropdown (subnav) ***/
-
-
-
-    /*** header-dropdown (write) ***/
-    const writeButton = document.querySelector('.header__write-btn');
-    const writeDropdown = document.querySelector('.write-dropdown');
-
-    function toggleDropdown() {
-        if (writeDropdown.classList.contains('open')) {
-            writeDropdown.classList.remove('open', 'open-active');
-        } else {
-
-            if (scrollbarWidth > 0) {
-                // HTML 기본값에서 스크롤바 보정
-                const baseX = 442;
-                const baseY = 70;
+            // 위치 조정이 필요한 경우만 적용
+            if (baseX && baseY) {
                 const adjustedX = baseX - scrollbarWidth;
-                writeDropdown.style.transform = `translate3d(${adjustedX}px, ${baseY}px, 0px)`;
+                dropdownElement.style.transform = `translate3d(${adjustedX}px, ${baseY}px, 0px)`;
             }
 
-            writeDropdown.classList.add('open');
-            setTimeout(() => writeDropdown.classList.add('open-active'), 10);
+            dropdownElement.classList.add("open");
+            setTimeout(() => dropdownElement.classList.add("open-active"), 10);
         }
     }
 
-    writeButton.addEventListener('click', (e) => {
-        e.stopPropagation();
-        toggleDropdown();
+    // 모바일: subnav 모달 열기 / PC: subnav 드롭다운 토글
+    subnavModalBtn.addEventListener("click", (e) => {
+        if (window.innerWidth < 768) {
+            modalOverlay.classList.toggle("active");
+            subnavModal.classList.toggle("active");
+            document.body.style.overflow = subnavModal.classList.contains("active") ? "hidden" : "";
+        } else {
+            e.stopPropagation();
+            toggleDropdown(subnavDropdown, subnavModalBtn, 370.5, 61, scrollbarWidth);
+        }
     });
 
-    document.addEventListener('click', (e) => {
-        if (
-            writeDropdown.classList.contains('open') &&
-            !writeDropdown.contains(e.target) &&
-            !writeButton.contains(e.target)
-        ) {
-            writeDropdown.classList.remove('open', 'open-active');
+    // 모바일: 모달 닫기 (닫기 버튼)
+    subnavModalCloseBtn.addEventListener("click", () => {
+        if (window.innerWidth < 768) {
+            subnavModal.classList.add("closing");
+            setTimeout(() => {
+                modalOverlay.classList.remove("active");
+                subnavModal.classList.remove("active", "closing");
+                document.body.style.overflow = "";
+            }, 300);
+        }
+    });
+
+    // 모바일: 오버레이 클릭 시 모달 닫기
+    modalOverlay.addEventListener("click", () => {
+        if (window.innerWidth < 768) {
+            subnavModal.classList.add("closing");
+            setTimeout(() => {
+                modalOverlay.classList.remove("active");
+                subnavModal.classList.remove("active", "closing");
+                document.body.style.overflow = "";
+            }, 300);
+        }
+    });
+
+    // PC: write 드롭다운 토글
+    writeButton.addEventListener("click", (e) => {
+        e.stopPropagation();
+        toggleDropdown(writeDropdown, writeButton, 442, 70, scrollbarWidth);
+    });
+
+    // 공통 닫기 처리: 바깥 클릭 시 모든 드롭다운 닫기
+    document.addEventListener("click", (e) => {
+        document.querySelectorAll(".header-dropdown.open").forEach((dropdown) => {
+            const relatedButton = dropdown.previousElementSibling;
+            if (
+                !dropdown.contains(e.target) &&
+                !relatedButton.contains(e.target)
+            ) {
+                dropdown.classList.remove("open", "open-active");
+            }
+        });
+    });
+
+    window.addEventListener("resize", () => {
+        const isMobile = window.innerWidth < 768;
+
+        if (!isMobile) {
+            const wasModalOpen = subnavModal.classList.contains("active");
+
+            // 모바일 모달 닫기
+            modalOverlay.classList.remove("active");
+            subnavModal.classList.remove("active", "closing");
+            document.body.style.overflow = "";
+
+            // 모달이 열려 있었다면 → 드롭다운 자동으로 열기
+            if (wasModalOpen) {
+                toggleDropdown(subnavDropdown, subnavModalBtn);
+            }
+        } else {
+            const wasDropdownOpen = subnavDropdown.classList.contains("open");
+
+            // 드롭다운 닫고 → 모달 자동으로 열기
+            if (wasDropdownOpen) {
+                subnavDropdown.classList.remove("open", "open-active");
+
+                modalOverlay.classList.add("active");
+                subnavModal.classList.add("active");
+                document.body.style.overflow = "hidden";
+            }
         }
     });
 
