@@ -348,10 +348,17 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // PC: realtime 드롭다운 토글
+    let isKeywordRendered = false;
+
     realtimeButton.addEventListener("click", (e) => {
         e.stopPropagation();
         toggleDropdown(realtimeDropdown, realtimeButton)
-    })
+
+        if (!isKeywordRendered) {
+            renderAllKeywords(); // 최초 1회만 실행
+            isKeywordRendered = true;
+        }
+    });
 
     // 공통 닫기 처리: 바깥 클릭 시 모든 드롭다운 닫기
     document.addEventListener("click", (e) => {
@@ -403,7 +410,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    /*** realtime-keyword ***/
+    /*** realtime-keyword (slide, dropdown) ***/
     const keywords = [
         { rank: 1, text: "이불 세트", href: "/", change: "up" },
         { rank: 2, text: "커튼", href: "/", change: "up" },
@@ -417,44 +424,46 @@ document.addEventListener("DOMContentLoaded", () => {
         { rank: 10, text: "수건", href: "/", change: "new" },
     ];
 
-    const itemContainer = document.querySelector('#realtime-keyword__item');
-    let currentIndex = 0;
-
-    function getKeywordHTML(keyword) {
-        let icon = "";
-        switch (keyword.change) {
-            case "up":
-                icon = `
-              <span class="realtime-keyword__icon--up">
-                <span class="higher icon--up__wrapper">
-                  <span class="_dropdown_24 icon--up"></span>
+    // 공통 함수
+    function getKeywordIconHTML(change) {
+        if (change === "up") {
+            return `
+                <span class="realtime-keyword__icon--up">
+                    <span class="higher icon--up__wrapper">
+                        <span class="_dropdown_24 icon--up"></span>
+                    </span>
                 </span>
-              </span>
             `;
-                break;
-            case "new":
-                icon = `
-              <span class="realtime-keyword__icon-new">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
-                  <path fill="currentColor" d="M4.186 15v-3.93h.037L6.994 15h1.027V9H6.834v3.909h-.033L4.035 9H3v6zM12.794 13.96H10.11v-1.513h2.533v-.965H10.11v-1.447h2.684V9H8.87v6h3.924zM17.096 10.9h.037l1.125 4.1h1.17L21 9h-1.285l-.936 4.345h-.033L17.638 9H16.59l-1.108 4.345h-.033L14.518 9h-1.285l1.568 6h1.17z"></path>
-                </svg>
-              </span>
+        } else if (change === "new") {
+            return `
+                <span class="realtime-keyword__icon-new">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+                        <path fill="currentColor" d="M4.186 15v-3.93h.037L6.994 15h1.027V9H6.834v3.909h-.033L4.035 9H3v6zM12.794 13.96H10.11v-1.513h2.533v-.965H10.11v-1.447h2.684V9H8.87v6h3.924zM17.096 10.9h.037l1.125 4.1h1.17L21 9h-1.285l-.936 4.345h-.033L17.638 9H16.59l-1.108 4.345h-.033L14.518 9h-1.285l1.568 6h1.17z"></path>
+                    </svg>
+                </span>
             `;
-                break;
         }
+        return "";
+    }
 
+    // 슬라이드 (1개씩 나타나는 부분)
+    function getSlideKeywordHTML(keyword) {
+        const icon = getKeywordIconHTML(keyword.change);
         return `
-          <div class="realtime-keyword__row">
-            <a href="${keyword.href}" class="realtime-keyword__link">
-              <div class="realtime-keyword__info">
-                <span class="realtime-keyword__rank">${keyword.rank}</span>
-                <span class="realtime-keyword__icon">${icon}</span>
-                <span class="realtime-keyword__text">${keyword.text}</span>
-              </div>
-            </a>
-          </div>
+            <div class="realtime-keyword__row">
+                <a href="${keyword.href}" class="realtime-keyword__link">
+                    <div class="realtime-keyword__info">
+                        <span class="realtime-keyword__rank">${keyword.rank}</span>
+                        <span class="realtime-keyword__icon">${icon}</span>
+                        <span class="realtime-keyword__text">${keyword.text}</span>
+                    </div>
+                </a>
+            </div>
         `;
     }
+
+    const itemContainer = document.querySelector('#realtime-keyword__item');
+    let currentIndex = 0;
 
     function updateKeyword() {
         // 기존 검색어 항목을 애니메이션 후에 제거
@@ -467,13 +476,32 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         // 새로운 검색어 추가
-        const newKeywordHTML = getKeywordHTML(keywords[currentIndex]);
+        const newKeywordHTML = getSlideKeywordHTML(keywords[currentIndex]);
         itemContainer.insertAdjacentHTML('beforeend', newKeywordHTML);
 
         const newItem = itemContainer.querySelector('.realtime-keyword__row:last-child');
         newItem.classList.add('slideIn'); // 새 항목에 slideIn 애니메이션 추가
 
         currentIndex = (currentIndex + 1) % keywords.length; // 인덱스 순환
+    }
+
+    // 드롭다운 (10개 한 번에 보여주기)
+    function getDropdownKeywordHTML(keyword) {
+        const icon = getKeywordIconHTML(keyword.change);
+        return `
+            <a href="${keyword.href}" class="realtime-dropdown__link">
+                <div class="realtime-dropdown__item">    
+                    <span class="realtime-keyword__rank">${keyword.rank}</span>
+                    <span class="realtime-keyword__icon">${icon}</span>
+                    <span class="realtime-keyword__text">${keyword.text}</span>
+                </div>
+            </a>
+        `;
+    }
+
+    function renderAllKeywords() {
+        const listContainer = document.querySelector('.realtime-dropdown__list');
+        listContainer.innerHTML = keywords.map(getDropdownKeywordHTML).join('');
     }
 
     // 최초 실행 + 주기적 갱신

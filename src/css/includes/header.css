@@ -1278,6 +1278,23 @@ header {
   transform: rotate(180deg);
 }
 
+.realtime-dropdown__list {
+  display: grid;
+}
+
+.realtime-dropdown__link {
+  display: block;
+}
+
+.realtime-dropdown__link:hover {
+  background-color: rgb(247, 249, 250);
+}
+
+.realtime-dropdown__item {
+  display: flex;
+  align-items: center;
+  margin: 8px 16px;
+}
 
 /*** subnav__modal ***/
 #subnav__modal-overlay {
