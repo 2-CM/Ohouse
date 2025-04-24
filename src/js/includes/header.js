@@ -265,7 +265,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /*** subnav__modal (mobile) ***/
-    /*** header-dropdown (subnav, write) ***/
+    /*** header-dropdown (subnav, write, realtime) ***/
     // 요소 선택
     const modalOverlay = document.querySelector("#subnav__modal-overlay");
     const subnavModal = document.querySelector("#subnav__modal-container");
@@ -275,6 +275,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const writeButton = document.querySelector(".header__write-btn");
     const writeDropdown = document.querySelector(".write-dropdown");
+
+    const realtimeButton = document.querySelector(".realtime-keyword__toggle");
+    const realtimeDropdown = document.querySelector(".realtime-dropdown")
+    const realtimeCloseBtn = document.querySelector("#realtime-dropdown__btn");
 
     // 공통 드롭다운 토글 함수
     function toggleDropdown(dropdownElement, buttonElement, baseX = 0, baseY = 0, scrollbarWidth = 0) {
@@ -343,6 +347,12 @@ document.addEventListener("DOMContentLoaded", () => {
         toggleDropdown(writeDropdown, writeButton, 442, 70, scrollbarWidth);
     });
 
+    // PC: realtime 드롭다운 토글
+    realtimeButton.addEventListener("click", (e) => {
+        e.stopPropagation();
+        toggleDropdown(realtimeDropdown, realtimeButton)
+    })
+
     // 공통 닫기 처리: 바깥 클릭 시 모든 드롭다운 닫기
     document.addEventListener("click", (e) => {
         document.querySelectorAll(".header-dropdown.open").forEach((dropdown) => {
@@ -354,6 +364,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 dropdown.classList.remove("open", "open-active");
             }
         });
+    });
+
+    realtimeCloseBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        if (realtimeDropdown.classList.contains("open")) {
+            realtimeDropdown.classList.remove("open", "open-active");
+        }
     });
 
     window.addEventListener("resize", () => {
