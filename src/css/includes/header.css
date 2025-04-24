@@ -1237,6 +1237,48 @@ header {
   vertical-align: top;
 }
 
+/*** realtime-dropdown ***/
+.realtime-dropdown {
+  z-index: 10000;
+}
+
+#realtime-dropdown__content {
+  width: 268px;
+  background: rgb(255, 255, 255);
+  padding: 20px 0px;
+}
+
+#realtime-dropdown__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0px 16px 8px;
+}
+
+#realtime-dropdown__title {
+  font-size: 18px;
+  line-height: 24px;
+  font-style: normal;
+  font-weight: 700;
+  color: rgb(47, 52, 56);
+}
+
+#realtime-dropdown__btn {
+  display: inline-block;
+  margin: 0px;
+  border: none;
+  background: none;
+  font: inherit;
+  padding: 6px;
+}
+
+#realtime-dropdown__btn span {
+  display: block;
+  color: rgb(130, 140, 148);
+  transform: rotate(180deg);
+}
+
+
 /*** subnav__modal ***/
 #subnav__modal-overlay {
   position: fixed;
