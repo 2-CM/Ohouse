@@ -247,6 +247,23 @@ document.addEventListener("DOMContentLoaded", () => {
     clearButton.style.display = "none";
 
 
+    /*** subnav__list ***/
+    const subnav = document.querySelector('.subnav__list');
+
+    function updateSubnavClass() {
+        if (window.innerWidth >= 768) {
+            subnav.classList.remove('subnav__list--mobile');
+            subnav.classList.add('subnav__list--web');
+        } else {
+            subnav.classList.remove('subnav__list--web');
+            subnav.classList.add('subnav__list--mobile');
+        }
+    }
+
+    updateSubnavClass();
+    window.addEventListener('resize', updateSubnavClass);
+
+
     /*** subnav__modal (mobile) ***/
     const modalOverlay = document.querySelector("#subnav__modal-overlay");
     const subnavModal = document.querySelector("#subnav__modal-container");
@@ -285,24 +302,48 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 300);
     });
 
+
     /*** header-dropdown (subnav) ***/
 
 
-    /*** subnav__list ***/
-    const subnav = document.querySelector('.subnav__list');
 
-    function updateSubnavClass() {
-        if (window.innerWidth >= 768) {
-            subnav.classList.remove('subnav__list--mobile');
-            subnav.classList.add('subnav__list--web');
+    /*** header-dropdown (write) ***/
+    const writeButton = document.querySelector('.header__write-btn');
+    const writeDropdown = document.querySelector('.write-dropdown');
+
+    function toggleDropdown() {
+        if (writeDropdown.classList.contains('open')) {
+            writeDropdown.classList.remove('open', 'open-active');
         } else {
-            subnav.classList.remove('subnav__list--web');
-            subnav.classList.add('subnav__list--mobile');
+
+            if (scrollbarWidth > 0) {
+                // HTML 기본값에서 스크롤바 보정
+                const baseX = 442;
+                const baseY = 70;
+                const adjustedX = baseX - scrollbarWidth;
+                writeDropdown.style.transform = `translate3d(${adjustedX}px, ${baseY}px, 0px)`;
+            }
+
+            writeDropdown.classList.add('open');
+            setTimeout(() => writeDropdown.classList.add('open-active'), 10);
         }
     }
 
-    updateSubnavClass();
-    window.addEventListener('resize', updateSubnavClass);
+    writeButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleDropdown();
+    });
+
+    document.addEventListener('click', (e) => {
+        if (
+            writeDropdown.classList.contains('open') &&
+            !writeDropdown.contains(e.target) &&
+            !writeButton.contains(e.target)
+        ) {
+            writeDropdown.classList.remove('open', 'open-active');
+        }
+    });
+
 
     /*** realtime-keyword ***/
     const keywords = [
@@ -380,44 +421,5 @@ document.addEventListener("DOMContentLoaded", () => {
     // 최초 실행 + 주기적 갱신
     updateKeyword();
     setInterval(updateKeyword, 2500);
-
-
-    /*** header-dropdown (write) ***/
-    const writeButton = document.querySelector('.header__write-btn');
-    const writeDropdown = document.querySelector('.write-subnavModal');
-
-    function toggleDropdown() {
-        if (writeDropdown.classList.contains('open')) {
-            writeDropdown.classList.remove('open', 'open-active');
-        } else {
-
-            if (scrollbarWidth > 0) {
-                // HTML 기본값에서 스크롤바 보정
-                const baseX = 442;
-                const baseY = 70;
-                const adjustedX = baseX - scrollbarWidth;
-                writeDropdown.style.transform = `translate3d(${adjustedX}px, ${baseY}px, 0px)`;
-            }
-
-            writeDropdown.classList.add('open');
-            setTimeout(() => writeDropdown.classList.add('open-active'), 10);
-        }
-    }
-
-    writeButton.addEventListener('click', (e) => {
-        e.stopPropagation();
-        toggleDropdown();
-    });
-
-    document.addEventListener('click', (e) => {
-        if (
-            writeDropdown.classList.contains('open') &&
-            !writeDropdown.contains(e.target) &&
-            !writeButton.contains(e.target)
-        ) {
-            writeDropdown.classList.remove('open', 'open-active');
-        }
-    });
-
 
 });
