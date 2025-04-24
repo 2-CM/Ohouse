@@ -263,6 +263,10 @@ header {
   overflow: hidden;
 }
 
+.header__write-btn:hover {
+  background-color: #0198ED;
+}
+
 .header__write-text {
   vertical-align: middle;
   white-space: nowrap;
@@ -327,6 +331,10 @@ header {
   font-size: 15px;
   line-height: 0;
   outline: none;
+}
+
+.write-dropdown__item:hover {
+  background-color: rgb(247, 249, 250);
 }
 
 .write-dropdown__thumbnail {
@@ -1068,6 +1076,9 @@ header {
   color: #424242;
 }
 
+.subnav-dropdown__link:hover {
+  color: rgb(10, 165, 255);
+}
 
 /*** realtime-keyword ***/
 #realtime-keyword {
