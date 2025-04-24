@@ -999,11 +999,11 @@ header {
   color: rgb(10, 165, 255);
 }
 
-#subnav__dropdown {
+#subnav__modal {
   line-height: 0;
 }
 
-#subnav__dropdown-btn {
+#subnav__modal-btn {
   margin: 0px;
   border: none;
   background: none;
@@ -1017,7 +1017,7 @@ header {
   transform: translateX(-100%);
 }
 
-#subnav__dropdown-btn::after {
+#subnav__modal-btn::after {
   content: "";
   position: absolute;
   right: 0px;
@@ -1026,7 +1026,7 @@ header {
   background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgb(255, 255, 255) 50%);
 }
 
-.subnav__dropdown-btn-icon {
+.subnav__modal-btn-icon {
   display: inline-block;
   font-size: 12px;
   line-height: 1;
@@ -1034,7 +1034,7 @@ header {
   z-index: 2;
 }
 
-.subnav__dropdown-btn-icon::before {
+.subnav__modal-btn-icon::before {
   font-family: OhouseIcon;
   vertical-align: top;
 }
@@ -1211,8 +1211,8 @@ header {
   vertical-align: top;
 }
 
-/*** subnav__dropdown ***/
-#subnav__dropdown-overlay {
+/*** subnav__modal ***/
+#subnav__modal-overlay {
   position: fixed;
   top: 0px;
   left: 0px;
@@ -1228,13 +1228,13 @@ header {
   transition: all 0.3s;
 }
 
-#subnav__dropdown-overlay.active {
+#subnav__modal-overlay.active {
   opacity: 1;
   visibility: visible;
   display: flex;
 }
 
-#subnav__dropdown-container {
+#subnav__modal-container {
   max-height: 78%;
   margin: 0px;
   vertical-align: middle;
@@ -1250,19 +1250,19 @@ header {
   transition: all 0.3s;
 }
 
-#subnav__dropdown-container.active {
+#subnav__modal-container.active {
   transform: translateY(0);
   opacity: 1;
 }
 
-#subnav__dropdown-container.closing {
+#subnav__modal-container.closing {
   transform: translateY(100%);
   /* 닫을 때 아래로 내려감 */
   opacity: 0;
   transition: all 0.3s;
 }
 
-#subnav__dropdown-top {
+#subnav__modal-top {
   width: 32px;
   min-height: 4px;
   border-radius: 2px;
@@ -1270,12 +1270,12 @@ header {
   margin: 6px auto 0px;
 }
 
-#subnav__dropdown-header {
+#subnav__modal-header {
   padding: 16px 16px 10px;
   line-height: 0;
 }
 
-#subnav__dropdown-title {
+#subnav__modal-title {
   font-size: 20px;
   line-height: 28px;
   display: inline-block;
@@ -1288,7 +1288,7 @@ header {
   white-space: pre-line;
 }
 
-#subnav__dropdown-close-btn {
+#subnav__modal-close-btn {
   display: inline-block;
   margin: 0px;
   padding: 0px;
@@ -1300,14 +1300,14 @@ header {
   height: 24px;
 }
 
-.subnav__dropdown-close-btn-icon {
+.subnav__modal-close-btn-icon {
   display: inline-block;
   font-size: 24px;
   line-height: 1;
   color: rgb(47, 52, 56);
 }
 
-.subnav__dropdown-close-btn-icon::before {
+.subnav__modal-close-btn-icon::before {
   font-family: OhouseIcon;
   vertical-align: top;
 }
@@ -1316,7 +1316,7 @@ header {
   content: "\e9ba";
 }
 
-#subnav__dropdown-content {
+#subnav__modal-content {
   font-size: 16px;
   line-height: 24px;
   display: flex;
@@ -1328,19 +1328,19 @@ header {
   padding-bottom: 9px;
 }
 
-#subnav__dropdown-list {
+#subnav__modal-list {
   display: flex;
   flex-wrap: wrap;
   padding-top: 30px;
 }
 
-.subnav__dropdown-item {
+.subnav__modal-item {
   height: inherit;
   display: block;
   flex-basis: 50%;
 }
 
-.subnav__dropdown-text--active {
+.subnav__modal-text--active {
   font-size: 15px;
   line-height: 24px;
   display: block;
@@ -1350,7 +1350,7 @@ header {
   color: rgb(10, 165, 255);
 }
 
-.subnav__dropdown-text {
+.subnav__modal-text {
   font-size: 15px;
   line-height: 24px;
   display: block;
@@ -1359,7 +1359,7 @@ header {
   font-weight: 700;
 }
 
-.subnav__dropdown-text:hover {
+.subnav__modal-text:hover {
   color: rgb(10, 165, 255);
 }
 
@@ -1575,11 +1575,11 @@ header {
     line-height: 18px;
   }
 
-  #subnav__dropdown-overlay {
+  #subnav__modal-overlay {
     align-items: flex-end;
   }
 
-  #subnav__dropdown-container {
+  #subnav__modal-container {
     max-width: none;
     padding-bottom: env(safe-area-inset-bottom);
     vertical-align: bottom;

@@ -247,43 +247,46 @@ document.addEventListener("DOMContentLoaded", () => {
     clearButton.style.display = "none";
 
 
-    /*** subnav__dropdown (mobile) ***/
-    const dropdownOverlay = document.querySelector("#subnav__dropdown-overlay");
-    const dropdown = document.querySelector("#subnav__dropdown-container");
-    const dropdownButton = document.querySelector("#subnav__dropdown-btn");
-    const closeButton = document.querySelector("#subnav__dropdown-close-btn");
+    /*** subnav__modal (mobile) ***/
+    const modalOverlay = document.querySelector("#subnav__modal-overlay");
+    const subnavModal = document.querySelector("#subnav__modal-container");
+    const subnavModalBtn = document.querySelector("#subnav__modal-btn");
+    const subnavModalCloseBtn = document.querySelector("#subnav__modal-close-btn");
 
-    // 드롭다운 열기
-    dropdownButton.addEventListener("click", () => {
-        dropdownOverlay.classList.toggle("active");
-        dropdown.classList.toggle("active");
+    // 모달 열기
+    subnavModalBtn.addEventListener("click", () => {
+        modalOverlay.classList.toggle("active");
+        subnavModal.classList.toggle("active");
 
-        if (dropdown.classList.contains("active")) {
+        if (subnavModal.classList.contains("active")) {
             document.body.style.overflow = "hidden"; // 스크롤 막기
         } else {
             document.body.style.overflow = ""; // 원래대로 복구
         }
     });
 
-    // 드롭다운 닫기
-    closeButton.addEventListener("click", () => {
-        dropdown.classList.add("closing");
-        // 드롭다운 영역을 닫을 때 애니메이션 효과가 끝난 후 클래스를 제거
+    // 모달 닫기
+    subnavModalCloseBtn.addEventListener("click", () => {
+        subnavModal.classList.add("closing");
+        // 모달 영역을 닫을 때 애니메이션 효과가 끝난 후 클래스를 제거
         setTimeout(() => {
-            dropdownOverlay.classList.remove("active");
-            dropdown.classList.remove("active", "closing");
+            modalOverlay.classList.remove("active");
+            subnavModal.classList.remove("active", "closing");
             document.body.style.overflow = ""; // 스크롤 허용
         }, 300);
     });
 
-    dropdownOverlay.addEventListener("click", (event) => {
-        dropdown.classList.add("closing");
+    modalOverlay.addEventListener("click", (event) => {
+        subnavModal.classList.add("closing");
         setTimeout(() => {
-            dropdownOverlay.classList.remove("active");
-            dropdown.classList.remove("active", "closing");
+            modalOverlay.classList.remove("active");
+            subnavModal.classList.remove("active", "closing");
             document.body.style.overflow = ""; // 스크롤 허용
         }, 300);
     });
+
+    /*** header-dropdown (subnav) ***/
+
 
     /*** subnav__list ***/
     const subnav = document.querySelector('.subnav__list');
@@ -379,9 +382,9 @@ document.addEventListener("DOMContentLoaded", () => {
     setInterval(updateKeyword, 2500);
 
 
-    /*** header-dropdown - write ***/
+    /*** header-dropdown (write) ***/
     const writeButton = document.querySelector('.header__write-btn');
-    const writeDropdown = document.querySelector('.write-dropdown');
+    const writeDropdown = document.querySelector('.write-subnavModal');
 
     function toggleDropdown() {
         if (writeDropdown.classList.contains('open')) {
