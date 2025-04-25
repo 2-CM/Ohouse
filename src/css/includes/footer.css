@@ -295,6 +295,10 @@ footer {
     color: #828C94;
 }
 
+.footer__social-icon:hover {
+    color: #656E75;
+}
+
 @media (max-width: 1023px) {
     #footer__container {
         grid-template-columns: 1fr 1px 1fr;
