@@ -211,15 +211,15 @@ footer {
     align-items: center;
 }
 
-#footer__company-icon {
+.footer__company-icon {
     display: inline-block;
-    width: 12px;
-    height: 12px;
+    font-size: 12px;
+    line-height: 1;
 }
 
-#footer__company-icon img {
-    width: 12px;
-    height: 12px;
+.footer__company-icon::before {
+    font-family: OhouseIcon;
+    vertical-align: top;
 }
 
 .footer__company-info {
