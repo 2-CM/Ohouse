@@ -51,16 +51,19 @@ footer {
     align-items: center;
 }
 
-#footer__top-chevron {
+.footer__top-chevron {
     display: inline-block;
-    width: 12px;
-    height: 12px;
+    font-size: 12px;
+    line-height: 1;
 }
 
-#footer__top-chevron img {
+.footer__top-chevron::before {
+    font-family: OhouseIcon;
     vertical-align: top;
-    width: 12px;
-    height: 12px;
+}
+
+._chevron_thick_right_12:before {
+    content: "\e974";
 }
 
 #footer__contact-info {
