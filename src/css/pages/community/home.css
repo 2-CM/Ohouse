@@ -7,7 +7,7 @@ body {
     margin-top: 20px;
 }
 
-/* 배너너 */
+/* 배너 */
 #banner {
     width: 100%;
     padding: 0 16px;
@@ -31,7 +31,7 @@ body {
     overflow: hidden;
 }
 
-#banner .image-wrapper {
+#banner-main .image-wrapper {
     display: flex;
 }
 
@@ -347,4 +347,39 @@ body {
 
 .grid-item:hover .feed-post-image {
     transform: scale(1.05);
+}
+
+/* 배너 (min-width: 768px) */
+@media (min-width: 768px) {
+    #banner {
+        padding: 0 40px;
+    }
+
+    #banner-preview {
+        display: flex;
+        flex: 1;
+    }
+
+    #banner-preview .image-wrapper {
+        width: 100%;
+        position: relative;
+        border-radius: 4px;
+        overflow: hidden;
+    }
+
+    #banner-preview .link {
+    }
+
+    #banner-preview .preview-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.2s;
+    }
+
+    #banner-main {
+        margin-left: 16px;
+        /* display: flex; */
+        display: none;
+    }
 }

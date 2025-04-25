@@ -2,8 +2,21 @@ document.addEventListener('DOMContentLoaded', function () {
     // 배너
     const bannerImageList = [];
 
-    for (let i = 1; i <= 15; i++) {
-        bannerImageList.push(`banner-main${i}.avif`);
+    const isMobile = window.innerWidth < 768;
+
+    window.addEventListener('resize', () => {
+        const currentIsMobile = window.innerWidth <= 768;
+
+        // 모바일/PC 구간이 바뀌었을 때만 새로고침
+        if (currentIsMobile !== isMobile) {
+            window.location.reload();
+        }
+    });
+
+    for (let i = 1; i <= 13; i++) {
+        const num = String(i).padStart(2, '0');
+        const imageName = isMobile ? `banner-main-mobile-${num}.png` : `banner-main-${num}.png`;
+        bannerImageList.push(imageName);
     }
 
     // 배너 swiper-wrapper 요소 선택
