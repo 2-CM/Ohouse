@@ -225,12 +225,12 @@ footer {
     vertical-align: top;
 }
 
-.footer__company-info {
+.footer__company-details-mobile {
     display: none;
     margin-top: 12px;
 }
 
-.footer__company-info--active {
+.footer__company-details-mobile--active {
     display: block;
 }
 
