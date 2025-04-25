@@ -287,11 +287,13 @@ document.addEventListener("DOMContentLoaded", () => {
         // 다른 드롭다운 닫기
         document.querySelectorAll(".header-dropdown.open").forEach((el) => {
             if (el !== dropdownElement) {
-                el.classList.remove("open", "open-active");
+                el.classList.remove("open", "open-active", "exiting");
             }
         });
 
         if (isOpen) {
+            dropdownElement.classList.add("exiting");
+            dropdownElement.addEventListener("transitionend", handleTransitionEnd);
             dropdownElement.classList.remove("open", "open-active");
         } else {
             // 위치 조정이 필요한 경우만 적용
@@ -300,8 +302,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 dropdownElement.style.transform = `translate3d(${adjustedX}px, ${baseY}px, 0px)`;
             }
 
+            dropdownElement.classList.remove("exiting");
             dropdownElement.classList.add("open");
             setTimeout(() => dropdownElement.classList.add("open-active"), 10);
+        }
+    }
+
+    // transitionend 이벤트 핸들러
+    function handleTransitionEnd(e) {
+        // opacity나 transform 애니메이션이 끝난 후 클래스를 제거
+        if (e.propertyName === "opacity" || e.propertyName === "transform") {
+            e.target.classList.remove("exiting");
+            e.target.removeEventListener("transitionend", handleTransitionEnd);
         }
     }
 

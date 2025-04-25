@@ -289,24 +289,40 @@ header {
 }
 
 .header-dropdown {
-  display: none;
+  visibility: hidden;
   z-index: 900;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.2s;
 }
 
 .header-dropdown.open {
-  display: block;
+  transform: none;
+  transition: opacity 0.2s;
+  visibility: visible;
 }
 
 .header-dropdown.open-active {
   opacity: 1;
   pointer-events: auto;
+  transition: opacity 0.2s;
+}
+
+.header-dropdown .popper-item {
+  transform: translate(0px, -10px);
 }
 
 .header-dropdown.open .popper-item {
   transform: none;
+  transition: transform 0.2s;
+}
+
+.header-dropdown.exiting {
+  opacity: 0;
+  visibility: hidden;
+  transition: visibility 0.2s, opacity 0.2s;
+}
+
+.header-dropdown.exiting .popper-item {
   transition: transform 0.2s;
 }
 
