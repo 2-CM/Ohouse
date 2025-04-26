@@ -42,8 +42,8 @@ document.addEventListener('DOMContentLoaded', function () {
         slidesPerView: 1,
         loop: true,
         navigation: {
-            prevEl: '.swiper-button-prev',
-            nextEl: '.swiper-button-next',
+            prevEl: '.button-prev',
+            nextEl: '.button-next',
         },
         pagination: {
             el: '.banner__swiper-pagination .page-number',
