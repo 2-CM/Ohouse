@@ -78,6 +78,10 @@ body {
     content: '\e918';
 }
 
+.banner__swiper-pagination-desktop {
+    display: none;
+}
+
 /* 배너 (min-width: 768px) */
 @media (min-width: 768px) {
     #banner {
@@ -239,7 +243,7 @@ body {
         cursor: pointer;
     }
 
-    .plus-icon {
+    .banner__swiper-pagination-desktop .plus-icon {
         font-size: 12px;
     }
 }
