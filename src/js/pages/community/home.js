@@ -46,10 +46,12 @@ document.addEventListener('DOMContentLoaded', function () {
             nextEl: '.button-next',
         },
         pagination: {
-            el: '.banner__swiper-pagination .page-number',
+            el: isMobile
+                ? '.banner__swiper-pagination .page-number'
+                : '.banner__swiper-pagination-desktop .page-number',
             type: 'custom',
             renderCustom: (swiper, current, total) => {
-                return `${current} / ${total}`; // 페이지 번호 형식
+                return isMobile ? `${current} / ${total}` : `${current}/${total}`; // 페이지 번호 형식
             },
         },
         autoplay: {

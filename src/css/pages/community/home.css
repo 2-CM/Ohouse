@@ -68,11 +68,11 @@ body {
     color: #ffffff;
 }
 
-.banner__swiper-pagination .plus-icon {
+.plus-icon {
     margin-left: 2px;
 }
 
-.banner__swiper-pagination .plus-icon::before {
+.plus-icon::before {
     font-family: OhouseIcon;
     vertical-align: top;
     content: '\e918';
@@ -216,6 +216,31 @@ body {
         font-family: OhouseIcon;
         vertical-align: top;
         content: '\e966';
+    }
+
+    .banner__swiper-pagination {
+        display: none;
+    }
+
+    .banner__swiper-pagination-desktop {
+        position: absolute;
+        right: 12px;
+        bottom: 12px;
+        z-index: 1;
+        background-color: rgba(33, 38, 41, 0.5);
+        border-radius: 13px;
+        color: #ffffff;
+        font-weight: 700;
+        padding: 4px 8px 4px 10px;
+        font-size: 14px;
+        height: 26px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    .plus-icon {
+        font-size: 12px;
     }
 }
 
