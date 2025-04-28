@@ -17,20 +17,57 @@
             <!-- 배너 -->
             <section id="banner">
                 <!-- 배너 미리보기 영역 -->
-                <div id="banner-preview"></div>
+                <div id="banner-preview">
+                    <div class="image-wrapper">
+                        <a class="link" href="#">
+                            <img
+                                class="preview-image event"
+                                src="/src/assets/images/community/home/banners/banner-preview.jpg"
+                                alt="배너 프리뷰 이미지"
+                            />
+                            <div class="preview-info">
+                                <p class="title">작아도 충분해! 싱그러운 0.5평 베란다정원</p>
+                                <div class="profile-info">
+                                    <img
+                                        class="profile-image"
+                                        src="/src/assets/images/community/home/banners/banner-preview-user-profile.jpg"
+                                        alt="프로필 이미지"
+                                    />
+                                    <span class="profile-name">솔룸</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
 
                 <!-- 배너 메인 영역 -->
                 <div id="banner-main">
                     <div class="swiper">
                         <div class="swiper-wrapper"></div>
 
-                        <div class="swiper-button-prev"></div>
-                        <div class="swiper-button-next"></div>
-
+                        <!-- 모바일용 pagination -->
                         <div class="banner__swiper-pagination">
                             <span class="page-number"></span>
                             <span class="plus-icon"></span>
                         </div>
+                    </div>
+
+                    <!-- swiper 버튼 -->
+                    <div class="prev-button-wrapper swiper-button-wrapper">
+                        <button class="button button-prev" type="button">
+                            <span class="chevron-icon chevron-left"></span>
+                        </button>
+                    </div>
+                    <div class="next-button-wrapper swiper-button-wrapper">
+                        <button class="button button-next" type="button">
+                            <span class="chevron-icon chevron-right"></span>
+                        </button>
+                    </div>
+
+                    <!-- swiper pagination -->
+                    <div class="banner__swiper-pagination-desktop">
+                        <span class="page-number"></span>
+                        <span class="plus-icon"></span>
                     </div>
                 </div>
             </section>

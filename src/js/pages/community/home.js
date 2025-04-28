@@ -1,59 +1,88 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // 배너
-    const bannerImageList = [];
+    const bannerImageList = []; // 배너 이미지 파일명을 저장할 리스트
+    let isMobile = window.innerWidth < 768; // 현재 화면이 모바일인지 여부
+    let bannerSwiper;
 
-    for (let i = 1; i <= 15; i++) {
-        bannerImageList.push(`banner-main${i}.avif`);
+    // 현재 화면 크기에 맞춰 배너 swiper를 초기화하거나 재설정하는 함수
+    function initBannerSwiper() {
+        // 기존 swiper가 있다면 제거
+        if (bannerSwiper) {
+            bannerSwiper.destroy(true, true);
+        }
+
+        bannerImageList.length = 0; // 기존 리스트 비우기
+
+        // 현재 화면 크기에 맞는 이미지 파일명 리스트 재구성
+        for (let i = 1; i <= 13; i++) {
+            const num = String(i).padStart(2, '0');
+            const imageName = isMobile ? `banner-main-mobile-${num}.png` : `banner-main-${num}.png`;
+            bannerImageList.push(imageName);
+        }
+
+        // swiper-wrapper에 새로운 이미지 슬라이드 추가
+        const bannerSwiperWrapper = document.querySelector('#banner-main .swiper-wrapper');
+        bannerSwiperWrapper.innerHTML = bannerImageList
+            .map(
+                (image) => `
+                <div class="swiper-slide">
+                    <a href="#">
+                        <div class="image-wrapper">
+                            <img class="event" src="/src/assets/images/community/home/banners/${image}" alt="배너 이미지" />
+                        </div>
+                    </a>
+                </div>
+            `
+            )
+            .join('');
+
+        // 배너 Swiper 초기화
+        bannerSwiper = new Swiper('#banner-main .swiper', {
+            slidesPerView: 1,
+            loop: true,
+            navigation: {
+                prevEl: '.button-prev',
+                nextEl: '.button-next',
+            },
+            pagination: {
+                el: isMobile
+                    ? '.banner__swiper-pagination .page-number'
+                    : '.banner__swiper-pagination-desktop .page-number',
+                type: 'custom',
+                renderCustom: (swiper, current, total) => {
+                    return isMobile ? `${current} / ${total}` : `${current}/${total}`;
+                },
+            },
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+        });
+
+        // resize 시 swiper 내부 상태 업데이트
+        bannerSwiper.on('resize', () => {
+            bannerSwiper.update();
+        });
     }
 
-    // 배너 swiper-wrapper 요소 선택
-    const bannerSwiperWrapper = document.querySelector('#banner .swiper-wrapper');
+    initBannerSwiper(); // 최초 1회 초기화 실행
 
-    // bannerImageList 배열의 이미지들을 동적으로 swiper-slide로 추가
-    bannerSwiperWrapper.innerHTML = bannerImageList
-        .map(
-            (image) => `
-            <div class="swiper-slide">
-                <a href="#">
-                    <div class="image-wrapper">
-                        <img class="event" src="/src/assets/images/community/home/banners/${image}" alt="배너 이미지" />
-                    </div>
-                </a>
-            </div>
-        `
-        )
-        .join(''); // map()으로 HTML 문자열을 생성하고, join('')으로 하나의 문자열로 합침
-
-    // 배너 Swiper 초기화
-    const bannerSwiper = new Swiper('#banner .swiper', {
-        slidesPerView: 1,
-        loop: true,
-        navigation: {
-            prevEl: '.swiper-button-prev',
-            nextEl: '.swiper-button-next',
-        },
-        pagination: {
-            el: '.banner__swiper-pagination .page-number',
-            type: 'custom',
-            renderCustom: (swiper, current, total) => {
-                return `${current} / ${total}`; // 페이지 번호 형식
-            },
-        },
-        autoplay: {
-            delay: 5000,
-            disableOnInteraction: false,
-        },
+    // 창 크기 변경 감지 후 모바일/PC 구간이 달라지면 swiper 재초기화
+    window.addEventListener('resize', () => {
+        const currentIsMobile = window.innerWidth < 768;
+        if (currentIsMobile !== isMobile) {
+            isMobile = currentIsMobile; // 상태 업데이트
+            initBannerSwiper(); // 새로 초기화
+        }
     });
 
-    // 인테리어 피드
+    // 인테리어 피드 Swiper 초기화
     const interiorFeedSwiper = new Swiper('#interior-feed .swiper', {
         slidesPerView: 2.5,
         slidesOffsetAfter: 35,
     });
 
-    // 북마크 버튼 클릭 시 빈 아이콘과 꽉 찬 아이콘을 토글
+    // 북마크 버튼 클릭 시 아이콘 토글
     const bookmarkButtons = document.querySelectorAll('.bookmark-button');
-
     bookmarkButtons.forEach((button) => {
         const bookmarkIcon = button.querySelector('.bookmark-icon');
 
