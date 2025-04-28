@@ -472,6 +472,11 @@ body {
         box-shadow: 0 2px 5px rgba(63, 71, 77, 0.15);
     }
 
+    #banner-main .button:hover,
+    .button:active {
+        background-color: #f7f9fa;
+    }
+
     #banner-main .chevron-icon {
         display: inline-block;
         font-size: 24px;
