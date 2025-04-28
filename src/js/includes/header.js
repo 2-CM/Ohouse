@@ -81,6 +81,8 @@ document.addEventListener("DOMContentLoaded", () => {
             if (scrollTop > lastScrollTop) {
                 // 아래로 스크롤: 서브네비 살짝 위로
                 subnavContainer.style.top = "29px";
+
+                subnavDropdown.classList.remove('open', 'open-active');
             } else {
                 // 위로 스크롤: 서브네비 원위치
                 subnavContainer.style.top = "80.75px";
