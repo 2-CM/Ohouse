@@ -58,7 +58,7 @@
   </div>
   <!-- 헤더 -->
   <header>
-    <div id="header__container" style="height: 50.75px;">
+    <div class="sticky__container" style="height: 50.75px;">
       <div id="header__wrapper">
         <div id="header__top">
           <div id="header__menu-btn-wrapper">
@@ -73,6 +73,18 @@
             </a>
           </div>
 
+          <div id="nav-tabs">
+            <a class="nav-tabs__item--active" href="/">
+              <span class="nav-tabs__text">커뮤니티</span>
+            </a>
+            <a class="nav-tabs__item" href="/">
+              <span class="nav-tabs__text">쇼핑</span>
+            </a>
+            <a class="nav-tabs__item" href="/">
+              <span class="nav-tabs__text">인테리어/생활</span>
+            </a>
+          </div>
+
           <div id="header__actions">
             <div id="header__actions-wrapper">
               <div id="header__search">
@@ -80,9 +92,74 @@
                   <span class="_search_24 header__search-btn-icon"></span>
                 </button>
               </div>
+
               <a id="header__cart-link" href="/" aria-label="장바구니 페이지 링크 버튼">
                 <span class="_cart_24 header__cart-btn-icon"></span>
               </a>
+
+              <div id="header__menu">
+                <div id="header__menu-links">
+                  <a class="header__menu-link" href="/">로그인</a>
+                  <a class="header__menu-link" href="/">회원가입</a>
+                </div>
+                <span id="header__write">
+                  <button type="button" class="header__write-btn">
+                    <span class="header__write-text">글쓰기</span>
+                    <span class="_chevron_down_18 header__write-icon"></span>
+                  </button>
+                </span>
+                <!-- 글쓰기 드롭다운 -->
+                <div class="header-dropdown write-dropdown"
+                  style="position: absolute; inset: 0px auto auto 0px; transform: translate3d(442px, 70px, 0px);">
+                  <div class="popper-item header-dropdown__list">
+                    <a class="write-dropdown__item" href="/">
+                      <div class="write-dropdown__thumbnail">
+                        <img class="write-dropdown__icon" src="/src/assets/icons/header/write1.svg" alt="">
+                      </div>
+                      <div class="write-dropdown__content">
+                        <div class="write-dropdown__title">사진/동영상 올리기</div>
+                        <div class="write-dropdown__description">우리 집의 공간과 나의 일상을 기록해 보세요.</div>
+                      </div>
+                    </a>
+                    <a class="write-dropdown__item" href="/">
+                      <div class="write-dropdown__thumbnail">
+                        <img class="write-dropdown__icon" src="/src/assets/icons/header/write2.svg" alt="">
+                      </div>
+                      <div class="write-dropdown__content">
+                        <div class="write-dropdown__title">집들이 글쓰기</div>
+                        <div class="write-dropdown__description">집에 관한 이야기를 글로 작성해 보세요.</div>
+                      </div>
+                    </a>
+                    <a class="write-dropdown__item" href="/">
+                      <div class="write-dropdown__thumbnail">
+                        <img class="write-dropdown__icon" src="/src/assets/icons/header/write3.svg" alt="">
+                      </div>
+                      <div class="write-dropdown__content">
+                        <div class="write-dropdown__title">노하우 글쓰기</div>
+                        <div class="write-dropdown__description">다양한 인테리어 노하우를 공유해 주세요.</div>
+                      </div>
+                    </a>
+                    <a class="write-dropdown__item" href="/">
+                      <div class="write-dropdown__thumbnail">
+                        <img class="write-dropdown__icon" src="/src/assets/icons/header/write4.svg" alt="">
+                      </div>
+                      <div class="write-dropdown__content">
+                        <div class="write-dropdown__title">상품 리뷰 쓰기</div>
+                        <div class="write-dropdown__description">상품 리뷰를 작성하고 포인트도 받아 보세요.</div>
+                      </div>
+                    </a>
+                    <a class="write-dropdown__item" href="/">
+                      <div class="write-dropdown__thumbnail">
+                        <img class="write-dropdown__icon" src="/src/assets/icons/header/write5.svg" alt="">
+                      </div>
+                      <div class="write-dropdown__content">
+                        <div class="write-dropdown__title">시공 전문가 리뷰쓰기</div>
+                        <div class="write-dropdown__description">시공 전문가 리뷰를 작성하고 포인트도 받아 보세요.</div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -467,11 +544,11 @@
     </div>
 
     <!-- 서브 네비게이션 -->
-    <div id="header__container" style="height: 40.75px;">
+    <div class="sticky__container" style="height: 40.75px;">
       <div id="subnav__container">
         <div id="subnav__wrapper">
           <div id="subnav__menu">
-            <nav class="subnav__list--mobile">
+            <nav class="subnav__list subnav__list--mobile">
               <span class="subnav__item">
                 <div class="subnav__link">
                   <a class="subnav__link-item--active" href="/">
@@ -608,73 +685,141 @@
                 </div>
               </span>
             </nav>
-            <span id="subnav__dropdown">
-              <button type="button" id="subnav__dropdown-btn">
-                <span class="_chevron_down_12 subnav__dropdown-btn-icon"></span>
+            <span id="subnav__modal">
+              <button type="button" id="subnav__modal-btn">
+                <span class="_chevron_down_12 subnav__modal-btn-icon"></span>
               </button>
+            </span>
+            <div class="header-dropdown subnav-dropdown"
+              style="position: absolute; inset: 0px auto auto 0px; transform: translate3d(370.5px, 61px, 0px);">
+              <div class="popper-item header-dropdown__list">
+                <div class="subnav-dropdown__content">
+                  <span class="subnav-dropdown__item">
+                    <a class="subnav-dropdown__link" href="/">살림수납</a>
+                  </span>
+                  <span class="subnav-dropdown__item">
+                    <a class="subnav-dropdown__link" href="/">반려동물</a>
+                  </span>
+                  <span class="subnav-dropdown__item">
+                    <a class="subnav-dropdown__link" href="/">육아</a>
+                  </span>
+                  <span class="subnav-dropdown__item">
+                    <a class="subnav-dropdown__link" href="/">홈스토랑</a>
+                  </span>
+                  <span class="subnav-dropdown__item">
+                    <a class="subnav-dropdown__link" href="/">플랜테리어</a>
+                  </span>
+                  <span class="subnav-dropdown__item">
+                    <a class="subnav-dropdown__link" href="/">콜렉터블</a>
+                  </span>
+                  <span class="subnav-dropdown__item">
+                    <a class="subnav-dropdown__link" href="/">캠핑</a>
+                  </span>
+                  <span class="subnav-dropdown__item">
+                    <a class="subnav-dropdown__link" href="/">취미</a>
+                  </span>
+                  <span class="subnav-dropdown__item">
+                    <a class="subnav-dropdown__link" href="/">핫플레이스</a>
+                  </span>
+                  <span class="subnav-dropdown__item">
+                    <a class="subnav-dropdown__link" href="/">이벤트</a>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="realtime-keyword">
+            <div id="realtime-keyword__inner">
+              <span id="realtime-keyword__container">
+                <div id="realtime-keyword__list">
+                  <div id="realtime-keyword__item"></div>
+                  <button type="button" class="realtime-keyword__toggle">
+                    <span class="_chevron_down_18 realtime-keyowrd__toggle-icon"></span>
+                  </button>
+                </div>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 서브 네비게이션 모달창 -->
+    <div id="subnav__modal-overlay">
+      <div id="subnav__modal-container">
+        <div id="subnav__modal-top"></div>
+        <div id="subnav__modal-header">
+          <span id="subnav__modal-title">탭 선택하기</span>
+          <button type="button" id="subnav__modal-close-btn">
+            <span class="_dismiss_24 subnav__modal-close-btn-icon"></span>
+          </button>
+        </div>
+        <div id="subnav__modal-content">
+          <div id="subnav__modal-list">
+            <span class="subnav__modal-item">
+              <a href="/" class="subnav__modal-text--active">홈</a>
+            </span>
+            <span class="subnav__modal-item">
+              <a href="/" class="subnav__modal-text">추천</a>
+            </span>
+            <span class="subnav__modal-item">
+              <a href="/" class="subnav__modal-text">#채널</a>
+            </span>
+            <span class="subnav__modal-item">
+              <a href="/" class="subnav__modal-text">집들이</a>
+            </span>
+            <span class="subnav__modal-item">
+              <a href="/" class="subnav__modal-text">집사진</a>
+            </span>
+            <span class="subnav__modal-item">
+              <a href="/" class="subnav__modal-text">살림수납</a>
+            </span>
+            <span class="subnav__modal-item">
+              <a href="/" class="subnav__modal-text">반려동물</a>
+            </span>
+            <span class="subnav__modal-item">
+              <a href="/" class="subnav__modal-text">육아</a>
+            </span>
+            <span class="subnav__modal-item">
+              <a href="/" class="subnav__modal-text">홈스토랑</a>
+            </span>
+            <span class="subnav__modal-item">
+              <a href="/" class="subnav__modal-text">플랜테리어</a>
+            </span>
+            <span class="subnav__modal-item">
+              <a href="/" class="subnav__modal-text">콜렉터블</a>
+            </span>
+            <span class="subnav__modal-item">
+              <a href="/" class="subnav__modal-text">캠핑</a>
+            </span>
+            <span class="subnav__modal-item">
+              <a href="/" class="subnav__modal-text">취미</a>
+            </span>
+            <span class="subnav__modal-item">
+              <a href="/" class="subnav__modal-text">핫플레이스</a>
+            </span>
+            <span class="subnav__modal-item">
+              <a href="/" class="subnav__modal-text">이벤트</a>
             </span>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- 서브 네비게이션 드롭다운 -->
-    <div id="subnav__dropdown-overlay">
-      <div id="subnav__dropdown-container">
-        <div id="subnav__dropdown-top"></div>
-        <div id="subnav__dropdown-header">
-          <span id="subnav__dropdown-title">탭 선택하기</span>
-          <button type="button" id="subnav__dropdown-close-btn">
-            <span class="_dismiss_24 subnav__dropdown-close-btn-icon"></span>
-          </button>
-        </div>
-        <div id="subnav__dropdown-content">
-          <div id="subnav__dropdown-list">
-            <span class="subnav__dropdown-item">
-              <a href="/" class="subnav__dropdown-text--active">홈</a>
-            </span>
-            <span class="subnav__dropdown-item">
-              <a href="/" class="subnav__dropdown-text">추천</a>
-            </span>
-            <span class="subnav__dropdown-item">
-              <a href="/" class="subnav__dropdown-text">#채널</a>
-            </span>
-            <span class="subnav__dropdown-item">
-              <a href="/" class="subnav__dropdown-text">집들이</a>
-            </span>
-            <span class="subnav__dropdown-item">
-              <a href="/" class="subnav__dropdown-text">집사진</a>
-            </span>
-            <span class="subnav__dropdown-item">
-              <a href="/" class="subnav__dropdown-text">살림수납</a>
-            </span>
-            <span class="subnav__dropdown-item">
-              <a href="/" class="subnav__dropdown-text">반려동물</a>
-            </span>
-            <span class="subnav__dropdown-item">
-              <a href="/" class="subnav__dropdown-text">육아</a>
-            </span>
-            <span class="subnav__dropdown-item">
-              <a href="/" class="subnav__dropdown-text">홈스토랑</a>
-            </span>
-            <span class="subnav__dropdown-item">
-              <a href="/" class="subnav__dropdown-text">플랜테리어</a>
-            </span>
-            <span class="subnav__dropdown-item">
-              <a href="/" class="subnav__dropdown-text">콜렉터블</a>
-            </span>
-            <span class="subnav__dropdown-item">
-              <a href="/" class="subnav__dropdown-text">캠핑</a>
-            </span>
-            <span class="subnav__dropdown-item">
-              <a href="/" class="subnav__dropdown-text">취미</a>
-            </span>
-            <span class="subnav__dropdown-item">
-              <a href="/" class="subnav__dropdown-text">핫플레이스</a>
-            </span>
-            <span class="subnav__dropdown-item">
-              <a href="/" class="subnav__dropdown-text">이벤트</a>
-            </span>
+    <!-- 실시간 검색어 드롭다운 -->
+    <div class="header-dropdown realtime-dropdown"
+      style="position: fixed; inset: 0px 0px auto auto; transform: translate3d(-40px, 131.333px, 0px);">
+      <div class="popper-item header-dropdown__list" style="transform: translate3d(24px, -70px, 0px);">
+        <div id="realtime-dropdown__content">
+          <header id="realtime-dropdown__header">
+            <h2 id="realtime-dropdown__title">인기 검색어</h2>
+            <button type="button" id="realtime-dropdown__btn">
+              <span class="_chevron_down_18 realtime-keyowrd__toggle-icon"></span>
+            </button>
+          </header>
+          <div>
+            <div mode="list" class="realtime-dropdown__list"></div>
           </div>
         </div>
       </div>
