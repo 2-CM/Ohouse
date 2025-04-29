@@ -565,7 +565,7 @@ body {
     }
 
     .feed-content .feed-post {
-        width: calc(98% - 12px);
+        width: calc(97.5% - 12px);
     }
 
     .feed-content .more-slide {
