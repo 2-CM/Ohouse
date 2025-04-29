@@ -180,7 +180,6 @@ body {
 
 /* 인테리어 피드 - content */
 .feed-content {
-    width: calc(100% + 32px);
     margin-left: -16px;
 }
 
@@ -352,6 +351,12 @@ body {
 
 .grid-item:hover .feed-post-image {
     transform: scale(1.05);
+}
+
+@media (max-width: 767) {
+    .feed-content {
+        width: calc(100% + 32px);
+    }
 }
 
 /* 768px 이상의 화면에서 적용되는 스타일 */
