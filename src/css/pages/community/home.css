@@ -295,6 +295,10 @@ body {
     justify-content: center;
 }
 
+.feed-content .more-link:hover > div:first-of-type {
+    background-color: rgb(218, 221, 224);
+}
+
 .feed-content .more-icon {
     font-size: 18px;
 }
@@ -558,5 +562,9 @@ body {
 
     .feed-content .feed-post {
         width: calc(98% - 12px);
+    }
+
+    .feed-content .more-slide {
+        padding-right: 16px;
     }
 }
