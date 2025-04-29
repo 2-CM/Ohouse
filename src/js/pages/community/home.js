@@ -72,8 +72,25 @@ document.addEventListener('DOMContentLoaded', function () {
             interiorFeedSwiper.destroy(true, true);
         }
 
+        // Swiper 이전/다음 버튼 요소 선택
+        const prevBtn = document.querySelector('.feed-button-prev');
+        const nextBtn = document.querySelector('.feed-button-next');
+
         const options = {
             slidesPerView: isMobile ? 2.5 : 4,
+            slidesPerGroup: 4,
+            navigation: {
+                prevEl: '.feed-button-prev',
+                nextEl: '.feed-button-next',
+            },
+            on: {
+                init: function () {
+                    updateNavButtons(this); // 초기 버튼 상태 설정
+                },
+                slideChange: function () {
+                    updateNavButtons(this); // 슬라이드 변경 시 버튼 상태 업데이트
+                },
+            },
         };
 
         if (isMobile) {
@@ -81,6 +98,23 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         interiorFeedSwiper = new Swiper('#interior-feed .swiper', options);
+
+        // 버튼 상태 업데이트 함수
+        function updateNavButtons(swiper) {
+            // 맨 처음 슬라이드면 이전 버튼 숨김
+            if (swiper.isBeginning) {
+                prevBtn.style.display = 'none';
+            } else {
+                prevBtn.style.display = '';
+            }
+
+            // 맨 끝 슬라이드면 다음 버튼 숨김
+            if (swiper.isEnd) {
+                nextBtn.style.display = 'none';
+            } else {
+                nextBtn.style.display = '';
+            }
+        }
     }
 
     // 초기화 함수 실행 (최초 1회)

@@ -43,7 +43,7 @@ body {
     transform: scale(1.05);
 }
 
-#banner .button {
+#home .button {
     display: none;
 }
 
@@ -181,6 +181,7 @@ body {
 /* 인테리어 피드 - content */
 .feed-content {
     margin-left: -16px;
+    position: relative;
 }
 
 .feed-content .swiper-wrapper {
@@ -451,12 +452,15 @@ body {
         flex: 1;
     }
 
-    #banner-main .swiper-button-wrapper {
+    #home .swiper-button-wrapper {
         position: absolute;
         top: 50%;
         transform: translate(-50%, -50%);
         transition: opacity 0.2s ease-in-out;
         z-index: 1;
+    }
+
+    #banner-main .swiper-button-wrapper {
         opacity: 0;
     }
 
@@ -464,15 +468,15 @@ body {
         opacity: 1;
     }
 
-    #banner-main .prev-button-wrapper {
+    #home .prev-button-wrapper {
         left: 0%;
     }
 
-    #banner-main .next-button-wrapper {
+    #home .next-button-wrapper {
         left: 100%;
     }
 
-    #banner-main .button {
+    #home .button {
         width: 48px;
         height: 48px;
         font-weight: 700;
@@ -485,25 +489,25 @@ body {
         box-shadow: 0 2px 5px rgba(63, 71, 77, 0.15);
     }
 
-    #banner-main .button:hover,
+    #home .button:hover,
     .button:active {
         background-color: #f7f9fa;
     }
 
-    #banner-main .chevron-icon {
+    #home .chevron-icon {
         display: inline-block;
         font-size: 24px;
         line-height: 1;
         color: #2f3438;
     }
 
-    #banner-main .chevron-right::before {
+    #home .chevron-right::before {
         font-family: OhouseIcon;
         vertical-align: top;
         content: '\e96a';
     }
 
-    #banner-main .chevron-left::before {
+    #home .chevron-left::before {
         font-family: OhouseIcon;
         vertical-align: top;
         content: '\e966';
@@ -566,5 +570,9 @@ body {
 
     .feed-content .more-slide {
         padding-right: 16px;
+    }
+
+    #interior-feed .prev-button-wrapper {
+        margin-left: 16px;
     }
 }
