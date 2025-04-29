@@ -555,4 +555,8 @@ body {
     .feed-more-link .feed-more:hover {
         opacity: 0.5;
     }
+
+    .feed-content .feed-post {
+        width: calc(98% - 12px);
+    }
 }
