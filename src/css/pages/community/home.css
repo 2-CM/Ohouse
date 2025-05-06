@@ -179,7 +179,7 @@ body {
 }
 
 /* 인테리어 피드 - content */
-.feed-content {
+#interior-feed .feed-content {
     margin-left: -16px;
     position: relative;
 }
@@ -316,14 +316,13 @@ body {
 }
 
 /* 인테리어 컬렉션 - content */
-#interior-collections .grid-container {
+#interior-collections .interior-collections__container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
-    padding: 0px 16px;
 }
 
-#interior-collections .grid-item {
+#interior-collections .interior-collections__item {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -539,7 +538,7 @@ body {
     }
 
     /* 인테리어 피드 */
-    #interior-feed {
+    .home-feed {
         padding: 0px 40px;
         margin: 40px auto;
     }
@@ -574,5 +573,10 @@ body {
 
     #interior-feed .prev-button-wrapper {
         margin-left: 16px;
+    }
+
+    /* 인테리어 컬렉션 */
+    #interior-collections .interior-collections__container {
+        grid-template-columns: repeat(4, 1fr);
     }
 }
