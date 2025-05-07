@@ -87,7 +87,7 @@ body {
     padding: 0 16px;
 }
 
-#quick-menu .grid-container {
+#quick-menu .quick-menu__container {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     margin-top: 16px;
@@ -535,6 +535,20 @@ body {
 
     .banner__swiper-pagination-desktop .plus-icon {
         font-size: 12px;
+    }
+
+    /* 퀵 메뉴 */
+    #quick-menu {
+        padding: 0 40px;
+    }
+
+    #quick-menu .quick-menu__container {
+        display: flex;
+        margin: 30px 0 40px;
+    }
+
+    #quick-menu .quick-menu__item {
+        flex: 1;
     }
 
     /* 인테리어 피드 */
