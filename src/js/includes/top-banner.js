@@ -6,21 +6,19 @@ document.addEventListener('DOMContentLoaded', () => {
     /*** 상태 확인 함수 ***/
     const isTopBannerClosed = () => localStorage.getItem("topBannerClosed") === "true";
 
-    /*** 표시 제어 함수 ***/
-    const toggleTopBanner = (show) => {
-        if (!topBanner) return;
-        topBanner.style.display = show ? "block" : "none";
-    };
-
     /*** 초기화 ***/
     const initTopBanner = () => {
-        const shouldShow = !isTopBannerClosed();
-        toggleTopBanner(shouldShow);
+        if (!topBanner) return;
+        if (isTopBannerClosed()) {
+            topBanner.style.display = "none";
+        } else {
+            topBanner.style.display = ""; // CSS에 맡김
+        }
     };
 
     /*** 이벤트 리스너 ***/
     closeTopBannerBtn?.addEventListener("click", () => {
-        toggleTopBanner(false);
+        topBanner.style.display = "none";
         localStorage.setItem("topBannerClosed", "true");
     });
 
