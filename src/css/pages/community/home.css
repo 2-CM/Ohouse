@@ -594,3 +594,15 @@ body {
         grid-template-columns: repeat(4, 1fr);
     }
 }
+
+/* 1024px 이상의 화면에서 적용되는 스타일 */
+@media (min-width: 1024px) {
+    /* 배너 */
+    #banner {
+        padding: 0 60px;
+    }
+
+    #banner-main {
+        margin-left: 20px;
+    }
+}
