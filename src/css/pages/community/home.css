@@ -609,4 +609,19 @@ body {
     #banner-main {
         margin-left: 20px;
     }
+
+    #banner-preview .title {
+        font-size: 32px;
+        line-height: 42px;
+    }
+
+    #banner-preview .profile-image {
+        width: 24px;
+        height: 24px;
+    }
+
+    #banner-preview .profile-name {
+        font-size: 16px;
+        line-height: 20px;
+    }
 }
