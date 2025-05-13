@@ -365,6 +365,10 @@ body {
 
 /* 768px 이상의 화면에서 적용되는 스타일 */
 @media (min-width: 768px) {
+    #home {
+        margin-top: 30px;
+    }
+
     /* 배너 */
     #banner {
         padding: 0 40px;
