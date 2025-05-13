@@ -102,17 +102,19 @@ document.addEventListener("DOMContentLoaded", () => {
         lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
     }
 
+    let isMobileView = window.innerWidth < 768;
+    // 로컬스토리지 상태 확인 함수
+    const isTopBannerClosed = () => localStorage.getItem("topBannerClosed") === "true";
     // 초기 실행
     applyHeaderStyles();
     updateContainerHeights();
-    handleScroll(); // 초기 스크롤 위치에 맞게 설정
 
     // 리사이즈 이벤트 등록
     window.addEventListener("resize", () => {
         const nowIsMobile = window.innerWidth < 768;
 
-        // 모바일 → PC 전환 시 topBanner 다시 보이게 설정
-        if (!nowIsMobile && isMobileView) {
+        // 모바일 → PC 전환 시, 유저가 탑배너를 닫지 않았다면 다시 표시
+        if (!nowIsMobile && isMobileView && !isTopBannerClosed()) {
             topBanner.style.display = "";
         }
 
