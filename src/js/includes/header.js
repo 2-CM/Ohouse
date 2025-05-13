@@ -105,14 +105,27 @@ document.addEventListener("DOMContentLoaded", () => {
     // 초기 실행
     applyHeaderStyles();
     updateContainerHeights();
+    handleScroll(); // 초기 스크롤 위치에 맞게 설정
 
-    // 이벤트 등록
-    window.addEventListener("scroll", handleScroll);
+    // 리사이즈 이벤트 등록
     window.addEventListener("resize", () => {
+        const nowIsMobile = window.innerWidth < 768;
+
+        // 모바일 → PC 전환 시 topBanner 다시 보이게 설정
+        if (!nowIsMobile && isMobileView) {
+            topBanner.style.display = "";
+        }
+
+        // 뷰 상태 업데이트
+        isMobileView = nowIsMobile;
+
         applyHeaderStyles();       // 리사이즈 시 width 조정
         updateContainerHeights();  // 높이 다시 계산
         handleScroll();            // 스크롤 위치에 맞게 동작 반영
     });
+
+    // 스크롤 이벤트 등록
+    window.addEventListener("scroll", handleScroll);
 
 
     /*** 네비게이션창 ***/
