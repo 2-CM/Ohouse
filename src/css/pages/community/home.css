@@ -451,6 +451,10 @@ body {
         flex: 1;
     }
 
+    #banner .swiper {
+        border-radius: 4px;
+    }
+
     #home .swiper-button-wrapper {
         position: absolute;
         top: 50%;
