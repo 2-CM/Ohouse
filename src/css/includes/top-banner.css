@@ -1,0 +1,87 @@
+/*** top-banner.css ***/
+
+#top-banner {
+    position: relative;
+    display: none;
+    z-index: 1000;
+}
+
+.top-banner__link--left {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    background-color: #1496f4;
+    left: 0;
+}
+
+.top-banner__link--right {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    background-color: #1496f4;
+    right: 0;
+}
+
+#top-banner__wrapper {
+    display: flex;
+    max-width: 1156px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.top-banner__link--center {
+    flex: 1 0 0;
+    background-image: url(https://image.ohou.se/i/bucketplace-v2-development/uploads/exhibitions/descriptions/170544879717314750.png);
+    background-color: #1496f4;
+    position: relative;
+    height: 50px;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 1;
+}
+
+.top-banner__close-button {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    font: inherit;
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    display: block;
+    margin: -25px 0 0;
+    padding: 12px;
+    color: white;
+    width: 48px;
+    height: 48px;
+    box-sizing: border-box;
+    font-size: 0;
+    line-height: 0;
+}
+
+._dismiss_thick_24 {
+    display: inline-block;
+    font-size: 24px;
+    line-height: 1;
+    color: #ffffff;
+}
+
+._dismiss_thick_24::before {
+    content: "\e9c6";
+}
+
+.top-banner__close-icon::before {
+    font-family: Ohouseicon;
+    vertical-align: top;
+}
+
+@media (min-width: 768px) {
+    #top-banner {
+        display: block;
+    }
+}
