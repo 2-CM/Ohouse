@@ -628,6 +628,11 @@ body {
         font-size: 16px;
         line-height: 20px;
     }
+
+    /* 인테리어 피드 */
+    .home-feed {
+        padding: 0px 60px;
+    }
 }
 
 /* 1256px 이상의 화면에서 적용되는 스타일 */
