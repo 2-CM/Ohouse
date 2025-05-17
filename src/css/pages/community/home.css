@@ -647,7 +647,8 @@ body {
 
 /* 1256px 이상의 화면에서 적용되는 스타일 */
 @media (min-width: 1256px) {
-    #banner {
+    #banner,
+    #quick-menu {
         max-width: 1256px;
         margin: 0 auto;
     }
