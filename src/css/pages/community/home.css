@@ -365,6 +365,10 @@ body {
 
 /* 768px 이상의 화면에서 적용되는 스타일 */
 @media (min-width: 768px) {
+    #home {
+        margin-top: 30px;
+    }
+
     /* 배너 */
     #banner {
         padding: 0 40px;
@@ -449,6 +453,10 @@ body {
         margin-left: 16px;
         min-width: 160px;
         flex: 1;
+    }
+
+    #banner .swiper {
+        border-radius: 4px;
     }
 
     #home .swiper-button-wrapper {
@@ -592,5 +600,40 @@ body {
     /* 인테리어 컬렉션 */
     #interior-collections .interior-collections__container {
         grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* 1024px 이상의 화면에서 적용되는 스타일 */
+@media (min-width: 1024px) {
+    /* 배너 */
+    #banner {
+        padding: 0 60px;
+    }
+
+    #banner-main {
+        margin-left: 20px;
+    }
+
+    #banner-preview .title {
+        font-size: 32px;
+        line-height: 42px;
+    }
+
+    #banner-preview .profile-image {
+        width: 24px;
+        height: 24px;
+    }
+
+    #banner-preview .profile-name {
+        font-size: 16px;
+        line-height: 20px;
+    }
+}
+
+/* 1256px 이상의 화면에서 적용되는 스타일 */
+@media (min-width: 1256px) {
+    #banner {
+        max-width: 1256px;
+        margin: 0 auto;
     }
 }
