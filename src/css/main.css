@@ -3,6 +3,7 @@
 @import url(./common/theme.css);
 
 @import url(/src/css/includes/app-promotion.css);
+@import url(/src/css/includes/top-banner.css);
 @import url(/src/css/includes/header.css);
 @import url(./pages/community/home.css);
 @import url(/src/css/includes/footer.css);

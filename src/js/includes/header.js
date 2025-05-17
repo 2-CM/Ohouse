@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const headerWrapper = document.getElementById("header__wrapper");
     const subnavContainer = document.getElementById("subnav__container");
     const appBanner = document.getElementById("appBanner");
+    const topBanner = document.getElementById("top-banner");
 
     let lastScrollTop = 0; // 이전 스크롤 위치 저장용
 
@@ -40,71 +41,93 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // 스크롤 이벤트 핸들러
     function handleScroll() {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         const isMobile = window.innerWidth < 768;
         const atTop = scrollTop <= 0;
-        const shouldShowBanner = appBanner.dataset.shouldShow === "true";
+        const shouldShowAppBanner = appBanner.dataset.shouldShow === "true";
 
+        // 모바일 처리
         if (isMobile) {
-            // 모바일: 헤더 + 서브네비 모두 fixed
+            // 모바일에서는 탑배너 강제 숨김
+            topBanner.style.display = "none";
+
             headerWrapper.classList.add("fixed");
             subnavContainer.classList.add("fixed");
 
             if (scrollTop > lastScrollTop) {
-                // 아래로 스크롤 시: 헤더/서브네비 숨김
+                // 아래로 스크롤
                 appBanner.style.display = "none";
                 headerWrapper.style.top = "-50.75px";
                 subnavContainer.style.top = "-40.75px";
             } else {
-                // 위로 스크롤 시
-                if (atTop && shouldShowBanner) {
-                    // 맨 위 + 배너 보여야 하면: 배너 표시
+                // 위로 스크롤
+                if (atTop && shouldShowAppBanner) {
+                    // 최상단 + 앱배너 표시 조건
                     appBanner.style.display = "flex";
                     headerWrapper.style.top = `${appBanner.offsetHeight}px`;
                     subnavContainer.style.top = `${appBanner.offsetHeight + 50.75}px`;
                 } else {
-                    // 일반적인 위로 스크롤
+                    // 일반 위로 스크롤
                     appBanner.style.display = "none";
                     headerWrapper.style.top = "0";
                     subnavContainer.style.top = "50.75px";
                 }
             }
-        } else {
-            // PC: 헤더는 고정, 서브네비만 움직임
+        }
+
+        // PC 처리
+        else {
             headerWrapper.classList.add("fixed");
             subnavContainer.classList.add("fixed");
 
-            headerWrapper.style.top = "0";
+            // 탑배너 표시 여부 확인
+            const isTopBannerVisible = getComputedStyle(topBanner).display !== "none";
+            const topBannerHeight = (isTopBannerVisible && atTop) ? topBanner.offsetHeight : 0;
 
             if (scrollTop > lastScrollTop) {
-                // 아래로 스크롤: 서브네비 살짝 위로
+                // 아래로 스크롤
+                headerWrapper.style.top = "0";
                 subnavContainer.style.top = "29px";
-
-                subnavDropdown.classList.remove('open', 'open-active');
+                subnavDropdown.classList.remove("open", "open-active");
             } else {
-                // 위로 스크롤: 서브네비 원위치
-                subnavContainer.style.top = "80.75px";
+                // 위로 스크롤
+                headerWrapper.style.top = `${topBannerHeight}px`;
+                subnavContainer.style.top = `${topBannerHeight + 80.75}px`;
             }
         }
 
-        applyHeaderStyles();      // width, padding-right 적용
-        updateContainerHeights(); // 높이 갱신
-        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // 스크롤 위치 저장
+        applyHeaderStyles();
+        updateContainerHeights();
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
     }
 
+    let isMobileView = window.innerWidth < 768;
+    // 로컬스토리지 상태 확인 함수
+    const isTopBannerClosed = () => localStorage.getItem("topBannerClosed") === "true";
     // 초기 실행
     applyHeaderStyles();
     updateContainerHeights();
 
-    // 이벤트 등록
-    window.addEventListener("scroll", handleScroll);
+    // 리사이즈 이벤트 등록
     window.addEventListener("resize", () => {
+        const nowIsMobile = window.innerWidth < 768;
+
+        // 모바일 → PC 전환 시, 유저가 탑배너를 닫지 않았다면 다시 표시
+        if (!nowIsMobile && isMobileView && !isTopBannerClosed()) {
+            topBanner.style.display = "";
+        }
+
+        // 뷰 상태 업데이트
+        isMobileView = nowIsMobile;
+
         applyHeaderStyles();       // 리사이즈 시 width 조정
         updateContainerHeights();  // 높이 다시 계산
         handleScroll();            // 스크롤 위치에 맞게 동작 반영
     });
+
+    // 스크롤 이벤트 등록
+    window.addEventListener("scroll", handleScroll);
 
 
     /*** 네비게이션창 ***/
