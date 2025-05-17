@@ -645,4 +645,9 @@ body {
         max-width: 1256px;
         margin: 0 auto;
     }
+
+    /* 인테리어 피드 */
+    .home-feed {
+        max-width: 1256px;
+    }
 }
