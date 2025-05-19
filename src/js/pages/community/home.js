@@ -77,11 +77,21 @@ document.addEventListener('DOMContentLoaded', function () {
         const nextBtn = document.querySelector('.feed-button-next');
 
         const options = {
-            slidesPerView: isMobile ? 2.5 : 4,
-            slidesPerGroup: 4,
+            slidesPerView: 2.5, // 기본값 (모바일 기준)
+            slidesPerGroup: 2,
             navigation: {
                 prevEl: '.feed-button-prev',
                 nextEl: '.feed-button-next',
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 4,
+                    slidesPerGroup: 4,
+                },
+                1024: {
+                    slidesPerView: 6,
+                    slidesPerGroup: 6,
+                },
             },
             on: {
                 init: function () {

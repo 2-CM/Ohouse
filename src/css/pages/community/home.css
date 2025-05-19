@@ -197,7 +197,7 @@ body {
     border-radius: 4px;
     overflow: hidden;
     position: relative;
-    width: calc(100% - 12px);
+    margin-right: 12px;
     display: flex;
 }
 
@@ -357,8 +357,8 @@ body {
     transform: scale(1.05);
 }
 
-@media (max-width: 767) {
-    .feed-content {
+@media (max-width: 767px) {
+    #interior-feed .feed-content {
         width: calc(100% + 32px);
     }
 }
@@ -586,7 +586,7 @@ body {
     }
 
     .feed-content .feed-post {
-        width: calc(97.5% - 12px);
+        margin-right: 16px;
     }
 
     .feed-content .more-slide {
@@ -643,6 +643,15 @@ body {
         font-size: 16px;
         line-height: 20px;
     }
+
+    /* 인테리어 피드 */
+    .home-feed {
+        padding: 0px 60px;
+    }
+
+    .feed-content .feed-post {
+        margin-right: 20px;
+    }
 }
 
 /* 1256px 이상의 화면에서 적용되는 스타일 */
@@ -651,5 +660,10 @@ body {
     #quick-menu {
         max-width: 1256px;
         margin: 0 auto;
+    }
+
+    /* 인테리어 피드 */
+    .home-feed {
+        max-width: 1256px;
     }
 }
