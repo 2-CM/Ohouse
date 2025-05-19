@@ -628,11 +628,27 @@ body {
         font-size: 16px;
         line-height: 20px;
     }
+
+    /* 퀵 메뉴 */
+    #quick-menu {
+        padding: 0 60px;
+    }
+
+    .quick-menu__icon {
+        max-width: 88px;
+    }
+
+    .quick-menu__label {
+        margin-top: 8px;
+        font-size: 16px;
+        line-height: 20px;
+    }
 }
 
 /* 1256px 이상의 화면에서 적용되는 스타일 */
 @media (min-width: 1256px) {
-    #banner {
+    #banner,
+    #quick-menu {
         max-width: 1256px;
         margin: 0 auto;
     }
