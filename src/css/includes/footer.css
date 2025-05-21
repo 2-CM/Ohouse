@@ -390,3 +390,9 @@ footer {
         display: none;
     }
 }
+
+@media (min-width: 1024px) {
+    #footer__container {
+        padding: 0 60px;
+    }
+}
