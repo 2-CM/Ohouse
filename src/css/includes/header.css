@@ -1783,3 +1783,21 @@ header {
     display: none;
   }
 }
+
+@media (min-width: 1256px) {
+  #header__top {
+    max-width: 1256px;
+    margin: 0 auto;
+    padding: 0 60px;
+  }
+
+  #header__search__bar {
+    margin-right: 14px;
+  }
+
+  #subnav__wrapper {
+    max-width: 1256px;
+    margin: 0 auto;
+    padding: 0 60px;
+  }
+}
