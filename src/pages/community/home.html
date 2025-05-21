@@ -1,487 +1,522 @@
 <!DOCTYPE html>
 <html lang="ko">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>오늘의 집 Home</title>
 
-        <link rel="stylesheet" href="../../css/main.css" />
-        <!-- Swiper 라이브러리 -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
-        <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-        <script src="../../js/pages/community/home.js" defer></script>
-    </head>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>오늘의 집 Home</title>
 
-    <body>
-        <main id="home">
-            <!-- 배너 -->
-            <section id="banner">
-                <!-- 배너 미리보기 영역 -->
-                <div id="banner-preview"></div>
+    <link rel="stylesheet" href="../../css/main.css" />
+    <!-- Swiper 라이브러리 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script src="../../js/pages/community/home.js" defer></script>
+</head>
 
-                <!-- 배너 메인 영역 -->
-                <div id="banner-main">
-                    <div class="swiper">
-                        <div class="swiper-wrapper"></div>
-
-                        <div class="swiper-button-prev"></div>
-                        <div class="swiper-button-next"></div>
-
-                        <div class="banner__swiper-pagination">
-                            <span class="page-number"></span>
-                            <img
-                                class="plus-icon"
-                                src="/src/assets/icons/plus-icon.svg"
-                                alt="플러스 모양 아이콘 사진"
-                            />
+<body>
+    <main id="home">
+        <!-- 배너 -->
+        <section id="banner">
+            <!-- 배너 미리보기 영역 -->
+            <div id="banner-preview">
+                <div class="image-wrapper">
+                    <a class="link" href="#">
+                        <img class="preview-image event"
+                            src="/src/assets/images/community/home/banners/banner-preview.jpg" alt="배너 프리뷰 이미지" />
+                        <div class="preview-info">
+                            <p class="title">작아도 충분해! 싱그러운 0.5평 베란다정원</p>
+                            <div class="profile-info">
+                                <img class="profile-image"
+                                    src="/src/assets/images/community/home/banners/banner-preview-user-profile.jpg"
+                                    alt="프로필 이미지" />
+                                <span class="profile-name">솔룸</span>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 퀵 매뉴 -->
-            <section id="quick-menu">
-                <div class="grid-container">
-                    <div class="quick-menu__item">
-                        <a class="quick-menu__link" href="#">
-                            <img
-                                class="quick-menu__icon"
-                                src="/src/assets/icons/quick-menu/daily-deal-icon.png"
-                                alt="매일하루특가"
-                            />
-                            <span class="quick-menu__label">매일하루특가</span>
-                        </a>
-                    </div>
-                    <div class="quick-menu__item">
-                        <a class="quick-menu__link" href="#">
-                            <img
-                                class="quick-menu__icon"
-                                src="/src/assets/icons/quick-menu/today-deal-icon.png"
-                                alt="오늘의딜"
-                            />
-                            <span class="quick-menu__label">오늘의딜</span>
-                        </a>
-                    </div>
-                    <div class="quick-menu__item">
-                        <a class="quick-menu__link" href="#">
-                            <img
-                                class="quick-menu__icon"
-                                src="/src/assets/icons/quick-menu/housewarming-icon.png"
-                                alt="집들이"
-                            />
-                            <span class="quick-menu__label">집들이</span>
-                        </a>
-                    </div>
-                    <div class="quick-menu__item">
-                        <a class="quick-menu__link" href="#">
-                            <img
-                                class="quick-menu__icon"
-                                src="/src/assets/icons/quick-menu/checkin-icon.png"
-                                alt="행운출첵"
-                            />
-                            <span class="quick-menu__label">행운출첵</span>
-                        </a>
-                    </div>
-                    <div class="quick-menu__item">
-                        <a class="quick-menu__link" href="#">
-                            <img
-                                class="quick-menu__icon"
-                                src="/src/assets/icons/quick-menu/living-icon.png"
-                                alt="살림살이"
-                            />
-                            <span class="quick-menu__label">살림살이</span>
-                        </a>
-                    </div>
-                    <div class="quick-menu__item">
-                        <a class="quick-menu__link" href="#">
-                            <img
-                                class="quick-menu__icon"
-                                src="/src/assets/icons/quick-menu/style-icon.png"
-                                alt="취향의발견"
-                            />
-                            <span class="quick-menu__label">취향의발견</span>
-                        </a>
-                    </div>
-                    <div class="quick-menu__item">
-                        <a class="quick-menu__link" href="#">
-                            <img
-                                class="quick-menu__icon"
-                                src="/src/assets/icons/quick-menu/mart-icon.png"
-                                alt="오마트"
-                            />
-                            <span class="quick-menu__label">오마트</span>
-                        </a>
-                    </div>
-                    <div class="quick-menu__item">
-                        <a class="quick-menu__link" href="#">
-                            <img
-                                class="quick-menu__icon"
-                                src="/src/assets/icons/quick-menu/fast-delivery-icon.png"
-                                alt="빠른배송"
-                            />
-                            <span class="quick-menu__label">빠른배송</span>
-                        </a>
-                    </div>
-                    <div class="quick-menu__item">
-                        <a class="quick-menu__link" href="#">
-                            <img
-                                class="quick-menu__icon"
-                                src="/src/assets/icons/quick-menu/remodeling-icon.png"
-                                alt="리모델링"
-                            />
-                            <span class="quick-menu__label">리모델링</span>
-                        </a>
-                    </div>
-                    <div class="quick-menu__item">
-                        <a class="quick-menu__link" href="#">
-                            <img
-                                class="quick-menu__icon"
-                                src="/src/assets/icons/quick-menu/cleaning-icon.png"
-                                alt="입주청소"
-                            />
-                            <span class="quick-menu__label">입주청소</span>
-                        </a>
-                    </div>
-                </div>
-            </section>
-            <hr class="section-divider" />
-
-            <!-- 인테리어 피드 -->
-            <section id="interior-feed">
-                <div class="feed-header">
-                    <div class="feed-text">
-                        <a class="feed-title" href="#">이런 사진 찾고 있나요?</a>
-                        <span class="feed-subtitle">좋아하실 만한 인테리어 콘텐츠를 추천해드려요</span>
-                    </div>
-                    <a class="feed-more" href="#">
-                        <img
-                            class="arrow-right-icon"
-                            src="/src/assets/icons/arrow-right-icon.png"
-                            alt="더보기 아이콘"
-                        />
                     </a>
                 </div>
+            </div>
 
-                <div class="feed-content">
-                    <div class="swiper">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="feed-post">
-                                    <img
-                                        class="feed-post-image"
-                                        src="/src/assets/images/community/home/interior-feeds/interior-post-01.avif"
-                                        alt="인테리어 피드 사진1"
-                                    />
-                                    <div class="profile-info">
-                                        <img
-                                            class="profile-image"
-                                            src="/src/assets/images/community/home/interior-feeds/interior-post-01-profile.avif"
-                                            alt="프로필 사진1"
-                                        />
-                                        <span class="profile-name">아여리네</span>
-                                    </div>
-                                    <div class="bookmark-wrapper">
-                                        <button class="bookmark-button" type="button">
-                                            <span>
-                                                <img
-                                                    class="bookmark-icon"
-                                                    src="/src/assets/icons/bookmark-empty.svg"
-                                                    alt="빈 북마크 아이콘"
-                                                />
-                                            </span>
-                                        </button>
-                                    </div>
-                                    <a class="feed-link" href="#"></a>
+            <!-- 배너 메인 영역 -->
+            <div id="banner-main">
+                <div class="swiper">
+                    <div class="swiper-wrapper"></div>
+
+                    <!-- 모바일용 pagination -->
+                    <div class="banner__swiper-pagination">
+                        <span class="page-number"></span>
+                        <span class="plus-icon"></span>
+                    </div>
+                </div>
+
+                <!-- swiper 버튼 -->
+                <div class="prev-button-wrapper swiper-button-wrapper">
+                    <button class="button button-prev" type="button">
+                        <span class="chevron-icon chevron-left"></span>
+                    </button>
+                </div>
+                <div class="next-button-wrapper swiper-button-wrapper">
+                    <button class="button button-next" type="button">
+                        <span class="chevron-icon chevron-right"></span>
+                    </button>
+                </div>
+
+                <!-- swiper pagination -->
+                <div class="banner__swiper-pagination-desktop">
+                    <span class="page-number"></span>
+                    <span class="plus-icon"></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 퀵 매뉴 -->
+        <section id="quick-menu">
+            <div class="quick-menu__container">
+                <div class="quick-menu__item">
+                    <a class="quick-menu__link" href="#">
+                        <img class="quick-menu__icon" src="/src/assets/icons/quick-menu/daily-deal-icon.png"
+                            alt="매일하루특가" />
+                        <span class="quick-menu__label">매일하루특가</span>
+                    </a>
+                </div>
+                <div class="quick-menu__item">
+                    <a class="quick-menu__link" href="#">
+                        <img class="quick-menu__icon" src="/src/assets/icons/quick-menu/today-deal-icon.png"
+                            alt="오늘의딜" />
+                        <span class="quick-menu__label">오늘의딜</span>
+                    </a>
+                </div>
+                <div class="quick-menu__item">
+                    <a class="quick-menu__link" href="#">
+                        <img class="quick-menu__icon" src="/src/assets/icons/quick-menu/housewarming-icon.png"
+                            alt="집들이" />
+                        <span class="quick-menu__label">집들이</span>
+                    </a>
+                </div>
+                <div class="quick-menu__item">
+                    <a class="quick-menu__link" href="#">
+                        <img class="quick-menu__icon" src="/src/assets/icons/quick-menu/checkin-icon.png" alt="행운출첵" />
+                        <span class="quick-menu__label">행운출첵</span>
+                    </a>
+                </div>
+                <div class="quick-menu__item">
+                    <a class="quick-menu__link" href="#">
+                        <img class="quick-menu__icon" src="/src/assets/icons/quick-menu/living-icon.png" alt="살림살이" />
+                        <span class="quick-menu__label">살림살이</span>
+                    </a>
+                </div>
+                <div class="quick-menu__item">
+                    <a class="quick-menu__link" href="#">
+                        <img class="quick-menu__icon" src="/src/assets/icons/quick-menu/style-icon.png" alt="취향의발견" />
+                        <span class="quick-menu__label">취향의발견</span>
+                    </a>
+                </div>
+                <div class="quick-menu__item">
+                    <a class="quick-menu__link" href="#">
+                        <img class="quick-menu__icon" src="/src/assets/icons/quick-menu/mart-icon.png" alt="오마트" />
+                        <span class="quick-menu__label">오마트</span>
+                    </a>
+                </div>
+                <div class="quick-menu__item">
+                    <a class="quick-menu__link" href="#">
+                        <img class="quick-menu__icon" src="/src/assets/icons/quick-menu/fast-delivery-icon.png" <<<<<<<
+                            HEAD alt="빠른배송"=======alt="원하는날도착">>>>>>> 7652071dad658c71c884b6452b2bc120bea25025
+                        />
+                        <span class="quick-menu__label">원하는날도착</span>
+                    </a>
+                </div>
+                <div class="quick-menu__item">
+                    <a class="quick-menu__link" href="#">
+                        <img class="quick-menu__icon" src="/src/assets/icons/quick-menu/remodeling-icon.png"
+                            alt="리모델링" />
+                        <span class="quick-menu__label">리모델링</span>
+                    </a>
+                </div>
+                <div class="quick-menu__item">
+                    <a class="quick-menu__link" href="#">
+                        <img class="quick-menu__icon" src="/src/assets/icons/quick-menu/cleaning-icon.png" alt="입주청소" />
+                        <span class="quick-menu__label">입주청소</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <hr class="section-divider" />
+
+        <!-- 인테리어 피드 -->
+        <section id="interior-feed" class="home-feed">
+            <div class="feed-header">
+                <div class="feed-text">
+                    <a class="feed-title" href="#">이런 사진 찾고 있나요?</a>
+                    <span class="feed-subtitle">좋아하실 만한 인테리어 콘텐츠를 추천해드려요</span>
+                </div>
+                <<<<<<< HEAD <a class="feed-more" href="#">
+                    <img class="arrow-right-icon" src="/src/assets/icons/arrow-right-icon.png" alt="더보기 아이콘" />
+                    =======
+                    <a class="feed-more-link" href="#">
+                        <span class="arrow-right-icon"></span>
+                        <span class="feed-more">더보기</span>
+                        >>>>>>> 7652071dad658c71c884b6452b2bc120bea25025
+                    </a>
+            </div>
+
+            <div class="feed-content">
+                <div class="swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="feed-post">
+                                <img class="feed-post-image"
+                                    src="/src/assets/images/community/home/interior-feeds/interior-post-01.avif"
+                                    alt="인테리어 피드 사진1" />
+                                <div class="profile-info">
+                                    <img class="profile-image"
+                                        src="/src/assets/images/community/home/interior-feeds/interior-post-01-profile.avif"
+                                        alt="프로필 사진1" />
+                                    <span class="profile-name">아여리네</span>
                                 </div>
-                            </div>
-
-                            <div class="swiper-slide">
-                                <div class="feed-post">
-                                    <img
-                                        class="feed-post-image"
-                                        src="/src/assets/images/community/home/interior-feeds/interior-post-02.avif"
-                                        alt="인테리어 피드 사진2"
-                                    />
-                                    <div class="profile-info">
-                                        <img
-                                            class="profile-image"
-                                            src="/src/assets/images/community/home/interior-feeds/interior-post-02-profile.avif"
-                                            alt="프로필 사진2"
-                                        />
-                                        <span class="profile-name">빙글빙글돌아가는나의하루</span>
-                                    </div>
-                                    <div class="bookmark-wrapper">
-                                        <button class="bookmark-button" type="button">
-                                            <span>
-                                                <img
-                                                    class="bookmark-icon"
-                                                    src="/src/assets/icons/bookmark-empty.svg"
-                                                    alt="빈 북마크 아이콘"
-                                                />
-                                            </span>
-                                        </button>
-                                    </div>
-                                    <a class="feed-link" href="#"></a>
+                                <div class="bookmark-wrapper">
+                                    <button class="bookmark-button" type="button">
+                                        <span>
+                                            <img class="bookmark-icon" src="/src/assets/icons/bookmark-empty.svg"
+                                                alt="빈 북마크 아이콘" />
+                                        </span>
+                                    </button>
                                 </div>
+                                <a class="feed-link" href="#"></a>
                             </div>
+                        </div>
 
-                            <div class="swiper-slide">
-                                <div class="feed-post">
-                                    <img
-                                        class="feed-post-image"
-                                        src="/src/assets/images/community/home/interior-feeds/interior-post-03.avif"
-                                        alt="인테리어 피드 사진3"
-                                    />
-                                    <div class="profile-info">
-                                        <img
-                                            class="profile-image"
-                                            src="/src/assets/images/community/home/interior-feeds/interior-post-03-profile.avif"
-                                            alt="프로필 사진3"
-                                        />
-                                        <span class="profile-name">lilllililiii</span>
-                                    </div>
-                                    <div class="bookmark-wrapper">
-                                        <button class="bookmark-button" type="button">
-                                            <span>
-                                                <img
-                                                    class="bookmark-icon"
-                                                    src="/src/assets/icons/bookmark-empty.svg"
-                                                    alt="빈 북마크 아이콘"
-                                                />
-                                            </span>
-                                        </button>
-                                    </div>
-                                    <a class="feed-link" href="#"></a>
+                        <div class="swiper-slide">
+                            <div class="feed-post">
+                                <img class="feed-post-image"
+                                    src="/src/assets/images/community/home/interior-feeds/interior-post-02.avif"
+                                    alt="인테리어 피드 사진2" />
+                                <div class="profile-info">
+                                    <img class="profile-image"
+                                        src="/src/assets/images/community/home/interior-feeds/interior-post-02-profile.avif"
+                                        alt="프로필 사진2" />
+                                    <span class="profile-name">빙글빙글돌아가는나의하루</span>
                                 </div>
-                            </div>
-
-                            <div class="swiper-slide">
-                                <div class="feed-post">
-                                    <img
-                                        class="feed-post-image"
-                                        src="/src/assets/images/community/home/interior-feeds/interior-post-04.avif"
-                                        alt="인테리어 피드 사진4"
-                                    />
-                                    <div class="profile-info">
-                                        <img
-                                            class="profile-image"
-                                            src="/src/assets/images/community/home/interior-feeds/interior-post-04-profile.avif"
-                                            alt="프로필 사진4"
-                                        />
-                                        <span class="profile-name">loveya</span>
-                                    </div>
-                                    <div class="bookmark-wrapper">
-                                        <button class="bookmark-button" type="button">
-                                            <span>
-                                                <img
-                                                    class="bookmark-icon"
-                                                    src="/src/assets/icons/bookmark-empty.svg"
-                                                    alt="빈 북마크 아이콘"
-                                                />
-                                            </span>
-                                        </button>
-                                    </div>
-                                    <a class="feed-link" href="#"></a>
+                                <div class="bookmark-wrapper">
+                                    <button class="bookmark-button" type="button">
+                                        <span>
+                                            <img class="bookmark-icon" src="/src/assets/icons/bookmark-empty.svg"
+                                                alt="빈 북마크 아이콘" />
+                                        </span>
+                                    </button>
                                 </div>
+                                <a class="feed-link" href="#"></a>
                             </div>
+                        </div>
 
-                            <div class="swiper-slide">
-                                <div class="feed-post">
-                                    <img
-                                        class="feed-post-image"
-                                        src="/src/assets/images/community/home/interior-feeds/interior-post-05.avif"
-                                        alt="인테리어 피드 사진5"
-                                    />
-                                    <div class="profile-info">
-                                        <img
-                                            class="profile-image"
-                                            src="/src/assets/images/community/home/interior-feeds/interior-post-05-profile.avif"
-                                            alt="프로필 사진5"
-                                        />
-                                        <span class="profile-name">bbotho</span>
-                                    </div>
-                                    <div class="bookmark-wrapper">
-                                        <button class="bookmark-button" type="button">
-                                            <span>
-                                                <img
-                                                    class="bookmark-icon"
-                                                    src="/src/assets/icons/bookmark-empty.svg"
-                                                    alt="빈 북마크 아이콘"
-                                                />
-                                            </span>
-                                        </button>
-                                    </div>
-                                    <a class="feed-link" href="#"></a>
+                        <div class="swiper-slide">
+                            <div class="feed-post">
+                                <img class="feed-post-image"
+                                    src="/src/assets/images/community/home/interior-feeds/interior-post-03.avif"
+                                    alt="인테리어 피드 사진3" />
+                                <div class="profile-info">
+                                    <img class="profile-image"
+                                        src="/src/assets/images/community/home/interior-feeds/interior-post-03-profile.avif"
+                                        alt="프로필 사진3" />
+                                    <span class="profile-name">lilllililiii</span>
                                 </div>
-                            </div>
-
-                            <div class="swiper-slide">
-                                <div class="feed-post">
-                                    <img
-                                        class="feed-post-image"
-                                        src="/src/assets/images/community/home/interior-feeds/interior-post-06.jpg"
-                                        alt="인테리어 피드 사진6"
-                                    />
-                                    <div class="profile-info">
-                                        <img
-                                            class="profile-image"
-                                            src="/src/assets/images/community/home/interior-feeds/interior-post-06-profile.avif"
-                                            alt="프로필 사진6"
-                                        />
-                                        <span class="profile-name">yoon</span>
-                                    </div>
-                                    <div class="bookmark-wrapper">
-                                        <button class="bookmark-button" type="button">
-                                            <span>
-                                                <img
-                                                    class="bookmark-icon"
-                                                    src="/src/assets/icons/bookmark-empty.svg"
-                                                    alt="빈 북마크 아이콘"
-                                                />
-                                            </span>
-                                        </button>
-                                    </div>
-                                    <a class="feed-link" href="#"></a>
+                                <div class="bookmark-wrapper">
+                                    <button class="bookmark-button" type="button">
+                                        <span>
+                                            <img class="bookmark-icon" src="/src/assets/icons/bookmark-empty.svg"
+                                                alt="빈 북마크 아이콘" />
+                                        </span>
+                                    </button>
                                 </div>
+                                <a class="feed-link" href="#"></a>
                             </div>
+                        </div>
 
-                            <div class="swiper-slide">
-                                <div class="feed-post">
-                                    <img
-                                        class="feed-post-image"
-                                        src="/src/assets/images/community/home/interior-feeds/interior-post-07.avif"
-                                        alt="인테리어 피드 사진7"
-                                    />
-                                    <div class="profile-info">
-                                        <img
-                                            class="profile-image"
-                                            src="/src/assets/images/community/home/interior-feeds/interior-post-07-profile.avif"
-                                            alt="프로필 사진7"
-                                        />
-                                        <span class="profile-name">roin</span>
-                                    </div>
-                                    <div class="bookmark-wrapper">
-                                        <button class="bookmark-button" type="button">
-                                            <span>
-                                                <img
-                                                    class="bookmark-icon"
-                                                    src="/src/assets/icons/bookmark-empty.svg"
-                                                    alt="빈 북마크 아이콘"
-                                                />
-                                            </span>
-                                        </button>
-                                    </div>
-                                    <a class="feed-link" href="#"></a>
+                        <div class="swiper-slide">
+                            <div class="feed-post">
+                                <img class="feed-post-image"
+                                    src="/src/assets/images/community/home/interior-feeds/interior-post-04.avif"
+                                    alt="인테리어 피드 사진4" />
+                                <div class="profile-info">
+                                    <img class="profile-image"
+                                        src="/src/assets/images/community/home/interior-feeds/interior-post-04-profile.avif"
+                                        alt="프로필 사진4" />
+                                    <span class="profile-name">loveya</span>
                                 </div>
-                            </div>
-
-                            <div class="swiper-slide">
-                                <div class="feed-post">
-                                    <img
-                                        class="feed-post-image"
-                                        src="/src/assets/images/community/home/interior-feeds/interior-post-08.jpg"
-                                        alt="인테리어 피드 사진8"
-                                    />
-                                    <div class="profile-info">
-                                        <img
-                                            class="profile-image"
-                                            src="/src/assets/images/community/home/interior-feeds/interior-post-08-profile.avif"
-                                            alt="프로필 사진8"
-                                        />
-                                        <span class="profile-name">점메추</span>
-                                    </div>
-                                    <div class="bookmark-wrapper">
-                                        <button class="bookmark-button" type="button">
-                                            <span>
-                                                <img
-                                                    class="bookmark-icon"
-                                                    src="/src/assets/icons/bookmark-empty.svg"
-                                                    alt="빈 북마크 아이콘"
-                                                />
-                                            </span>
-                                        </button>
-                                    </div>
-                                    <a class="feed-link" href="#"></a>
+                                <div class="bookmark-wrapper">
+                                    <button class="bookmark-button" type="button">
+                                        <span>
+                                            <img class="bookmark-icon" src="/src/assets/icons/bookmark-empty.svg"
+                                                alt="빈 북마크 아이콘" />
+                                        </span>
+                                    </button>
                                 </div>
+                                <a class="feed-link" href="#"></a>
                             </div>
+                        </div>
 
-                            <div class="swiper-slide">
-                                <div class="feed-post">
-                                    <img
-                                        class="feed-post-image"
-                                        src="/src/assets/images/community/home/interior-feeds/interior-post-09.avif"
-                                        alt="인테리어 피드 사진9"
-                                    />
-                                    <div class="profile-info">
-                                        <img
-                                            class="profile-image"
-                                            src="/src/assets/images/community/home/interior-feeds/interior-post-09-profile.avif"
-                                            alt="프로필 사진9"
-                                        />
-                                        <span class="profile-name">비비드</span>
-                                    </div>
-                                    <div class="bookmark-wrapper">
-                                        <button class="bookmark-button" type="button">
-                                            <span>
-                                                <img
-                                                    class="bookmark-icon"
-                                                    src="/src/assets/icons/bookmark-empty.svg"
-                                                    alt="빈 북마크 아이콘"
-                                                />
-                                            </span>
-                                        </button>
-                                    </div>
-                                    <a class="feed-link" href="#"></a>
+                        <div class="swiper-slide">
+                            <div class="feed-post">
+                                <img class="feed-post-image"
+                                    src="/src/assets/images/community/home/interior-feeds/interior-post-05.avif"
+                                    alt="인테리어 피드 사진5" />
+                                <div class="profile-info">
+                                    <img class="profile-image"
+                                        src="/src/assets/images/community/home/interior-feeds/interior-post-05-profile.avif"
+                                        alt="프로필 사진5" />
+                                    <span class="profile-name">bbotho</span>
                                 </div>
-                            </div>
-
-                            <div class="swiper-slide">
-                                <div class="feed-post">
-                                    <img
-                                        class="feed-post-image"
-                                        src="/src/assets/images/community/home/interior-feeds/interior-post-10.avif"
-                                        alt="인테리어 피드 사진10"
-                                    />
-                                    <div class="profile-info">
-                                        <img
-                                            class="profile-image"
-                                            src="/src/assets/images/community/home/interior-feeds/interior-post-10-profile.avif"
-                                            alt="프로필 사진10"
-                                        />
-                                        <span class="profile-name">마라탕사주세여</span>
-                                    </div>
-                                    <div class="bookmark-wrapper">
-                                        <button class="bookmark-button" type="button">
-                                            <span>
-                                                <img
-                                                    class="bookmark-icon"
-                                                    src="/src/assets/icons/bookmark-empty.svg"
-                                                    alt="빈 북마크 아이콘"
-                                                />
-                                            </span>
-                                        </button>
-                                    </div>
-                                    <a class="feed-link" href="#"></a>
+                                <div class="bookmark-wrapper">
+                                    <button class="bookmark-button" type="button">
+                                        <span>
+                                            <img class="bookmark-icon" src="/src/assets/icons/bookmark-empty.svg"
+                                                alt="빈 북마크 아이콘" />
+                                        </span>
+                                    </button>
                                 </div>
+                                <a class="feed-link" href="#"></a>
                             </div>
+                        </div>
 
-                            <div class="swiper-slide more-slide">
-                                <a class="more-link" href="#">
-                                    <div class="more-icon-wrapper">
-                                        <img
-                                            class="more-icon"
-                                            src="/src/assets/icons/more-arrow-right.svg"
-                                            alt="더보기 아이콘"
-                                        />
-                                    </div>
-                                    <div class="more-text">더보기</div>
-                                </a>
+                        <div class="swiper-slide">
+                            <div class="feed-post">
+                                <img class="feed-post-image"
+                                    src="/src/assets/images/community/home/interior-feeds/interior-post-06.jpg"
+                                    alt="인테리어 피드 사진6" />
+                                <div class="profile-info">
+                                    <img class="profile-image"
+                                        src="/src/assets/images/community/home/interior-feeds/interior-post-06-profile.avif"
+                                        alt="프로필 사진6" />
+                                    <span class="profile-name">yoon</span>
+                                </div>
+                                <div class="bookmark-wrapper">
+                                    <button class="bookmark-button" type="button">
+                                        <span>
+                                            <img class="bookmark-icon" src="/src/assets/icons/bookmark-empty.svg"
+                                                alt="빈 북마크 아이콘" />
+                                        </span>
+                                    </button>
+                                </div>
+                                <a class="feed-link" href="#"></a>
                             </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="feed-post">
+                                <img class="feed-post-image"
+                                    src="/src/assets/images/community/home/interior-feeds/interior-post-07.avif"
+                                    alt="인테리어 피드 사진7" />
+                                <div class="profile-info">
+                                    <img class="profile-image"
+                                        src="/src/assets/images/community/home/interior-feeds/interior-post-07-profile.avif"
+                                        alt="프로필 사진7" />
+                                    <span class="profile-name">roin</span>
+                                </div>
+                                <div class="bookmark-wrapper">
+                                    <button class="bookmark-button" type="button">
+                                        <span>
+                                            <img class="bookmark-icon" src="/src/assets/icons/bookmark-empty.svg"
+                                                alt="빈 북마크 아이콘" />
+                                        </span>
+                                    </button>
+                                </div>
+                                <a class="feed-link" href="#"></a>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="feed-post">
+                                <img class="feed-post-image"
+                                    src="/src/assets/images/community/home/interior-feeds/interior-post-08.jpg"
+                                    alt="인테리어 피드 사진8" />
+                                <div class="profile-info">
+                                    <img class="profile-image"
+                                        src="/src/assets/images/community/home/interior-feeds/interior-post-08-profile.avif"
+                                        alt="프로필 사진8" />
+                                    <span class="profile-name">점메추</span>
+                                </div>
+                                <div class="bookmark-wrapper">
+                                    <button class="bookmark-button" type="button">
+                                        <span>
+                                            <img class="bookmark-icon" src="/src/assets/icons/bookmark-empty.svg"
+                                                alt="빈 북마크 아이콘" />
+                                        </span>
+                                    </button>
+                                </div>
+                                <a class="feed-link" href="#"></a>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="feed-post">
+                                <img class="feed-post-image"
+                                    src="/src/assets/images/community/home/interior-feeds/interior-post-09.avif"
+                                    alt="인테리어 피드 사진9" />
+                                <div class="profile-info">
+                                    <img class="profile-image"
+                                        src="/src/assets/images/community/home/interior-feeds/interior-post-09-profile.avif"
+                                        alt="프로필 사진9" />
+                                    <span class="profile-name">비비드</span>
+                                </div>
+                                <div class="bookmark-wrapper">
+                                    <button class="bookmark-button" type="button">
+                                        <span>
+                                            <img class="bookmark-icon" src="/src/assets/icons/bookmark-empty.svg"
+                                                alt="빈 북마크 아이콘" />
+                                        </span>
+                                    </button>
+                                </div>
+                                <a class="feed-link" href="#"></a>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="feed-post">
+                                <img class="feed-post-image"
+                                    src="/src/assets/images/community/home/interior-feeds/interior-post-10.avif"
+                                    alt="인테리어 피드 사진10" />
+                                <div class="profile-info">
+                                    <img class="profile-image"
+                                        src="/src/assets/images/community/home/interior-feeds/interior-post-10-profile.avif"
+                                        alt="프로필 사진10" />
+                                    <span class="profile-name">마라탕사주세여</span>
+                                </div>
+                                <div class="bookmark-wrapper">
+                                    <button class="bookmark-button" type="button">
+                                        <span>
+                                            <img class="bookmark-icon" src="/src/assets/icons/bookmark-empty.svg"
+                                                alt="빈 북마크 아이콘" />
+                                        </span>
+                                    </button>
+                                </div>
+                                <a class="feed-link" href="#"></a>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide more-slide">
+                            <a class="more-link" href="#">
+                                <div class="more-icon-wrapper">
+                                    <<<<<<< HEAD <img class="more-icon" src="/src/assets/icons/more-arrow-right.svg"
+                                        alt="더보기 아이콘" />
+                                    =======
+                                    <span class="more-icon"></span>
+                                    >>>>>>> 7652071dad658c71c884b6452b2bc120bea25025
+                                </div>
+                                <div class="more-text">더보기</div>
+                            </a>
                         </div>
                     </div>
                 </div>
-            </section>
-            <hr class="section-divider" />
-        </main>
-    </body>
+                <!-- swiper 버튼 -->
+                <div class="prev-button-wrapper swiper-button-wrapper">
+                    <button class="button feed-button-prev" type="button">
+                        <span class="chevron-icon chevron-left"></span>
+                    </button>
+                </div>
+                <div class="next-button-wrapper swiper-button-wrapper">
+                    <button class="button feed-button-next" type="button">
+                        <span class="chevron-icon chevron-right"></span>
+                    </button>
+                </div>
+            </div>
+        </section>
+        <hr class="section-divider" />
+
+        <!-- 인테리어 컬렉션 -->
+        <section id="interior-collections" class="home-feed">
+            <div class="feed-header">
+                <div class="feed-text">
+                    <a class="feed-title" href="#">오늘의 추천 집들이 구경해보세요🧐</a>
+                </div>
+                <a class="feed-more-link" href="#">
+                    <span class="arrow-right-icon"></span>
+                    <span class="feed-more">더보기</span>
+                </a>
+            </div>
+            <div class="feed-content">
+                <div class="interior-collections__container">
+                    <div class="interior-collections__item feed-post">
+                        <div class="ic-image-wrapper">
+                            <img class="feed-post-image"
+                                src="/src/assets/images/community/home/interior-collections/ic-post-01.avif"
+                                alt="오늘의 추천 집들이1" />
+                            <div class="bookmark-wrapper">
+                                <button class="bookmark-button" type="button">
+                                    <span>
+                                        <img class="bookmark-icon" src="/src/assets/icons/bookmark-empty.svg"
+                                            alt="빈 북마크 아이콘" />
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="ic-text-wrapper">
+                            <p class="ic-text">24평 신축 아파트, 어두운 자재도 더 밝아 보이게!</p>
+                        </div>
+                        <a class="feed-link" href="#"></a>
+                    </div>
+
+                    <div class="interior-collections__item feed-post">
+                        <div class="ic-image-wrapper">
+                            <img class="feed-post-image"
+                                src="/src/assets/images/community/home/interior-collections/ic-post-02.avif"
+                                alt="오늘의 추천 집들이2" />
+                            <div class="bookmark-wrapper">
+                                <button class="bookmark-button" type="button">
+                                    <span>
+                                        <img class="bookmark-icon" src="/src/assets/icons/bookmark-empty.svg"
+                                            alt="빈 북마크 아이콘" />
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="ic-text-wrapper">
+                            <p class="ic-text">딱 3가지만 시공했어요! 톤온톤으로 은은하게 꾸민 집</p>
+                        </div>
+                        <a class="feed-link" href="#"></a>
+                    </div>
+
+                    <div class="interior-collections__item feed-post">
+                        <div class="ic-image-wrapper">
+                            <img class="feed-post-image"
+                                src="/src/assets/images/community/home/interior-collections/ic-post-03.avif"
+                                alt="오늘의 추천 집들이3" />
+                            <div class="bookmark-wrapper">
+                                <button class="bookmark-button" type="button">
+                                    <span>
+                                        <img class="bookmark-icon" src="/src/assets/icons/bookmark-empty.svg"
+                                            alt="빈 북마크 아이콘" />
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="ic-text-wrapper">
+                            <p class="ic-text">취향과 육아가 공존하는 15평, 나의 작은 파리</p>
+                        </div>
+                        <a class="feed-link" href="#"></a>
+                    </div>
+
+                    <div class="interior-collections__item feed-post">
+                        <div class="ic-image-wrapper">
+                            <img class="feed-post-image"
+                                src="/src/assets/images/community/home/interior-collections/ic-post-04.avif"
+                                alt="오늘의 추천 집들이4" />
+                            <div class="bookmark-wrapper">
+                                <button class="bookmark-button" type="button">
+                                    <span>
+                                        <img class="bookmark-icon" src="/src/assets/icons/bookmark-empty.svg"
+                                            alt="빈 북마크 아이콘" />
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="ic-text-wrapper">
+                            <p class="ic-text">여러 집에 살아 본 경험을 담아 완성한 클래식 하우스</p>
+                        </div>
+                        <a class="feed-link" href="#"></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <hr class="section-divider" />
+    </main>
+</body>
+
 </html>
