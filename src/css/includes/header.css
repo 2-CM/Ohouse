@@ -1787,13 +1787,23 @@ header {
 }
 
 @media (max-width: 1023px) {
-
   #header__search__bar {
     display: none;
   }
 }
 
 @media (min-width: 1024px) {
+  #header__logo {
+    margin-right: 35px;
+  }
+
+  #header__top {
+    padding: 0 60px;
+  }
+
+  #subnav__wrapper {
+    padding: 0 60px;
+  }
 
   .header__write-text {
     margin-right: 6px;
