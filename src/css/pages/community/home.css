@@ -652,6 +652,15 @@ body {
     .feed-content .feed-post {
         margin-right: 20px;
     }
+
+    /* 인테리어 컬렉션 */
+    #interior-collections .interior-collections__container {
+        gap: 20px;
+    }
+
+    #interior-collections .ic-image-wrapper {
+        aspect-ratio: 3 / 2;
+    }
 }
 
 /* 1256px 이상의 화면에서 적용되는 스타일 */
