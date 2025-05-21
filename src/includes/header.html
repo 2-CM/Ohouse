@@ -99,7 +99,17 @@
 
           <div id="header__actions">
             <div id="header__actions-wrapper">
-              <div id="header__search">
+              <div id="header__search__bar">
+                <div id="search__combobox" role="combobox" aria-expanded="false" aria-haspopup="listbox">
+                  <div id="search__input-container">
+                    <span class="_search_24 search__icon"></span>
+                    <input id="search__input" type="text" placeholder="통합검색" autocomplete="off" aria-autocomplete="list"
+                      value="">
+                    <div class="search__input-indicator"></div>
+                  </div>
+                </div>
+              </div>
+              <div id="header__search__btn">
                 <button id="header__search-btn">
                   <span class="_search_24 header__search-btn-icon"></span>
                 </button>
