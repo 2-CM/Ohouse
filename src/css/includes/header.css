@@ -1777,3 +1777,9 @@ header {
     display: inline-block;
   }
 }
+
+@media (max-width: 1255px) {
+  .header__menu-link:nth-child(3) {
+    display: none;
+  }
+}
