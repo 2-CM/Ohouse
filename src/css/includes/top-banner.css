@@ -85,3 +85,9 @@
         display: block;
     }
 }
+
+@media (min-width: 1024px) {
+    #top-banner__wrapper {
+        padding: 0 60px;
+    }
+}
